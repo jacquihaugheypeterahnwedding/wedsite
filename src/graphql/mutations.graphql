@@ -1,5 +1,161 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateEvent(
+  $input: CreateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  createEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateEvent(
+  $input: UpdateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  updateEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteEvent(
+  $input: DeleteEventInput!
+  $condition: ModelEventConditionInput
+) {
+  deleteEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateHotel(
+  $input: CreateHotelInput!
+  $condition: ModelHotelConditionInput
+) {
+  createHotel(input: $input, condition: $condition) {
+    id
+    name
+    address
+    phone
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateHotel(
+  $input: UpdateHotelInput!
+  $condition: ModelHotelConditionInput
+) {
+  updateHotel(input: $input, condition: $condition) {
+    id
+    name
+    address
+    phone
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteHotel(
+  $input: DeleteHotelInput!
+  $condition: ModelHotelConditionInput
+) {
+  deleteHotel(input: $input, condition: $condition) {
+    id
+    name
+    address
+    phone
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateUserSettings(
+  $input: CreateUserSettingsInput!
+  $condition: ModelUserSettingsConditionInput
+) {
+  createUserSettings(input: $input, condition: $condition) {
+    id
+    user
+    language
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateUserSettings(
+  $input: UpdateUserSettingsInput!
+  $condition: ModelUserSettingsConditionInput
+) {
+  updateUserSettings(input: $input, condition: $condition) {
+    id
+    user
+    language
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteUserSettings(
+  $input: DeleteUserSettingsInput!
+  $condition: ModelUserSettingsConditionInput
+) {
+  deleteUserSettings(input: $input, condition: $condition) {
+    id
+    user
+    language
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateRestaurant(
   $input: CreateRestaurantInput!
   $condition: ModelRestaurantConditionInput

@@ -1,5 +1,6 @@
 {
   "AppSyncApiName": "wedsite",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-10-18T22:42:16.299Z"
 }

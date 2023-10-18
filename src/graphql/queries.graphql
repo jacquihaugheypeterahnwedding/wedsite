@@ -1,5 +1,115 @@
 # this is an auto generated file. This will be overwritten
 
+query GetEvent($id: ID!) {
+  getEvent(id: $id) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListEvents(
+  $filter: ModelEventFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+      date
+      start
+      stop
+      image
+      address
+      address_name
+      groups
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetHotel($id: ID!) {
+  getHotel(id: $id) {
+    id
+    name
+    address
+    phone
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListHotels(
+  $filter: ModelHotelFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listHotels(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      address
+      phone
+      description
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetUserSettings($id: ID!) {
+  getUserSettings(id: $id) {
+    id
+    user
+    language
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListUserSettings(
+  $filter: ModelUserSettingsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserSettings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      user
+      language
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
 query GetRestaurant($id: ID!) {
   getRestaurant(id: $id) {
     id
