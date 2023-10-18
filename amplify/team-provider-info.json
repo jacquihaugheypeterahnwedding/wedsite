@@ -10,6 +10,11 @@
       "StackName": "amplify-wedsite-dev-173737",
       "StackId": "arn:aws:cloudformation:us-east-1:281186247027:stack/amplify-wedsite-dev-173737/8edef040-6dfe-11ee-b2c1-122c6a8b50c3",
       "AmplifyAppId": "d3w3c3kchvhid5"
+    },
+    "categories": {
+      "api": {
+        "wedsite": {}
+      }
     }
   }
 }
