@@ -1,0 +1,84 @@
+#background-img {  
+    background-image: url("../assets/lightwood.jpeg");  
+    min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 50%;
+  z-index: -100;
+} 
+
+
+#background-blue-flowers {  
+  background-image: url("../assets/blue_flowers.png");  
+
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  max-width: 100%;
+  width: 75%;
+  height: 50%;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  /*
+  height: 1000px;
+  width: 5000px;
+*/
+
+
+  opacity: 70%;
+  z-index: -50;
+} 
+
+
+
+
+
+
+
+
+#flowers {  
+  background-image: url("../assets/flower-garden-png-file-png-all.png");  
+
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  max-width: 100%;
+  width: 100%;
+  height: 40%;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  /*
+  height: 1000px;
+  width: 5000px;
+*/
+
+
+  opacity: 80%;
+  z-index: -50;
+} 
+
+  
+
+
+
+
+  .test {
+    font-weight: bolder;
+    color: black;
+  }

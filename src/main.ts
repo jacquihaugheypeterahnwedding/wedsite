@@ -1,3 +1,5 @@
+/// <reference types="@angular/localize" />
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
@@ -9,3 +11,22 @@ Amplify.configure(aws_exports);
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+
+  import { I18n } from 'aws-amplify';
+
+//I18n.setLanguage('ko');
+const translation_dict = {
+  ko: {
+    'Sign In': 'Se connecter',
+    'Sign Up': "S'inscrire",
+    'Test String!': '안녕하세요. 어떻게 지내세요'
+  },
+  es: {
+    'Sign In': 'Registrarse',
+    'Sign Up': 'Regístrate',
+    'Test String!': 'Span Test String!'
+  }
+};
+
+I18n.putVocabularies(translation_dict);
