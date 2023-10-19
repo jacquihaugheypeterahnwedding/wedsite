@@ -8,7 +8,7 @@ import { ZenObservable } from 'zen-observable-ts';
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
-  styleUrls: ['./restaurants.component.scss']
+  styleUrls: ['./restaurants.component.css']
 })
 export class RestaurantsComponent implements OnInit, OnDestroy {
   public createForm: FormGroup;
@@ -22,7 +22,7 @@ export class RestaurantsComponent implements OnInit, OnDestroy {
     this.createForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      address: ['', Validators.required]
+      city: ['', Validators.required]
     });
   }
 

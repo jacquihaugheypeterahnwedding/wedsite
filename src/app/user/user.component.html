@@ -1,0 +1,28 @@
+<p>user works!</p>
+<h1>Test String!</h1>
+
+<h1>{{text}}</h1>
+
+<h1>{{I18n.get('Test String!')}}</h1>
+
+
+<h1>{{I18n.get('Test Stasdring!')}}</h1>
+
+
+<label id="example-radio-group-label">Language Preferance:</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="language"
+  (change)="changeLanguage($event)">
+  <mat-radio-button class="example-radio-button" value="ko-KR">
+    한국인
+  </mat-radio-button>
+
+  <mat-radio-button class="example-radio-button" value="en-US">
+    English
+  </mat-radio-button>
+</mat-radio-group>
+
+
+      <button (click)="switchLanguage()">Switch language</button>

@@ -10,12 +10,12 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
-  onCreateEvent: OnCreateEventSubscription;
-  onUpdateEvent: OnUpdateEventSubscription;
-  onDeleteEvent: OnDeleteEventSubscription;
   onCreateHotel: OnCreateHotelSubscription;
   onUpdateHotel: OnUpdateHotelSubscription;
   onDeleteHotel: OnDeleteHotelSubscription;
+  onCreateEvent: OnCreateEventSubscription;
+  onUpdateEvent: OnUpdateEventSubscription;
+  onDeleteEvent: OnDeleteEventSubscription;
   onCreateUserSettings: OnCreateUserSettingsSubscription;
   onUpdateUserSettings: OnUpdateUserSettingsSubscription;
   onDeleteUserSettings: OnDeleteUserSettingsSubscription;
@@ -24,32 +24,24 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateEventInput = {
+export type CreateHotelInput = {
   id?: string | null;
   name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
   address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
+  phone?: string | null;
+  description?: string | null;
+  image?: string | null;
 };
 
-export type ModelEventConditionInput = {
+export type ModelHotelConditionInput = {
   name?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  date?: ModelStringInput | null;
-  start?: ModelStringInput | null;
-  stop?: ModelStringInput | null;
-  image?: ModelStringInput | null;
   address?: ModelStringInput | null;
-  address_name?: ModelStringInput | null;
-  groups?: ModelStringInput | null;
-  and?: Array<ModelEventConditionInput | null> | null;
-  or?: Array<ModelEventConditionInput | null> | null;
-  not?: ModelEventConditionInput | null;
+  phone?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelHotelConditionInput | null> | null;
+  or?: Array<ModelHotelConditionInput | null> | null;
+  not?: ModelHotelConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -91,59 +83,6 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
-export type Event = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type UpdateEventInput = {
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-};
-
-export type DeleteEventInput = {
-  id: string;
-};
-
-export type CreateHotelInput = {
-  id?: string | null;
-  name?: string | null;
-  address?: string | null;
-  phone?: string | null;
-  description?: string | null;
-  image?: string | null;
-};
-
-export type ModelHotelConditionInput = {
-  name?: ModelStringInput | null;
-  address?: ModelStringInput | null;
-  phone?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  and?: Array<ModelHotelConditionInput | null> | null;
-  or?: Array<ModelHotelConditionInput | null> | null;
-  not?: ModelHotelConditionInput | null;
-};
-
 export type Hotel = {
   __typename: "Hotel";
   id: string;
@@ -169,9 +108,70 @@ export type DeleteHotelInput = {
   id: string;
 };
 
+export type CreateEventInput = {
+  id?: string | null;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+};
+
+export type ModelEventConditionInput = {
+  name?: ModelStringInput | null;
+  date?: ModelStringInput | null;
+  start?: ModelStringInput | null;
+  stop?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  address?: ModelStringInput | null;
+  address_name?: ModelStringInput | null;
+  groups?: ModelStringInput | null;
+  and?: Array<ModelEventConditionInput | null> | null;
+  or?: Array<ModelEventConditionInput | null> | null;
+  not?: ModelEventConditionInput | null;
+};
+
+export type Event = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateEventInput = {
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+};
+
+export type DeleteEventInput = {
+  id: string;
+};
+
 export type CreateUserSettingsInput = {
   id?: string | null;
-  user?: string | null;
+  user: string;
   language?: string | null;
 };
 
@@ -186,7 +186,7 @@ export type ModelUserSettingsConditionInput = {
 export type UserSettings = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -206,13 +206,13 @@ export type CreateRestaurantInput = {
   id?: string | null;
   name: string;
   description: string;
-  address: string;
+  city: string;
 };
 
 export type ModelRestaurantConditionInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
-  address?: ModelStringInput | null;
+  city?: ModelStringInput | null;
   and?: Array<ModelRestaurantConditionInput | null> | null;
   or?: Array<ModelRestaurantConditionInput | null> | null;
   not?: ModelRestaurantConditionInput | null;
@@ -223,7 +223,7 @@ export type Restaurant = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -232,27 +232,23 @@ export type UpdateRestaurantInput = {
   id: string;
   name?: string | null;
   description?: string | null;
-  address?: string | null;
+  city?: string | null;
 };
 
 export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelEventFilterInput = {
+export type ModelHotelFilterInput = {
   id?: ModelIDInput | null;
   name?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  date?: ModelStringInput | null;
-  start?: ModelStringInput | null;
-  stop?: ModelStringInput | null;
-  image?: ModelStringInput | null;
   address?: ModelStringInput | null;
-  address_name?: ModelStringInput | null;
-  groups?: ModelStringInput | null;
-  and?: Array<ModelEventFilterInput | null> | null;
-  or?: Array<ModelEventFilterInput | null> | null;
-  not?: ModelEventFilterInput | null;
+  phone?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelHotelFilterInput | null> | null;
+  or?: Array<ModelHotelFilterInput | null> | null;
+  not?: ModelHotelFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -271,27 +267,31 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null;
 };
 
-export type ModelEventConnection = {
-  __typename: "ModelEventConnection";
-  items: Array<Event | null>;
-  nextToken?: string | null;
-};
-
-export type ModelHotelFilterInput = {
-  id?: ModelIDInput | null;
-  name?: ModelStringInput | null;
-  address?: ModelStringInput | null;
-  phone?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  and?: Array<ModelHotelFilterInput | null> | null;
-  or?: Array<ModelHotelFilterInput | null> | null;
-  not?: ModelHotelFilterInput | null;
-};
-
 export type ModelHotelConnection = {
   __typename: "ModelHotelConnection";
   items: Array<Hotel | null>;
+  nextToken?: string | null;
+};
+
+export type ModelEventFilterInput = {
+  id?: ModelIDInput | null;
+  name?: ModelStringInput | null;
+  date?: ModelStringInput | null;
+  start?: ModelStringInput | null;
+  stop?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  address?: ModelStringInput | null;
+  address_name?: ModelStringInput | null;
+  groups?: ModelStringInput | null;
+  and?: Array<ModelEventFilterInput | null> | null;
+  or?: Array<ModelEventFilterInput | null> | null;
+  not?: ModelEventFilterInput | null;
+};
+
+export type ModelEventConnection = {
+  __typename: "ModelEventConnection";
+  items: Array<Event | null>;
   nextToken?: string | null;
 };
 
@@ -314,7 +314,7 @@ export type ModelRestaurantFilterInput = {
   id?: ModelIDInput | null;
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
-  address?: ModelStringInput | null;
+  city?: ModelStringInput | null;
   and?: Array<ModelRestaurantFilterInput | null> | null;
   or?: Array<ModelRestaurantFilterInput | null> | null;
   not?: ModelRestaurantFilterInput | null;
@@ -326,19 +326,15 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionEventFilterInput = {
+export type ModelSubscriptionHotelFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   name?: ModelSubscriptionStringInput | null;
-  description?: ModelSubscriptionStringInput | null;
-  date?: ModelSubscriptionStringInput | null;
-  start?: ModelSubscriptionStringInput | null;
-  stop?: ModelSubscriptionStringInput | null;
-  image?: ModelSubscriptionStringInput | null;
   address?: ModelSubscriptionStringInput | null;
-  address_name?: ModelSubscriptionStringInput | null;
-  groups?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionEventFilterInput | null> | null;
-  or?: Array<ModelSubscriptionEventFilterInput | null> | null;
+  phone?: ModelSubscriptionStringInput | null;
+  description?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionHotelFilterInput | null> | null;
+  or?: Array<ModelSubscriptionHotelFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -371,15 +367,19 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array<string | null> | null;
 };
 
-export type ModelSubscriptionHotelFilterInput = {
+export type ModelSubscriptionEventFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   name?: ModelSubscriptionStringInput | null;
-  address?: ModelSubscriptionStringInput | null;
-  phone?: ModelSubscriptionStringInput | null;
-  description?: ModelSubscriptionStringInput | null;
+  date?: ModelSubscriptionStringInput | null;
+  start?: ModelSubscriptionStringInput | null;
+  stop?: ModelSubscriptionStringInput | null;
   image?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionHotelFilterInput | null> | null;
-  or?: Array<ModelSubscriptionHotelFilterInput | null> | null;
+  description?: ModelSubscriptionStringInput | null;
+  address?: ModelSubscriptionStringInput | null;
+  address_name?: ModelSubscriptionStringInput | null;
+  groups?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionEventFilterInput | null> | null;
+  or?: Array<ModelSubscriptionEventFilterInput | null> | null;
 };
 
 export type ModelSubscriptionUserSettingsFilterInput = {
@@ -394,57 +394,9 @@ export type ModelSubscriptionRestaurantFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   name?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
-  address?: ModelSubscriptionStringInput | null;
+  city?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
-};
-
-export type CreateEventMutation = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type UpdateEventMutation = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type DeleteEventMutation = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type CreateHotelMutation = {
@@ -483,10 +435,58 @@ export type DeleteHotelMutation = {
   updatedAt: string;
 };
 
+export type CreateEventMutation = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateEventMutation = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteEventMutation = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type CreateUserSettingsMutation = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -495,7 +495,7 @@ export type CreateUserSettingsMutation = {
 export type UpdateUserSettingsMutation = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -504,7 +504,7 @@ export type UpdateUserSettingsMutation = {
 export type DeleteUserSettingsMutation = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -515,7 +515,7 @@ export type CreateRestaurantMutation = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -525,7 +525,7 @@ export type UpdateRestaurantMutation = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -535,45 +535,9 @@ export type DeleteRestaurantMutation = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
-};
-
-export type GetEventQuery = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type ListEventsQuery = {
-  __typename: "ModelEventConnection";
-  items: Array<{
-    __typename: "Event";
-    id: string;
-    name?: string | null;
-    description?: string | null;
-    date?: string | null;
-    start?: string | null;
-    stop?: string | null;
-    image?: string | null;
-    address?: string | null;
-    address_name?: string | null;
-    groups?: string | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null>;
-  nextToken?: string | null;
 };
 
 export type GetHotelQuery = {
@@ -604,10 +568,46 @@ export type ListHotelsQuery = {
   nextToken?: string | null;
 };
 
+export type GetEventQuery = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListEventsQuery = {
+  __typename: "ModelEventConnection";
+  items: Array<{
+    __typename: "Event";
+    id: string;
+    name?: string | null;
+    date?: string | null;
+    start?: string | null;
+    stop?: string | null;
+    image?: string | null;
+    description?: string | null;
+    address?: string | null;
+    address_name?: string | null;
+    groups?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetUserSettingsQuery = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -618,7 +618,7 @@ export type ListUserSettingsQuery = {
   items: Array<{
     __typename: "UserSettings";
     id: string;
-    user?: string | null;
+    user: string;
     language?: string | null;
     createdAt: string;
     updatedAt: string;
@@ -631,7 +631,7 @@ export type GetRestaurantQuery = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -643,59 +643,11 @@ export type ListRestaurantsQuery = {
     id: string;
     name: string;
     description: string;
-    address: string;
+    city: string;
     createdAt: string;
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
-};
-
-export type OnCreateEventSubscription = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type OnUpdateEventSubscription = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type OnDeleteEventSubscription = {
-  __typename: "Event";
-  id: string;
-  name?: string | null;
-  description?: string | null;
-  date?: string | null;
-  start?: string | null;
-  stop?: string | null;
-  image?: string | null;
-  address?: string | null;
-  address_name?: string | null;
-  groups?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type OnCreateHotelSubscription = {
@@ -734,10 +686,58 @@ export type OnDeleteHotelSubscription = {
   updatedAt: string;
 };
 
+export type OnCreateEventSubscription = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateEventSubscription = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteEventSubscription = {
+  __typename: "Event";
+  id: string;
+  name?: string | null;
+  date?: string | null;
+  start?: string | null;
+  stop?: string | null;
+  image?: string | null;
+  description?: string | null;
+  address?: string | null;
+  address_name?: string | null;
+  groups?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type OnCreateUserSettingsSubscription = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -746,7 +746,7 @@ export type OnCreateUserSettingsSubscription = {
 export type OnUpdateUserSettingsSubscription = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -755,7 +755,7 @@ export type OnUpdateUserSettingsSubscription = {
 export type OnDeleteUserSettingsSubscription = {
   __typename: "UserSettings";
   id: string;
-  user?: string | null;
+  user: string;
   language?: string | null;
   createdAt: string;
   updatedAt: string;
@@ -766,7 +766,7 @@ export type OnCreateRestaurantSubscription = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -776,7 +776,7 @@ export type OnUpdateRestaurantSubscription = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -786,7 +786,7 @@ export type OnDeleteRestaurantSubscription = {
   id: string;
   name: string;
   description: string;
-  address: string;
+  city: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -795,102 +795,6 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
-  async CreateEvent(
-    input: CreateEventInput,
-    condition?: ModelEventConditionInput
-  ): Promise<CreateEventMutation> {
-    const statement = `mutation CreateEvent($input: CreateEventInput!, $condition: ModelEventConditionInput) {
-        createEvent(input: $input, condition: $condition) {
-          __typename
-          id
-          name
-          description
-          date
-          start
-          stop
-          image
-          address
-          address_name
-          groups
-          createdAt
-          updatedAt
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    if (condition) {
-      gqlAPIServiceArguments.condition = condition;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <CreateEventMutation>response.data.createEvent;
-  }
-  async UpdateEvent(
-    input: UpdateEventInput,
-    condition?: ModelEventConditionInput
-  ): Promise<UpdateEventMutation> {
-    const statement = `mutation UpdateEvent($input: UpdateEventInput!, $condition: ModelEventConditionInput) {
-        updateEvent(input: $input, condition: $condition) {
-          __typename
-          id
-          name
-          description
-          date
-          start
-          stop
-          image
-          address
-          address_name
-          groups
-          createdAt
-          updatedAt
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    if (condition) {
-      gqlAPIServiceArguments.condition = condition;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <UpdateEventMutation>response.data.updateEvent;
-  }
-  async DeleteEvent(
-    input: DeleteEventInput,
-    condition?: ModelEventConditionInput
-  ): Promise<DeleteEventMutation> {
-    const statement = `mutation DeleteEvent($input: DeleteEventInput!, $condition: ModelEventConditionInput) {
-        deleteEvent(input: $input, condition: $condition) {
-          __typename
-          id
-          name
-          description
-          date
-          start
-          stop
-          image
-          address
-          address_name
-          groups
-          createdAt
-          updatedAt
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      input
-    };
-    if (condition) {
-      gqlAPIServiceArguments.condition = condition;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <DeleteEventMutation>response.data.deleteEvent;
-  }
   async CreateHotel(
     input: CreateHotelInput,
     condition?: ModelHotelConditionInput
@@ -974,6 +878,102 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <DeleteHotelMutation>response.data.deleteHotel;
+  }
+  async CreateEvent(
+    input: CreateEventInput,
+    condition?: ModelEventConditionInput
+  ): Promise<CreateEventMutation> {
+    const statement = `mutation CreateEvent($input: CreateEventInput!, $condition: ModelEventConditionInput) {
+        createEvent(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          date
+          start
+          stop
+          image
+          description
+          address
+          address_name
+          groups
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateEventMutation>response.data.createEvent;
+  }
+  async UpdateEvent(
+    input: UpdateEventInput,
+    condition?: ModelEventConditionInput
+  ): Promise<UpdateEventMutation> {
+    const statement = `mutation UpdateEvent($input: UpdateEventInput!, $condition: ModelEventConditionInput) {
+        updateEvent(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          date
+          start
+          stop
+          image
+          description
+          address
+          address_name
+          groups
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateEventMutation>response.data.updateEvent;
+  }
+  async DeleteEvent(
+    input: DeleteEventInput,
+    condition?: ModelEventConditionInput
+  ): Promise<DeleteEventMutation> {
+    const statement = `mutation DeleteEvent($input: DeleteEventInput!, $condition: ModelEventConditionInput) {
+        deleteEvent(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          date
+          start
+          stop
+          image
+          description
+          address
+          address_name
+          groups
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteEventMutation>response.data.deleteEvent;
   }
   async CreateUserSettings(
     input: CreateUserSettingsInput,
@@ -1060,7 +1060,7 @@ export class APIService {
           id
           name
           description
-          address
+          city
           createdAt
           updatedAt
         }
@@ -1086,7 +1086,7 @@ export class APIService {
           id
           name
           description
-          address
+          city
           createdAt
           updatedAt
         }
@@ -1112,7 +1112,7 @@ export class APIService {
           id
           name
           description
-          address
+          city
           createdAt
           updatedAt
         }
@@ -1127,73 +1127,6 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
-  }
-  async GetEvent(id: string): Promise<GetEventQuery> {
-    const statement = `query GetEvent($id: ID!) {
-        getEvent(id: $id) {
-          __typename
-          id
-          name
-          description
-          date
-          start
-          stop
-          image
-          address
-          address_name
-          groups
-          createdAt
-          updatedAt
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {
-      id
-    };
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <GetEventQuery>response.data.getEvent;
-  }
-  async ListEvents(
-    filter?: ModelEventFilterInput,
-    limit?: number,
-    nextToken?: string
-  ): Promise<ListEventsQuery> {
-    const statement = `query ListEvents($filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {
-        listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
-          __typename
-          items {
-            __typename
-            id
-            name
-            description
-            date
-            start
-            stop
-            image
-            address
-            address_name
-            groups
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    if (limit) {
-      gqlAPIServiceArguments.limit = limit;
-    }
-    if (nextToken) {
-      gqlAPIServiceArguments.nextToken = nextToken;
-    }
-    const response = (await API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    )) as any;
-    return <ListEventsQuery>response.data.listEvents;
   }
   async GetHotel(id: string): Promise<GetHotelQuery> {
     const statement = `query GetHotel($id: ID!) {
@@ -1253,6 +1186,73 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <ListHotelsQuery>response.data.listHotels;
+  }
+  async GetEvent(id: string): Promise<GetEventQuery> {
+    const statement = `query GetEvent($id: ID!) {
+        getEvent(id: $id) {
+          __typename
+          id
+          name
+          date
+          start
+          stop
+          image
+          description
+          address
+          address_name
+          groups
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetEventQuery>response.data.getEvent;
+  }
+  async ListEvents(
+    filter?: ModelEventFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListEventsQuery> {
+    const statement = `query ListEvents($filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {
+        listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            date
+            start
+            stop
+            image
+            description
+            address
+            address_name
+            groups
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListEventsQuery>response.data.listEvents;
   }
   async GetUserSettings(id: string): Promise<GetUserSettingsQuery> {
     const statement = `query GetUserSettings($id: ID!) {
@@ -1314,7 +1314,7 @@ export class APIService {
           id
           name
           description
-          address
+          city
           createdAt
           updatedAt
         }
@@ -1340,7 +1340,7 @@ export class APIService {
             id
             name
             description
-            address
+            city
             createdAt
             updatedAt
           }
@@ -1362,105 +1362,6 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
-  OnCreateEventListener(
-    filter?: ModelSubscriptionEventFilterInput
-  ): Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateEvent">>
-  > {
-    const statement = `subscription OnCreateEvent($filter: ModelSubscriptionEventFilterInput) {
-        onCreateEvent(filter: $filter) {
-          __typename
-          id
-          name
-          description
-          date
-          start
-          stop
-          image
-          address
-          address_name
-          groups
-          createdAt
-          updatedAt
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    return API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    ) as Observable<
-      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateEvent">>
-    >;
-  }
-
-  OnUpdateEventListener(
-    filter?: ModelSubscriptionEventFilterInput
-  ): Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateEvent">>
-  > {
-    const statement = `subscription OnUpdateEvent($filter: ModelSubscriptionEventFilterInput) {
-        onUpdateEvent(filter: $filter) {
-          __typename
-          id
-          name
-          description
-          date
-          start
-          stop
-          image
-          address
-          address_name
-          groups
-          createdAt
-          updatedAt
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    return API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    ) as Observable<
-      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateEvent">>
-    >;
-  }
-
-  OnDeleteEventListener(
-    filter?: ModelSubscriptionEventFilterInput
-  ): Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteEvent">>
-  > {
-    const statement = `subscription OnDeleteEvent($filter: ModelSubscriptionEventFilterInput) {
-        onDeleteEvent(filter: $filter) {
-          __typename
-          id
-          name
-          description
-          date
-          start
-          stop
-          image
-          address
-          address_name
-          groups
-          createdAt
-          updatedAt
-        }
-      }`;
-    const gqlAPIServiceArguments: any = {};
-    if (filter) {
-      gqlAPIServiceArguments.filter = filter;
-    }
-    return API.graphql(
-      graphqlOperation(statement, gqlAPIServiceArguments)
-    ) as Observable<
-      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteEvent">>
-    >;
-  }
-
   OnCreateHotelListener(
     filter?: ModelSubscriptionHotelFilterInput
   ): Observable<
@@ -1545,6 +1446,105 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     ) as Observable<
       SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteHotel">>
+    >;
+  }
+
+  OnCreateEventListener(
+    filter?: ModelSubscriptionEventFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateEvent">>
+  > {
+    const statement = `subscription OnCreateEvent($filter: ModelSubscriptionEventFilterInput) {
+        onCreateEvent(filter: $filter) {
+          __typename
+          id
+          name
+          date
+          start
+          stop
+          image
+          description
+          address
+          address_name
+          groups
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateEvent">>
+    >;
+  }
+
+  OnUpdateEventListener(
+    filter?: ModelSubscriptionEventFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateEvent">>
+  > {
+    const statement = `subscription OnUpdateEvent($filter: ModelSubscriptionEventFilterInput) {
+        onUpdateEvent(filter: $filter) {
+          __typename
+          id
+          name
+          date
+          start
+          stop
+          image
+          description
+          address
+          address_name
+          groups
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateEvent">>
+    >;
+  }
+
+  OnDeleteEventListener(
+    filter?: ModelSubscriptionEventFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteEvent">>
+  > {
+    const statement = `subscription OnDeleteEvent($filter: ModelSubscriptionEventFilterInput) {
+        onDeleteEvent(filter: $filter) {
+          __typename
+          id
+          name
+          date
+          start
+          stop
+          image
+          description
+          address
+          address_name
+          groups
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteEvent">>
     >;
   }
 
@@ -1643,7 +1643,7 @@ export class APIService {
           id
           name
           description
-          address
+          city
           createdAt
           updatedAt
         }
@@ -1670,7 +1670,7 @@ export class APIService {
           id
           name
           description
-          address
+          city
           createdAt
           updatedAt
         }
@@ -1697,7 +1697,7 @@ export class APIService {
           id
           name
           description
-          address
+          city
           createdAt
           updatedAt
         }
