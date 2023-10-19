@@ -1,5 +1,110 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    display_name
+    username
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    display_name
+    username
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    display_name
+    username
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateEvent(
+  $input: CreateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  createEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateEvent(
+  $input: UpdateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  updateEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteEvent(
+  $input: DeleteEventInput!
+  $condition: ModelEventConditionInput
+) {
+  deleteEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateHotel(
   $input: CreateHotelInput!
   $condition: ModelHotelConditionInput
@@ -51,69 +156,6 @@ mutation DeleteHotel(
   }
 }
 
-mutation CreateEvent(
-  $input: CreateEventInput!
-  $condition: ModelEventConditionInput
-) {
-  createEvent(input: $input, condition: $condition) {
-    id
-    name
-    date
-    start
-    stop
-    image
-    description
-    address
-    address_name
-    groups
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-
-mutation UpdateEvent(
-  $input: UpdateEventInput!
-  $condition: ModelEventConditionInput
-) {
-  updateEvent(input: $input, condition: $condition) {
-    id
-    name
-    date
-    start
-    stop
-    image
-    description
-    address
-    address_name
-    groups
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-
-mutation DeleteEvent(
-  $input: DeleteEventInput!
-  $condition: ModelEventConditionInput
-) {
-  deleteEvent(input: $input, condition: $condition) {
-    id
-    name
-    date
-    start
-    stop
-    image
-    description
-    address
-    address_name
-    groups
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-
 mutation CreateUserSettings(
   $input: CreateUserSettingsInput!
   $condition: ModelUserSettingsConditionInput
@@ -122,6 +164,8 @@ mutation CreateUserSettings(
     id
     user
     language
+    notifications
+    email
     createdAt
     updatedAt
     __typename
@@ -136,6 +180,8 @@ mutation UpdateUserSettings(
     id
     user
     language
+    notifications
+    email
     createdAt
     updatedAt
     __typename
@@ -150,6 +196,8 @@ mutation DeleteUserSettings(
     id
     user
     language
+    notifications
+    email
     createdAt
     updatedAt
     __typename
@@ -164,7 +212,7 @@ mutation CreateRestaurant(
     id
     name
     description
-    city
+    address
     createdAt
     updatedAt
     __typename
@@ -179,7 +227,7 @@ mutation UpdateRestaurant(
     id
     name
     description
-    city
+    address
     createdAt
     updatedAt
     __typename
@@ -194,7 +242,7 @@ mutation DeleteRestaurant(
     id
     name
     description
-    city
+    address
     createdAt
     updatedAt
     __typename

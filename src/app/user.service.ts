@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Auth } from 'aws-amplify';
-import { APIService, ListUserSettingsQuery, UserSettings } from './API.service';
+import { APIService, ListUserSettingsQuery, UserSettings, User, ListUsersQuery } from './API.service';
 import { CognitoService } from './cognito.service';
 import { I18n } from 'aws-amplify';
 
@@ -11,6 +11,7 @@ import { I18n } from 'aws-amplify';
 export class UserService {
 
   userSettings: Partial<UserSettings> = {};
+  userInfo: Partial<User> = {};
   username: string = '';
 
   language: string = 'en-US';
@@ -44,6 +45,12 @@ export class UserService {
     } else {
         this.api.CreateUserSettings({'user': this.username, 'language': 'en-US'});
     }
+
+    const info: ListUsersQuery = await this.api.ListUsers({username: {eq: this.username}});
+
+    if (info.items.length > 0) {
+      this.userInfo = info.items[0] as User;
+    } 
 
 
     

@@ -16,19 +16,12 @@ export class UserComponent {
 
   text = null;
 
-  language: string;
 
 
-  constructor (private api: APIService, private userService: UserService) {
-    this.language = this.userService.language;
+  constructor (private api: APIService, public userService: UserService) {
   }
 
 
-
-  ngAfterContentChecked(): void {
-    this.text = I18n.get('Test String!');
-    this.language = this.userService.language;
-  }
 
   changeLanguage(event: any): void {
     let lan = 'en-US';
