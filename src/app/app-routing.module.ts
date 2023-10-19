@@ -9,6 +9,7 @@ import { EventsComponent } from './events/events.component';
 import { LodgingComponent } from './lodging/lodging.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { UserComponent } from './user/user.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'lodging', component: LodgingComponent},
   { path: 'restaurants', component: RestaurantsComponent},
   { path: 'user', component: UserComponent},
+  { path: 'eventdetails', component: EventDetailsComponent},
 ];
 export const appRouting = RouterModule.forRoot(routes);
 @NgModule({

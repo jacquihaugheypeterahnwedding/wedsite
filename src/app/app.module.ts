@@ -39,9 +39,10 @@ registerLocaleData(localeKo);
 import {NgIf} from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatInputModule } from '@angular/material/input';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
-  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent],
+  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent],
   imports: [
     BrowserModule,
     NgbModule,

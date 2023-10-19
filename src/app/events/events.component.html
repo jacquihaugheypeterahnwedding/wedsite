@@ -1,14 +1,4 @@
-<p>events works!</p>
 
-<!--
-<div *ngFor="let event of events">
-    <img src="https://assets.wfcdn.com/im/21912946/resize-h445%5Ecompr-r85/1599/159990687/Garden+Arch+Wedding+Decoration.jpg" alt="alternatetext">
-
-
-    <div>{{ event?.name }}</div>
-    <div>{{ event?.description }}</div>
-</div>
--->
 
 
 <div *ngFor="let event of events">
@@ -17,8 +7,8 @@
         <mat-card-title-group>
             <img mat-card-md-image src="{{event.image}}" >
             <mat-card-title>{{event.name}}</mat-card-title>
-            <mat-card-subtitle>{{event.date}}</mat-card-subtitle>
-            <mat-card-subtitle>{{event.start}} - {{event.stop}}</mat-card-subtitle>
+            <mat-card-subtitle>{{event?.date}}</mat-card-subtitle>
+            <mat-card-subtitle>{{event?.start}} - {{event?.stop}}</mat-card-subtitle>
             <mat-card-subtitle>{{event.address_name}} </mat-card-subtitle>
             <mat-card-subtitle> <a href="http://maps.google.com/?q={{event.address}}">{{event.address}} </a></mat-card-subtitle>
             
