@@ -16,6 +16,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -31,7 +36,9 @@ import { UserService } from './user.service';
 import { UserComponent } from './user/user.component';
 registerLocaleData(localeKo);
 
+import {NgIf} from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent],
@@ -42,7 +49,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AmplifyAuthenticatorModule,
     /* configuring form modules */
     FormsModule,
+    MatFormFieldModule, MatExpansionModule, MatListModule,
+    NgIf,
     ReactiveFormsModule,
+    MatInputModule, MatSidenavModule, MatMenuModule,
     MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule,
     MatTabsModule, MatRadioModule,
     BrowserAnimationsModule
