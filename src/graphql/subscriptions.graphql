@@ -5,6 +5,7 @@ subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
     id
     display_name
     username
+    groups
     createdAt
     updatedAt
     __typename
@@ -16,6 +17,7 @@ subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
     id
     display_name
     username
+    groups
     createdAt
     updatedAt
     __typename
@@ -27,6 +29,7 @@ subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
     id
     display_name
     username
+    groups
     createdAt
     updatedAt
     __typename

@@ -31,11 +31,13 @@ export type CreateUserInput = {
   id?: string | null;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
 };
 
 export type ModelUserConditionInput = {
   display_name?: ModelStringInput | null;
   username?: ModelStringInput | null;
+  groups?: ModelStringInput | null;
   and?: Array<ModelUserConditionInput | null> | null;
   or?: Array<ModelUserConditionInput | null> | null;
   not?: ModelUserConditionInput | null;
@@ -85,6 +87,7 @@ export type User = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -93,6 +96,7 @@ export type UpdateUserInput = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
 };
 
 export type DeleteUserInput = {
@@ -294,6 +298,7 @@ export type ModelUserFilterInput = {
   id?: ModelIDInput | null;
   display_name?: ModelStringInput | null;
   username?: ModelStringInput | null;
+  groups?: ModelStringInput | null;
   and?: Array<ModelUserFilterInput | null> | null;
   or?: Array<ModelUserFilterInput | null> | null;
   not?: ModelUserFilterInput | null;
@@ -398,6 +403,7 @@ export type ModelSubscriptionUserFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   display_name?: ModelSubscriptionStringInput | null;
   username?: ModelSubscriptionStringInput | null;
+  groups?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionUserFilterInput | null> | null;
   or?: Array<ModelSubscriptionUserFilterInput | null> | null;
 };
@@ -487,6 +493,7 @@ export type CreateUserMutation = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -496,6 +503,7 @@ export type UpdateUserMutation = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -505,6 +513,7 @@ export type DeleteUserMutation = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -661,6 +670,7 @@ export type GetUserQuery = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -672,6 +682,7 @@ export type ListUsersQuery = {
     id: string;
     display_name?: string | null;
     username?: string | null;
+    groups?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -797,6 +808,7 @@ export type OnCreateUserSubscription = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -806,6 +818,7 @@ export type OnUpdateUserSubscription = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -815,6 +828,7 @@ export type OnDeleteUserSubscription = {
   id: string;
   display_name?: string | null;
   username?: string | null;
+  groups?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -980,6 +994,7 @@ export class APIService {
           id
           display_name
           username
+          groups
           createdAt
           updatedAt
         }
@@ -1005,6 +1020,7 @@ export class APIService {
           id
           display_name
           username
+          groups
           createdAt
           updatedAt
         }
@@ -1030,6 +1046,7 @@ export class APIService {
           id
           display_name
           username
+          groups
           createdAt
           updatedAt
         }
@@ -1391,6 +1408,7 @@ export class APIService {
           id
           display_name
           username
+          groups
           createdAt
           updatedAt
         }
@@ -1416,6 +1434,7 @@ export class APIService {
             id
             display_name
             username
+            groups
             createdAt
             updatedAt
           }
@@ -1686,6 +1705,7 @@ export class APIService {
           id
           display_name
           username
+          groups
           createdAt
           updatedAt
         }
@@ -1712,6 +1732,7 @@ export class APIService {
           id
           display_name
           username
+          groups
           createdAt
           updatedAt
         }
@@ -1738,6 +1759,7 @@ export class APIService {
           id
           display_name
           username
+          groups
           createdAt
           updatedAt
         }

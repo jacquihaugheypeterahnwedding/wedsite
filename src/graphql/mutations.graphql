@@ -8,6 +8,7 @@ mutation CreateUser(
     id
     display_name
     username
+    groups
     createdAt
     updatedAt
     __typename
@@ -22,6 +23,7 @@ mutation UpdateUser(
     id
     display_name
     username
+    groups
     createdAt
     updatedAt
     __typename
@@ -36,6 +38,7 @@ mutation DeleteUser(
     id
     display_name
     username
+    groups
     createdAt
     updatedAt
     __typename

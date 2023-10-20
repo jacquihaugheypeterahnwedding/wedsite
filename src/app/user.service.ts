@@ -4,6 +4,7 @@ import { Auth } from 'aws-amplify';
 import { APIService, ListUserSettingsQuery, UserSettings, User, ListUsersQuery } from './API.service';
 import { CognitoService } from './cognito.service';
 import { I18n } from 'aws-amplify';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,8 @@ export class UserService {
   username: string = '';
 
   language: string = 'en-US';
+
+  user_info_obs = new Subject();
 
 
   constructor(private api: APIService, private cognitoService: CognitoService) {
@@ -51,6 +54,7 @@ export class UserService {
     if (info.items.length > 0) {
       this.userInfo = info.items[0] as User;
     } 
+    this.user_info_obs.next(null);
 
 
     
