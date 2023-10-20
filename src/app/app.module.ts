@@ -41,9 +41,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatInputModule } from '@angular/material/input';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { AreasComponent } from './areas/areas.component';
+import { AirportsComponent } from './airports/airports.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
-  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent],
+  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent],
   imports: [
     BrowserModule,
     NgbModule,
