@@ -1,5 +1,86 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateCity(
+  $input: CreateCityInput!
+  $condition: ModelCityConditionInput
+) {
+  createCity(input: $input, condition: $condition) {
+    id
+    name
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateCity(
+  $input: UpdateCityInput!
+  $condition: ModelCityConditionInput
+) {
+  updateCity(input: $input, condition: $condition) {
+    id
+    name
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteCity(
+  $input: DeleteCityInput!
+  $condition: ModelCityConditionInput
+) {
+  deleteCity(input: $input, condition: $condition) {
+    id
+    name
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateAirport(
+  $input: CreateAirportInput!
+  $condition: ModelAirportConditionInput
+) {
+  createAirport(input: $input, condition: $condition) {
+    id
+    name
+    address
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateAirport(
+  $input: UpdateAirportInput!
+  $condition: ModelAirportConditionInput
+) {
+  updateAirport(input: $input, condition: $condition) {
+    id
+    name
+    address
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteAirport(
+  $input: DeleteAirportInput!
+  $condition: ModelAirportConditionInput
+) {
+  deleteAirport(input: $input, condition: $condition) {
+    id
+    name
+    address
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateUser(
   $input: CreateUserInput!
   $condition: ModelUserConditionInput

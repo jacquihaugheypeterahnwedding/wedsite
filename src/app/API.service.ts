@@ -10,6 +10,12 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateCity: OnCreateCitySubscription;
+  onUpdateCity: OnUpdateCitySubscription;
+  onDeleteCity: OnDeleteCitySubscription;
+  onCreateAirport: OnCreateAirportSubscription;
+  onUpdateAirport: OnUpdateAirportSubscription;
+  onDeleteAirport: OnDeleteAirportSubscription;
   onCreateUser: OnCreateUserSubscription;
   onUpdateUser: OnUpdateUserSubscription;
   onDeleteUser: OnDeleteUserSubscription;
@@ -27,20 +33,16 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateUserInput = {
+export type CreateCityInput = {
   id?: string | null;
-  display_name?: string | null;
-  username?: string | null;
-  groups?: string | null;
+  name?: string | null;
 };
 
-export type ModelUserConditionInput = {
-  display_name?: ModelStringInput | null;
-  username?: ModelStringInput | null;
-  groups?: ModelStringInput | null;
-  and?: Array<ModelUserConditionInput | null> | null;
-  or?: Array<ModelUserConditionInput | null> | null;
-  not?: ModelUserConditionInput | null;
+export type ModelCityConditionInput = {
+  name?: ModelStringInput | null;
+  and?: Array<ModelCityConditionInput | null> | null;
+  or?: Array<ModelCityConditionInput | null> | null;
+  not?: ModelCityConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -80,6 +82,72 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type City = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateCityInput = {
+  id: string;
+  name?: string | null;
+};
+
+export type DeleteCityInput = {
+  id: string;
+};
+
+export type CreateAirportInput = {
+  id?: string | null;
+  name?: string | null;
+  address?: string | null;
+};
+
+export type ModelAirportConditionInput = {
+  name?: ModelStringInput | null;
+  address?: ModelStringInput | null;
+  and?: Array<ModelAirportConditionInput | null> | null;
+  or?: Array<ModelAirportConditionInput | null> | null;
+  not?: ModelAirportConditionInput | null;
+};
+
+export type Airport = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateAirportInput = {
+  id: string;
+  name?: string | null;
+  address?: string | null;
+};
+
+export type DeleteAirportInput = {
+  id: string;
+};
+
+export type CreateUserInput = {
+  id?: string | null;
+  display_name?: string | null;
+  username?: string | null;
+  groups?: string | null;
+};
+
+export type ModelUserConditionInput = {
+  display_name?: ModelStringInput | null;
+  username?: ModelStringInput | null;
+  groups?: ModelStringInput | null;
+  and?: Array<ModelUserConditionInput | null> | null;
+  or?: Array<ModelUserConditionInput | null> | null;
+  not?: ModelUserConditionInput | null;
 };
 
 export type User = {
@@ -294,14 +362,12 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelUserFilterInput = {
+export type ModelCityFilterInput = {
   id?: ModelIDInput | null;
-  display_name?: ModelStringInput | null;
-  username?: ModelStringInput | null;
-  groups?: ModelStringInput | null;
-  and?: Array<ModelUserFilterInput | null> | null;
-  or?: Array<ModelUserFilterInput | null> | null;
-  not?: ModelUserFilterInput | null;
+  name?: ModelStringInput | null;
+  and?: Array<ModelCityFilterInput | null> | null;
+  or?: Array<ModelCityFilterInput | null> | null;
+  not?: ModelCityFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -318,6 +384,37 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelCityConnection = {
+  __typename: "ModelCityConnection";
+  items: Array<City | null>;
+  nextToken?: string | null;
+};
+
+export type ModelAirportFilterInput = {
+  id?: ModelIDInput | null;
+  name?: ModelStringInput | null;
+  address?: ModelStringInput | null;
+  and?: Array<ModelAirportFilterInput | null> | null;
+  or?: Array<ModelAirportFilterInput | null> | null;
+  not?: ModelAirportFilterInput | null;
+};
+
+export type ModelAirportConnection = {
+  __typename: "ModelAirportConnection";
+  items: Array<Airport | null>;
+  nextToken?: string | null;
+};
+
+export type ModelUserFilterInput = {
+  id?: ModelIDInput | null;
+  display_name?: ModelStringInput | null;
+  username?: ModelStringInput | null;
+  groups?: ModelStringInput | null;
+  and?: Array<ModelUserFilterInput | null> | null;
+  or?: Array<ModelUserFilterInput | null> | null;
+  not?: ModelUserFilterInput | null;
 };
 
 export type ModelUserConnection = {
@@ -399,13 +496,11 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionUserFilterInput = {
+export type ModelSubscriptionCityFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  display_name?: ModelSubscriptionStringInput | null;
-  username?: ModelSubscriptionStringInput | null;
-  groups?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionUserFilterInput | null> | null;
-  or?: Array<ModelSubscriptionUserFilterInput | null> | null;
+  name?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionCityFilterInput | null> | null;
+  or?: Array<ModelSubscriptionCityFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -436,6 +531,23 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionAirportFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  name?: ModelSubscriptionStringInput | null;
+  address?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionAirportFilterInput | null> | null;
+  or?: Array<ModelSubscriptionAirportFilterInput | null> | null;
+};
+
+export type ModelSubscriptionUserFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  display_name?: ModelSubscriptionStringInput | null;
+  username?: ModelSubscriptionStringInput | null;
+  groups?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionUserFilterInput | null> | null;
+  or?: Array<ModelSubscriptionUserFilterInput | null> | null;
 };
 
 export type ModelSubscriptionEventFilterInput = {
@@ -486,6 +598,57 @@ export type ModelSubscriptionRestaurantFilterInput = {
   address?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateCityMutation = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateCityMutation = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteCityMutation = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type CreateAirportMutation = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateAirportMutation = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteAirportMutation = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateUserMutation = {
@@ -665,6 +828,48 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetCityQuery = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListCitiesQuery = {
+  __typename: "ModelCityConnection";
+  items: Array<{
+    __typename: "City";
+    id: string;
+    name?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
+export type GetAirportQuery = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListAirportsQuery = {
+  __typename: "ModelAirportConnection";
+  items: Array<{
+    __typename: "Airport";
+    id: string;
+    name?: string | null;
+    address?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetUserQuery = {
   __typename: "User";
   id: string;
@@ -801,6 +1006,57 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateCitySubscription = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateCitySubscription = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteCitySubscription = {
+  __typename: "City";
+  id: string;
+  name?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnCreateAirportSubscription = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateAirportSubscription = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteAirportSubscription = {
+  __typename: "Airport";
+  id: string;
+  name?: string | null;
+  address?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateUserSubscription = {
@@ -984,6 +1240,153 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateCity(
+    input: CreateCityInput,
+    condition?: ModelCityConditionInput
+  ): Promise<CreateCityMutation> {
+    const statement = `mutation CreateCity($input: CreateCityInput!, $condition: ModelCityConditionInput) {
+        createCity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateCityMutation>response.data.createCity;
+  }
+  async UpdateCity(
+    input: UpdateCityInput,
+    condition?: ModelCityConditionInput
+  ): Promise<UpdateCityMutation> {
+    const statement = `mutation UpdateCity($input: UpdateCityInput!, $condition: ModelCityConditionInput) {
+        updateCity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateCityMutation>response.data.updateCity;
+  }
+  async DeleteCity(
+    input: DeleteCityInput,
+    condition?: ModelCityConditionInput
+  ): Promise<DeleteCityMutation> {
+    const statement = `mutation DeleteCity($input: DeleteCityInput!, $condition: ModelCityConditionInput) {
+        deleteCity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteCityMutation>response.data.deleteCity;
+  }
+  async CreateAirport(
+    input: CreateAirportInput,
+    condition?: ModelAirportConditionInput
+  ): Promise<CreateAirportMutation> {
+    const statement = `mutation CreateAirport($input: CreateAirportInput!, $condition: ModelAirportConditionInput) {
+        createAirport(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          address
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateAirportMutation>response.data.createAirport;
+  }
+  async UpdateAirport(
+    input: UpdateAirportInput,
+    condition?: ModelAirportConditionInput
+  ): Promise<UpdateAirportMutation> {
+    const statement = `mutation UpdateAirport($input: UpdateAirportInput!, $condition: ModelAirportConditionInput) {
+        updateAirport(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          address
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateAirportMutation>response.data.updateAirport;
+  }
+  async DeleteAirport(
+    input: DeleteAirportInput,
+    condition?: ModelAirportConditionInput
+  ): Promise<DeleteAirportMutation> {
+    const statement = `mutation DeleteAirport($input: DeleteAirportInput!, $condition: ModelAirportConditionInput) {
+        deleteAirport(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          address
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteAirportMutation>response.data.deleteAirport;
+  }
   async CreateUser(
     input: CreateUserInput,
     condition?: ModelUserConditionInput
@@ -1401,6 +1804,110 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetCity(id: string): Promise<GetCityQuery> {
+    const statement = `query GetCity($id: ID!) {
+        getCity(id: $id) {
+          __typename
+          id
+          name
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetCityQuery>response.data.getCity;
+  }
+  async ListCities(
+    filter?: ModelCityFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListCitiesQuery> {
+    const statement = `query ListCities($filter: ModelCityFilterInput, $limit: Int, $nextToken: String) {
+        listCities(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListCitiesQuery>response.data.listCities;
+  }
+  async GetAirport(id: string): Promise<GetAirportQuery> {
+    const statement = `query GetAirport($id: ID!) {
+        getAirport(id: $id) {
+          __typename
+          id
+          name
+          address
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetAirportQuery>response.data.getAirport;
+  }
+  async ListAirports(
+    filter?: ModelAirportFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListAirportsQuery> {
+    const statement = `query ListAirports($filter: ModelAirportFilterInput, $limit: Int, $nextToken: String) {
+        listAirports(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            address
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListAirportsQuery>response.data.listAirports;
+  }
   async GetUser(id: string): Promise<GetUserQuery> {
     const statement = `query GetUser($id: ID!) {
         getUser(id: $id) {
@@ -1694,6 +2201,159 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateCityListener(
+    filter?: ModelSubscriptionCityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateCity">>
+  > {
+    const statement = `subscription OnCreateCity($filter: ModelSubscriptionCityFilterInput) {
+        onCreateCity(filter: $filter) {
+          __typename
+          id
+          name
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateCity">>
+    >;
+  }
+
+  OnUpdateCityListener(
+    filter?: ModelSubscriptionCityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateCity">>
+  > {
+    const statement = `subscription OnUpdateCity($filter: ModelSubscriptionCityFilterInput) {
+        onUpdateCity(filter: $filter) {
+          __typename
+          id
+          name
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateCity">>
+    >;
+  }
+
+  OnDeleteCityListener(
+    filter?: ModelSubscriptionCityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteCity">>
+  > {
+    const statement = `subscription OnDeleteCity($filter: ModelSubscriptionCityFilterInput) {
+        onDeleteCity(filter: $filter) {
+          __typename
+          id
+          name
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteCity">>
+    >;
+  }
+
+  OnCreateAirportListener(
+    filter?: ModelSubscriptionAirportFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateAirport">>
+  > {
+    const statement = `subscription OnCreateAirport($filter: ModelSubscriptionAirportFilterInput) {
+        onCreateAirport(filter: $filter) {
+          __typename
+          id
+          name
+          address
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateAirport">>
+    >;
+  }
+
+  OnUpdateAirportListener(
+    filter?: ModelSubscriptionAirportFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateAirport">>
+  > {
+    const statement = `subscription OnUpdateAirport($filter: ModelSubscriptionAirportFilterInput) {
+        onUpdateAirport(filter: $filter) {
+          __typename
+          id
+          name
+          address
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateAirport">>
+    >;
+  }
+
+  OnDeleteAirportListener(
+    filter?: ModelSubscriptionAirportFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteAirport">>
+  > {
+    const statement = `subscription OnDeleteAirport($filter: ModelSubscriptionAirportFilterInput) {
+        onDeleteAirport(filter: $filter) {
+          __typename
+          id
+          name
+          address
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteAirport">>
+    >;
+  }
+
   OnCreateUserListener(
     filter?: ModelSubscriptionUserFilterInput
   ): Observable<

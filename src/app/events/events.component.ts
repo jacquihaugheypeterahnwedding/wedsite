@@ -19,11 +19,8 @@ export class EventsComponent {
   }
 
   ngOnInit(): void {
-    console.log('inint');
     this.api.ListEvents().then(value => {
-      console.log('one')
       this.userService.user_info_obs.subscribe(values => {
-        console.log('two');
         const events = value.items as Event[];
       for (let ind in events) {
         let event = events[ind];
