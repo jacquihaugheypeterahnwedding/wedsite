@@ -10,18 +10,24 @@ import { LodgingComponent } from './lodging/lodging.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { UserComponent } from './user/user.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component:  WelcomeComponent},
-  { path: 'ourstory', component:  OurstoryComponent},
+  { path: 'ourstory', component:  CommingSoonComponent},
   { path: 'events', component: EventsComponent},
   { path: 'lodging', component: LodgingComponent},
-  { path: 'restaurants', component: RestaurantsComponent},
+  { path: 'restaurants', component: CommingSoonComponent},
   { path: 'user', component: UserComponent},
   { path: 'eventdetails', component: EventDetailsComponent},
+  { path: 'help', component: CommingSoonComponent},
+  { path: 'gallery', component: CommingSoonComponent},
+  { path: 'areas', component: CommingSoonComponent},
+  { path: 'activities', component: CommingSoonComponent},
+  { path: 'airports', component: CommingSoonComponent},
 ];
 export const appRouting = RouterModule.forRoot(routes);
 @NgModule({

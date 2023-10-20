@@ -4,7 +4,7 @@ import { Auth } from 'aws-amplify';
 import { APIService, ListUserSettingsQuery, UserSettings, User, ListUsersQuery } from './API.service';
 import { CognitoService } from './cognito.service';
 import { I18n } from 'aws-amplify';
-import { Observable, Subject } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class UserService {
 
   language: string = 'en-US';
 
-  user_info_obs = new Subject();
+  user_info_obs = new ReplaySubject();
 
 
   constructor(private api: APIService, private cognitoService: CognitoService) {

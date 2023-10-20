@@ -40,9 +40,10 @@ import {NgIf} from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatInputModule } from '@angular/material/input';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 
 @NgModule({
-  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent],
+  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent],
   imports: [
     BrowserModule,
     NgbModule,
