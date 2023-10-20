@@ -96,6 +96,7 @@ mutation CreateUser(
     display_name
     username
     groups
+    message
     createdAt
     updatedAt
     __typename
@@ -111,6 +112,7 @@ mutation UpdateUser(
     display_name
     username
     groups
+    message
     createdAt
     updatedAt
     __typename
@@ -126,6 +128,7 @@ mutation DeleteUser(
     display_name
     username
     groups
+    message
     createdAt
     updatedAt
     __typename
@@ -208,6 +211,11 @@ mutation CreateHotel(
     image
     website
     room_block
+    cost
+    amenities
+    check_in
+    check_out
+    stars
     createdAt
     updatedAt
     __typename
@@ -227,6 +235,11 @@ mutation UpdateHotel(
     image
     website
     room_block
+    cost
+    amenities
+    check_in
+    check_out
+    stars
     createdAt
     updatedAt
     __typename
@@ -246,6 +259,11 @@ mutation DeleteHotel(
     image
     website
     room_block
+    cost
+    amenities
+    check_in
+    check_out
+    stars
     createdAt
     updatedAt
     __typename

@@ -75,6 +75,7 @@ subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
     display_name
     username
     groups
+    message
     createdAt
     updatedAt
     __typename
@@ -87,6 +88,7 @@ subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
     display_name
     username
     groups
+    message
     createdAt
     updatedAt
     __typename
@@ -99,6 +101,7 @@ subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
     display_name
     username
     groups
+    message
     createdAt
     updatedAt
     __typename
@@ -169,6 +172,11 @@ subscription OnCreateHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
+    cost
+    amenities
+    check_in
+    check_out
+    stars
     createdAt
     updatedAt
     __typename
@@ -185,6 +193,11 @@ subscription OnUpdateHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
+    cost
+    amenities
+    check_in
+    check_out
+    stars
     createdAt
     updatedAt
     __typename
@@ -201,6 +214,11 @@ subscription OnDeleteHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
+    cost
+    amenities
+    check_in
+    check_out
+    stars
     createdAt
     updatedAt
     __typename

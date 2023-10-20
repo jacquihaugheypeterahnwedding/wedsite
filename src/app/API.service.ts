@@ -147,12 +147,14 @@ export type CreateUserInput = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
 };
 
 export type ModelUserConditionInput = {
   display_name?: ModelStringInput | null;
   username?: ModelStringInput | null;
   groups?: ModelStringInput | null;
+  message?: ModelStringInput | null;
   and?: Array<ModelUserConditionInput | null> | null;
   or?: Array<ModelUserConditionInput | null> | null;
   not?: ModelUserConditionInput | null;
@@ -164,6 +166,7 @@ export type User = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -173,6 +176,7 @@ export type UpdateUserInput = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
 };
 
 export type DeleteUserInput = {
@@ -249,6 +253,11 @@ export type CreateHotelInput = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
 };
 
 export type ModelHotelConditionInput = {
@@ -259,6 +268,11 @@ export type ModelHotelConditionInput = {
   image?: ModelStringInput | null;
   website?: ModelStringInput | null;
   room_block?: ModelStringInput | null;
+  cost?: ModelStringInput | null;
+  amenities?: ModelStringInput | null;
+  check_in?: ModelStringInput | null;
+  check_out?: ModelStringInput | null;
+  stars?: ModelStringInput | null;
   and?: Array<ModelHotelConditionInput | null> | null;
   or?: Array<ModelHotelConditionInput | null> | null;
   not?: ModelHotelConditionInput | null;
@@ -274,6 +288,11 @@ export type Hotel = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -287,6 +306,11 @@ export type UpdateHotelInput = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
 };
 
 export type DeleteHotelInput = {
@@ -430,6 +454,7 @@ export type ModelUserFilterInput = {
   display_name?: ModelStringInput | null;
   username?: ModelStringInput | null;
   groups?: ModelStringInput | null;
+  message?: ModelStringInput | null;
   and?: Array<ModelUserFilterInput | null> | null;
   or?: Array<ModelUserFilterInput | null> | null;
   not?: ModelUserFilterInput | null;
@@ -472,6 +497,11 @@ export type ModelHotelFilterInput = {
   image?: ModelStringInput | null;
   website?: ModelStringInput | null;
   room_block?: ModelStringInput | null;
+  cost?: ModelStringInput | null;
+  amenities?: ModelStringInput | null;
+  check_in?: ModelStringInput | null;
+  check_out?: ModelStringInput | null;
+  stars?: ModelStringInput | null;
   and?: Array<ModelHotelFilterInput | null> | null;
   or?: Array<ModelHotelFilterInput | null> | null;
   not?: ModelHotelFilterInput | null;
@@ -568,6 +598,7 @@ export type ModelSubscriptionUserFilterInput = {
   display_name?: ModelSubscriptionStringInput | null;
   username?: ModelSubscriptionStringInput | null;
   groups?: ModelSubscriptionStringInput | null;
+  message?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionUserFilterInput | null> | null;
   or?: Array<ModelSubscriptionUserFilterInput | null> | null;
 };
@@ -596,6 +627,11 @@ export type ModelSubscriptionHotelFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   website?: ModelSubscriptionStringInput | null;
   room_block?: ModelSubscriptionStringInput | null;
+  cost?: ModelSubscriptionStringInput | null;
+  amenities?: ModelSubscriptionStringInput | null;
+  check_in?: ModelSubscriptionStringInput | null;
+  check_out?: ModelSubscriptionStringInput | null;
+  stars?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionHotelFilterInput | null> | null;
   or?: Array<ModelSubscriptionHotelFilterInput | null> | null;
 };
@@ -687,6 +723,7 @@ export type CreateUserMutation = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -697,6 +734,7 @@ export type UpdateUserMutation = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -707,6 +745,7 @@ export type DeleteUserMutation = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -769,6 +808,11 @@ export type CreateHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -783,6 +827,11 @@ export type UpdateHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -797,6 +846,11 @@ export type DeleteHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -916,6 +970,7 @@ export type GetUserQuery = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -928,6 +983,7 @@ export type ListUsersQuery = {
     display_name?: string | null;
     username?: string | null;
     groups?: string | null;
+    message?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -980,6 +1036,11 @@ export type GetHotelQuery = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -996,6 +1057,11 @@ export type ListHotelsQuery = {
     image?: string | null;
     website?: string | null;
     room_block?: string | null;
+    cost?: string | null;
+    amenities?: string | null;
+    check_in?: string | null;
+    check_out?: string | null;
+    stars?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1115,6 +1181,7 @@ export type OnCreateUserSubscription = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1125,6 +1192,7 @@ export type OnUpdateUserSubscription = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1135,6 +1203,7 @@ export type OnDeleteUserSubscription = {
   display_name?: string | null;
   username?: string | null;
   groups?: string | null;
+  message?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1197,6 +1266,11 @@ export type OnCreateHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1211,6 +1285,11 @@ export type OnUpdateHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1225,6 +1304,11 @@ export type OnDeleteHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  cost?: string | null;
+  amenities?: string | null;
+  check_in?: string | null;
+  check_out?: string | null;
+  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1460,6 +1544,7 @@ export class APIService {
           display_name
           username
           groups
+          message
           createdAt
           updatedAt
         }
@@ -1486,6 +1571,7 @@ export class APIService {
           display_name
           username
           groups
+          message
           createdAt
           updatedAt
         }
@@ -1512,6 +1598,7 @@ export class APIService {
           display_name
           username
           groups
+          message
           createdAt
           updatedAt
         }
@@ -1638,6 +1725,11 @@ export class APIService {
           image
           website
           room_block
+          cost
+          amenities
+          check_in
+          check_out
+          stars
           createdAt
           updatedAt
         }
@@ -1668,6 +1760,11 @@ export class APIService {
           image
           website
           room_block
+          cost
+          amenities
+          check_in
+          check_out
+          stars
           createdAt
           updatedAt
         }
@@ -1698,6 +1795,11 @@ export class APIService {
           image
           website
           room_block
+          cost
+          amenities
+          check_in
+          check_out
+          stars
           createdAt
           updatedAt
         }
@@ -1988,6 +2090,7 @@ export class APIService {
           display_name
           username
           groups
+          message
           createdAt
           updatedAt
         }
@@ -2014,6 +2117,7 @@ export class APIService {
             display_name
             username
             groups
+            message
             createdAt
             updatedAt
           }
@@ -2114,6 +2218,11 @@ export class APIService {
           image
           website
           room_block
+          cost
+          amenities
+          check_in
+          check_out
+          stars
           createdAt
           updatedAt
         }
@@ -2144,6 +2253,11 @@ export class APIService {
             image
             website
             room_block
+            cost
+            amenities
+            check_in
+            check_out
+            stars
             createdAt
             updatedAt
           }
@@ -2448,6 +2562,7 @@ export class APIService {
           display_name
           username
           groups
+          message
           createdAt
           updatedAt
         }
@@ -2475,6 +2590,7 @@ export class APIService {
           display_name
           username
           groups
+          message
           createdAt
           updatedAt
         }
@@ -2502,6 +2618,7 @@ export class APIService {
           display_name
           username
           groups
+          message
           createdAt
           updatedAt
         }
@@ -2632,6 +2749,11 @@ export class APIService {
           image
           website
           room_block
+          cost
+          amenities
+          check_in
+          check_out
+          stars
           createdAt
           updatedAt
         }
@@ -2663,6 +2785,11 @@ export class APIService {
           image
           website
           room_block
+          cost
+          amenities
+          check_in
+          check_out
+          stars
           createdAt
           updatedAt
         }
@@ -2694,6 +2821,11 @@ export class APIService {
           image
           website
           room_block
+          cost
+          amenities
+          check_in
+          check_out
+          stars
           createdAt
           updatedAt
         }

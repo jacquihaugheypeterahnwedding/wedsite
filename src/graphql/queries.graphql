@@ -68,6 +68,7 @@ query GetUser($id: ID!) {
     display_name
     username
     groups
+    message
     createdAt
     updatedAt
     __typename
@@ -85,6 +86,7 @@ query ListUsers(
       display_name
       username
       groups
+      message
       createdAt
       updatedAt
       __typename
@@ -148,6 +150,11 @@ query GetHotel($id: ID!) {
     image
     website
     room_block
+    cost
+    amenities
+    check_in
+    check_out
+    stars
     createdAt
     updatedAt
     __typename
@@ -169,6 +176,11 @@ query ListHotels(
       image
       website
       room_block
+      cost
+      amenities
+      check_in
+      check_out
+      stars
       createdAt
       updatedAt
       __typename
