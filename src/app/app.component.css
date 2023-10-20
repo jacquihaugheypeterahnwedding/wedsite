@@ -2,6 +2,10 @@
   flex: 1 1 auto;
 }
 
+span {
+  padding-left: 5px;
+}
+
 .app-container {
   height: 90%;
   margin: 0;

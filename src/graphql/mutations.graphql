@@ -7,6 +7,7 @@ mutation CreateCity(
   createCity(input: $input, condition: $condition) {
     id
     name
+    description
     createdAt
     updatedAt
     __typename
@@ -20,6 +21,7 @@ mutation UpdateCity(
   updateCity(input: $input, condition: $condition) {
     id
     name
+    description
     createdAt
     updatedAt
     __typename
@@ -33,6 +35,7 @@ mutation DeleteCity(
   deleteCity(input: $input, condition: $condition) {
     id
     name
+    description
     createdAt
     updatedAt
     __typename
@@ -47,6 +50,7 @@ mutation CreateAirport(
     id
     name
     address
+    description
     createdAt
     updatedAt
     __typename
@@ -61,6 +65,7 @@ mutation UpdateAirport(
     id
     name
     address
+    description
     createdAt
     updatedAt
     __typename
@@ -75,6 +80,7 @@ mutation DeleteAirport(
     id
     name
     address
+    description
     createdAt
     updatedAt
     __typename
@@ -200,6 +206,8 @@ mutation CreateHotel(
     phone
     description
     image
+    website
+    room_block
     createdAt
     updatedAt
     __typename
@@ -217,6 +225,8 @@ mutation UpdateHotel(
     phone
     description
     image
+    website
+    room_block
     createdAt
     updatedAt
     __typename
@@ -234,6 +244,8 @@ mutation DeleteHotel(
     phone
     description
     image
+    website
+    room_block
     createdAt
     updatedAt
     __typename

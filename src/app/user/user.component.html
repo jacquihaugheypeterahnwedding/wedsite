@@ -1,8 +1,15 @@
+
+<div class="box">
+
+
+
+
 <h1>{{I18n.get('Welcome')}} {{userService.userSettings.user}}</h1>
 
 
 
 <label id="example-radio-group-label">{{I18n.get('Language Preferance:')}}</label>
+<br/>
 <mat-radio-group
   aria-labelledby="example-radio-group-label"
   class="example-radio-group"
@@ -18,9 +25,11 @@
 </mat-radio-group>
 
 <br/>
+<br/>
+<br/>
 
 <mat-slide-toggle>{{I18n.get('Recieve Email Notifications of website updates:')}}</mat-slide-toggle>
-
+<br/>
 
 <form class="example-form">
   <mat-form-field class="example-full-width">
@@ -36,4 +45,6 @@
   </mat-form-field>
 </form>
 
+
+</div>
 

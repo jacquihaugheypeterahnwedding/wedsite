@@ -4,6 +4,7 @@ query GetCity($id: ID!) {
   getCity(id: $id) {
     id
     name
+    description
     createdAt
     updatedAt
     __typename
@@ -19,6 +20,7 @@ query ListCities(
     items {
       id
       name
+      description
       createdAt
       updatedAt
       __typename
@@ -33,6 +35,7 @@ query GetAirport($id: ID!) {
     id
     name
     address
+    description
     createdAt
     updatedAt
     __typename
@@ -49,6 +52,7 @@ query ListAirports(
       id
       name
       address
+      description
       createdAt
       updatedAt
       __typename
@@ -142,6 +146,8 @@ query GetHotel($id: ID!) {
     phone
     description
     image
+    website
+    room_block
     createdAt
     updatedAt
     __typename
@@ -161,6 +167,8 @@ query ListHotels(
       phone
       description
       image
+      website
+      room_block
       createdAt
       updatedAt
       __typename
