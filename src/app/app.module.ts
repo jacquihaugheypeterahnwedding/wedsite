@@ -3,6 +3,11 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { registerLocaleData } from '@angular/common';
 
+import { GALLERY_CONFIG, GalleryConfig } from 'ng-gallery';
+import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
+
+import { GalleriaModule } from 'primeng/galleria';
+
 /* new form imports */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -28,6 +33,7 @@ import { OurstoryComponent } from './ourstory/ourstory.component';
 import { LodgingComponent } from './lodging/lodging.component';
 import { EventsComponent } from './events/events.component';
 import { CognitoService } from './cognito.service';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import localeEn from '@angular/common/locales/en';
 registerLocaleData(localeEn);
@@ -57,15 +63,24 @@ import { ActivitiesComponent } from './activities/activities.component';
     FormsModule,
     MatFormFieldModule, MatExpansionModule, MatListModule,
     NgIf,
-    ReactiveFormsModule,
+    GalleriaModule,
+    ReactiveFormsModule, MatGridListModule,
     MatInputModule, MatSidenavModule, MatMenuModule,
     MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule,
     MatTabsModule, MatRadioModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GalleryModule
   ],
   providers: [
     CognitoService,
-    UserService
+    UserService,
+    {
+      provide: GALLERY_CONFIG,
+      useValue: {
+        autoHeight: true,
+        imageSize: 'cover'
+      } as GalleryConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

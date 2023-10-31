@@ -41,11 +41,6 @@ type Hotel @model @auth(rules: [{allow: public}]) {
   image: String
   website: String
   room_block: String
-  cost: String
-  amenities: String
-  check_in: AWSTime
-  check_out: AWSTime
-  stars: String
 }
 
 type UserSettings @model @auth(rules: [{allow: public}]) {

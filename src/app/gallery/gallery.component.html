@@ -1,1 +1,42 @@
-<p>gallery works!</p>
+ <div class="total">
+    
+    
+    <!--
+    <gallery class="one" [items]="images" [dots]="true" [thumb]="true" [itemAutosize]="true" imageSize="cover"  [autoHeight]="false" thumbPosition="left"  [thumbAutosize]="true" [autoPlay]="false"></gallery>
+    -->
+
+
+    <!--
+    <p-galleria [value]="images1">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.previewImageSrc" [alt]="item.alt" />
+        </ng-template>
+    </p-galleria>
+-->
+
+<div  > 
+<p-galleria class="galleria" [value]="images1" [showItemNavigators]="true" verticalThumbnailViewPortHeight="30px" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
+    <ng-template pTemplate="item" let-item >
+        <div class="two">
+            <img class="img-item" [src]="item.itemImageSrc" />
+        </div>
+        
+    </ng-template>
+    
+    <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter justify-content-center">
+            <img class="thumb-item" [src]="item.thumbnailImageSrc" />
+        </div>
+    </ng-template>
+
+</p-galleria>
+
+</div>
+
+
+</div>
+
+
+<!--
+    <gallery [items]="items" thumbPosition="left"></gallery>
+-->

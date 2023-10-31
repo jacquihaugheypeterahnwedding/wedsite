@@ -11,6 +11,7 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { UserComponent } from './user/user.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'gallery', component: CommingSoonComponent},
   { path: 'areas', component: CommingSoonComponent},
   { path: 'activities', component: CommingSoonComponent},
+  { path: 'faq', component: CommingSoonComponent},
   { path: 'airports', component: CommingSoonComponent},
 ];
 export const appRouting = RouterModule.forRoot(routes);
