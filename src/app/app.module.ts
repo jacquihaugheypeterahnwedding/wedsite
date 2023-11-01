@@ -51,9 +51,10 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AreasComponent } from './areas/areas.component';
 import { AirportsComponent } from './airports/airports.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
-  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent],
+  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent],
   imports: [
     BrowserModule,
     NgbModule,
