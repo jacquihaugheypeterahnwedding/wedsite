@@ -21,7 +21,9 @@ speadsheet_id = '1-IMyH7sfM4YJOAxa_GiwGRgFSLkaRuFkwtDvov8U6Rc'
 range_name = 'Contact!A2:P'
 
 
-def main():
+
+
+def get_guests():
 
     try:
         creds = get_creds()
@@ -102,6 +104,6 @@ def main():
     except HttpError as err:
         print(err)
 
+    return groups
 
-if __name__ == '__main__':
-    main()
+

@@ -7,6 +7,8 @@
 /bazel-out
 /creds
 
+__pycache__
+
 # Node
 /node_modules
 npm-debug.log
