@@ -82,7 +82,7 @@ import { FaqComponent } from './faq/faq.component';
         imageSize: 'cover'
       } as GalleryConfig
     }
-  ],
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
