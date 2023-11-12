@@ -1,19 +1,28 @@
 
-<mat-grid-list cols="2" >
+<mat-grid-list cols="2" rowHeight="50%" class="all">
     <mat-grid-tile
         colspan="1"
         rowspan="1">
-      Welcome message!
-      <h1>{{userService.userSettings.user}}</h1>
 
-<h1>{{userService.userInfo.message}}</h1>
-<span>We've waited 4,063 days for this. Party accordingly.</span>
+        <h1>We've waited 4,063 days for this. Party accordingly.</h1>
     </mat-grid-tile>
+    
+    
     <mat-grid-tile
         colspan="1"
-        rowspan="1">
+        rowspan="2">
             <img src="assets/engagement/308-min.jpg" class="eng"/>
 
       
     </mat-grid-tile>
-  </mat-grid-list>
+
+    <mat-grid-tile
+        colspan="1"
+        rowspan="1">
+
+        <h1>{{userService.userInfo.message}}</h1>
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+  
