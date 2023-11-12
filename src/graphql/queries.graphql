@@ -1,5 +1,35 @@
 # this is an auto generated file. This will be overwritten
 
+query GetLogin($id: ID!) {
+  getLogin(id: $id) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListLogins(
+  $filter: ModelLoginFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listLogins(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      login
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
 query GetCity($id: ID!) {
   getCity(id: $id) {
     id
@@ -150,11 +180,6 @@ query GetHotel($id: ID!) {
     image
     website
     room_block
-    cost
-    amenities
-    check_in
-    check_out
-    stars
     createdAt
     updatedAt
     __typename
@@ -176,11 +201,6 @@ query ListHotels(
       image
       website
       room_block
-      cost
-      amenities
-      check_in
-      check_out
-      stars
       createdAt
       updatedAt
       __typename

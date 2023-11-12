@@ -7,6 +7,7 @@ import { Auth } from 'aws-amplify';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
 import { I18n } from 'aws-amplify';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent {
 
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private cognitoService: CognitoService,public authenticator: AuthenticatorService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private cognitoService: CognitoService,public authenticator: AuthenticatorService) {
     this.navLinks = [
         {
             label: 'Welcome',

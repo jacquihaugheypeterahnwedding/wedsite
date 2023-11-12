@@ -1,5 +1,38 @@
 # this is an auto generated file. This will be overwritten
 
+subscription OnCreateLogin($filter: ModelSubscriptionLoginFilterInput) {
+  onCreateLogin(filter: $filter) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateLogin($filter: ModelSubscriptionLoginFilterInput) {
+  onUpdateLogin(filter: $filter) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteLogin($filter: ModelSubscriptionLoginFilterInput) {
+  onDeleteLogin(filter: $filter) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 subscription OnCreateCity($filter: ModelSubscriptionCityFilterInput) {
   onCreateCity(filter: $filter) {
     id
@@ -172,11 +205,6 @@ subscription OnCreateHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
-    cost
-    amenities
-    check_in
-    check_out
-    stars
     createdAt
     updatedAt
     __typename
@@ -193,11 +221,6 @@ subscription OnUpdateHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
-    cost
-    amenities
-    check_in
-    check_out
-    stars
     createdAt
     updatedAt
     __typename
@@ -214,11 +237,6 @@ subscription OnDeleteHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
-    cost
-    amenities
-    check_in
-    check_out
-    stars
     createdAt
     updatedAt
     __typename

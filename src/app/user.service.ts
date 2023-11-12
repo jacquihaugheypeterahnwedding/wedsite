@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Auth } from 'aws-amplify';
-import { APIService, ListUserSettingsQuery, UserSettings, User, ListUsersQuery } from './API.service';
+import { APIService, ListUserSettingsQuery, UserSettings, User, ListUsersQuery, CreateLoginInput } from './API.service';
 import { CognitoService } from './cognito.service';
 import { I18n } from 'aws-amplify';
 import { Observable, ReplaySubject } from 'rxjs';
@@ -29,7 +29,21 @@ export class UserService {
         console.log(username);
 
         //this.userSettings = await this.api.ListUserSettings({user: {eq: username}});
+
+
+        const login: CreateLoginInput = {
+          username: username,
+          login: (new Date()).toString()
+        }
+        console.log(login);
+    
+        this.api.CreateLogin(login);
+
+
+
     });
+
+    
 
     this.setup();
 

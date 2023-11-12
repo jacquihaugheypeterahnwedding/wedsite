@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateLogin: OnCreateLoginSubscription;
+  onUpdateLogin: OnUpdateLoginSubscription;
+  onDeleteLogin: OnDeleteLoginSubscription;
   onCreateCity: OnCreateCitySubscription;
   onUpdateCity: OnUpdateCitySubscription;
   onDeleteCity: OnDeleteCitySubscription;
@@ -33,18 +36,18 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateCityInput = {
+export type CreateLoginInput = {
   id?: string | null;
-  name?: string | null;
-  description?: string | null;
+  username?: string | null;
+  login?: string | null;
 };
 
-export type ModelCityConditionInput = {
-  name?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  and?: Array<ModelCityConditionInput | null> | null;
-  or?: Array<ModelCityConditionInput | null> | null;
-  not?: ModelCityConditionInput | null;
+export type ModelLoginConditionInput = {
+  username?: ModelStringInput | null;
+  login?: ModelStringInput | null;
+  and?: Array<ModelLoginConditionInput | null> | null;
+  or?: Array<ModelLoginConditionInput | null> | null;
+  not?: ModelLoginConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -84,6 +87,39 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type Login = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateLoginInput = {
+  id: string;
+  username?: string | null;
+  login?: string | null;
+};
+
+export type DeleteLoginInput = {
+  id: string;
+};
+
+export type CreateCityInput = {
+  id?: string | null;
+  name?: string | null;
+  description?: string | null;
+};
+
+export type ModelCityConditionInput = {
+  name?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  and?: Array<ModelCityConditionInput | null> | null;
+  or?: Array<ModelCityConditionInput | null> | null;
+  not?: ModelCityConditionInput | null;
 };
 
 export type City = {
@@ -253,11 +289,6 @@ export type CreateHotelInput = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
 };
 
 export type ModelHotelConditionInput = {
@@ -268,11 +299,6 @@ export type ModelHotelConditionInput = {
   image?: ModelStringInput | null;
   website?: ModelStringInput | null;
   room_block?: ModelStringInput | null;
-  cost?: ModelStringInput | null;
-  amenities?: ModelStringInput | null;
-  check_in?: ModelStringInput | null;
-  check_out?: ModelStringInput | null;
-  stars?: ModelStringInput | null;
   and?: Array<ModelHotelConditionInput | null> | null;
   or?: Array<ModelHotelConditionInput | null> | null;
   not?: ModelHotelConditionInput | null;
@@ -288,11 +314,6 @@ export type Hotel = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -306,11 +327,6 @@ export type UpdateHotelInput = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
 };
 
 export type DeleteHotelInput = {
@@ -402,13 +418,13 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelCityFilterInput = {
+export type ModelLoginFilterInput = {
   id?: ModelIDInput | null;
-  name?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  and?: Array<ModelCityFilterInput | null> | null;
-  or?: Array<ModelCityFilterInput | null> | null;
-  not?: ModelCityFilterInput | null;
+  username?: ModelStringInput | null;
+  login?: ModelStringInput | null;
+  and?: Array<ModelLoginFilterInput | null> | null;
+  or?: Array<ModelLoginFilterInput | null> | null;
+  not?: ModelLoginFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -425,6 +441,21 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelLoginConnection = {
+  __typename: "ModelLoginConnection";
+  items: Array<Login | null>;
+  nextToken?: string | null;
+};
+
+export type ModelCityFilterInput = {
+  id?: ModelIDInput | null;
+  name?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  and?: Array<ModelCityFilterInput | null> | null;
+  or?: Array<ModelCityFilterInput | null> | null;
+  not?: ModelCityFilterInput | null;
 };
 
 export type ModelCityConnection = {
@@ -497,11 +528,6 @@ export type ModelHotelFilterInput = {
   image?: ModelStringInput | null;
   website?: ModelStringInput | null;
   room_block?: ModelStringInput | null;
-  cost?: ModelStringInput | null;
-  amenities?: ModelStringInput | null;
-  check_in?: ModelStringInput | null;
-  check_out?: ModelStringInput | null;
-  stars?: ModelStringInput | null;
   and?: Array<ModelHotelFilterInput | null> | null;
   or?: Array<ModelHotelFilterInput | null> | null;
   not?: ModelHotelFilterInput | null;
@@ -546,12 +572,12 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionCityFilterInput = {
+export type ModelSubscriptionLoginFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  name?: ModelSubscriptionStringInput | null;
-  description?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionCityFilterInput | null> | null;
-  or?: Array<ModelSubscriptionCityFilterInput | null> | null;
+  username?: ModelSubscriptionStringInput | null;
+  login?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionLoginFilterInput | null> | null;
+  or?: Array<ModelSubscriptionLoginFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -582,6 +608,14 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionCityFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  name?: ModelSubscriptionStringInput | null;
+  description?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionCityFilterInput | null> | null;
+  or?: Array<ModelSubscriptionCityFilterInput | null> | null;
 };
 
 export type ModelSubscriptionAirportFilterInput = {
@@ -627,11 +661,6 @@ export type ModelSubscriptionHotelFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   website?: ModelSubscriptionStringInput | null;
   room_block?: ModelSubscriptionStringInput | null;
-  cost?: ModelSubscriptionStringInput | null;
-  amenities?: ModelSubscriptionStringInput | null;
-  check_in?: ModelSubscriptionStringInput | null;
-  check_out?: ModelSubscriptionStringInput | null;
-  stars?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionHotelFilterInput | null> | null;
   or?: Array<ModelSubscriptionHotelFilterInput | null> | null;
 };
@@ -658,6 +687,33 @@ export type ModelSubscriptionRestaurantFilterInput = {
   address?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateLoginMutation = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateLoginMutation = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteLoginMutation = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateCityMutation = {
@@ -808,11 +864,6 @@ export type CreateHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -827,11 +878,6 @@ export type UpdateHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -846,11 +892,6 @@ export type DeleteHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -916,6 +957,28 @@ export type DeleteRestaurantMutation = {
   address: string;
   createdAt: string;
   updatedAt: string;
+};
+
+export type GetLoginQuery = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListLoginsQuery = {
+  __typename: "ModelLoginConnection";
+  items: Array<{
+    __typename: "Login";
+    id: string;
+    username?: string | null;
+    login?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
 };
 
 export type GetCityQuery = {
@@ -1036,11 +1099,6 @@ export type GetHotelQuery = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1057,11 +1115,6 @@ export type ListHotelsQuery = {
     image?: string | null;
     website?: string | null;
     room_block?: string | null;
-    cost?: string | null;
-    amenities?: string | null;
-    check_in?: string | null;
-    check_out?: string | null;
-    stars?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1116,6 +1169,33 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateLoginSubscription = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateLoginSubscription = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteLoginSubscription = {
+  __typename: "Login";
+  id: string;
+  username?: string | null;
+  login?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateCitySubscription = {
@@ -1266,11 +1346,6 @@ export type OnCreateHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1285,11 +1360,6 @@ export type OnUpdateHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1304,11 +1374,6 @@ export type OnDeleteHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
-  cost?: string | null;
-  amenities?: string | null;
-  check_in?: string | null;
-  check_out?: string | null;
-  stars?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1380,6 +1445,81 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateLogin(
+    input: CreateLoginInput,
+    condition?: ModelLoginConditionInput
+  ): Promise<CreateLoginMutation> {
+    const statement = `mutation CreateLogin($input: CreateLoginInput!, $condition: ModelLoginConditionInput) {
+        createLogin(input: $input, condition: $condition) {
+          __typename
+          id
+          username
+          login
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateLoginMutation>response.data.createLogin;
+  }
+  async UpdateLogin(
+    input: UpdateLoginInput,
+    condition?: ModelLoginConditionInput
+  ): Promise<UpdateLoginMutation> {
+    const statement = `mutation UpdateLogin($input: UpdateLoginInput!, $condition: ModelLoginConditionInput) {
+        updateLogin(input: $input, condition: $condition) {
+          __typename
+          id
+          username
+          login
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateLoginMutation>response.data.updateLogin;
+  }
+  async DeleteLogin(
+    input: DeleteLoginInput,
+    condition?: ModelLoginConditionInput
+  ): Promise<DeleteLoginMutation> {
+    const statement = `mutation DeleteLogin($input: DeleteLoginInput!, $condition: ModelLoginConditionInput) {
+        deleteLogin(input: $input, condition: $condition) {
+          __typename
+          id
+          username
+          login
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteLoginMutation>response.data.deleteLogin;
+  }
   async CreateCity(
     input: CreateCityInput,
     condition?: ModelCityConditionInput
@@ -1725,11 +1865,6 @@ export class APIService {
           image
           website
           room_block
-          cost
-          amenities
-          check_in
-          check_out
-          stars
           createdAt
           updatedAt
         }
@@ -1760,11 +1895,6 @@ export class APIService {
           image
           website
           room_block
-          cost
-          amenities
-          check_in
-          check_out
-          stars
           createdAt
           updatedAt
         }
@@ -1795,11 +1925,6 @@ export class APIService {
           image
           website
           room_block
-          cost
-          amenities
-          check_in
-          check_out
-          stars
           createdAt
           updatedAt
         }
@@ -1973,6 +2098,59 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
+  }
+  async GetLogin(id: string): Promise<GetLoginQuery> {
+    const statement = `query GetLogin($id: ID!) {
+        getLogin(id: $id) {
+          __typename
+          id
+          username
+          login
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetLoginQuery>response.data.getLogin;
+  }
+  async ListLogins(
+    filter?: ModelLoginFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListLoginsQuery> {
+    const statement = `query ListLogins($filter: ModelLoginFilterInput, $limit: Int, $nextToken: String) {
+        listLogins(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            username
+            login
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListLoginsQuery>response.data.listLogins;
   }
   async GetCity(id: string): Promise<GetCityQuery> {
     const statement = `query GetCity($id: ID!) {
@@ -2218,11 +2396,6 @@ export class APIService {
           image
           website
           room_block
-          cost
-          amenities
-          check_in
-          check_out
-          stars
           createdAt
           updatedAt
         }
@@ -2253,11 +2426,6 @@ export class APIService {
             image
             website
             room_block
-            cost
-            amenities
-            check_in
-            check_out
-            stars
             createdAt
             updatedAt
           }
@@ -2391,6 +2559,84 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateLoginListener(
+    filter?: ModelSubscriptionLoginFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateLogin">>
+  > {
+    const statement = `subscription OnCreateLogin($filter: ModelSubscriptionLoginFilterInput) {
+        onCreateLogin(filter: $filter) {
+          __typename
+          id
+          username
+          login
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateLogin">>
+    >;
+  }
+
+  OnUpdateLoginListener(
+    filter?: ModelSubscriptionLoginFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateLogin">>
+  > {
+    const statement = `subscription OnUpdateLogin($filter: ModelSubscriptionLoginFilterInput) {
+        onUpdateLogin(filter: $filter) {
+          __typename
+          id
+          username
+          login
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateLogin">>
+    >;
+  }
+
+  OnDeleteLoginListener(
+    filter?: ModelSubscriptionLoginFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteLogin">>
+  > {
+    const statement = `subscription OnDeleteLogin($filter: ModelSubscriptionLoginFilterInput) {
+        onDeleteLogin(filter: $filter) {
+          __typename
+          id
+          username
+          login
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteLogin">>
+    >;
+  }
+
   OnCreateCityListener(
     filter?: ModelSubscriptionCityFilterInput
   ): Observable<
@@ -2749,11 +2995,6 @@ export class APIService {
           image
           website
           room_block
-          cost
-          amenities
-          check_in
-          check_out
-          stars
           createdAt
           updatedAt
         }
@@ -2785,11 +3026,6 @@ export class APIService {
           image
           website
           room_block
-          cost
-          amenities
-          check_in
-          check_out
-          stars
           createdAt
           updatedAt
         }
@@ -2821,11 +3057,6 @@ export class APIService {
           image
           website
           room_block
-          cost
-          amenities
-          check_in
-          check_out
-          stars
           createdAt
           updatedAt
         }

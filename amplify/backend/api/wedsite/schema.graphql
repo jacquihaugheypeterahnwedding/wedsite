@@ -1,3 +1,9 @@
+type Login @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String
+  login: String
+}
+
 type City @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String

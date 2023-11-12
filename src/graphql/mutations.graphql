@@ -1,5 +1,47 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateLogin(
+  $input: CreateLoginInput!
+  $condition: ModelLoginConditionInput
+) {
+  createLogin(input: $input, condition: $condition) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateLogin(
+  $input: UpdateLoginInput!
+  $condition: ModelLoginConditionInput
+) {
+  updateLogin(input: $input, condition: $condition) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteLogin(
+  $input: DeleteLoginInput!
+  $condition: ModelLoginConditionInput
+) {
+  deleteLogin(input: $input, condition: $condition) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateCity(
   $input: CreateCityInput!
   $condition: ModelCityConditionInput
@@ -211,11 +253,6 @@ mutation CreateHotel(
     image
     website
     room_block
-    cost
-    amenities
-    check_in
-    check_out
-    stars
     createdAt
     updatedAt
     __typename
@@ -235,11 +272,6 @@ mutation UpdateHotel(
     image
     website
     room_block
-    cost
-    amenities
-    check_in
-    check_out
-    stars
     createdAt
     updatedAt
     __typename
@@ -259,11 +291,6 @@ mutation DeleteHotel(
     image
     website
     room_block
-    cost
-    amenities
-    check_in
-    check_out
-    stars
     createdAt
     updatedAt
     __typename
