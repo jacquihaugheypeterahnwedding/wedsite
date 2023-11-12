@@ -53,6 +53,34 @@ import { AirportsComponent } from './airports/airports.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { FaqComponent } from './faq/faq.component';
 
+
+import { AwsRum, AwsRumConfig } from 'aws-rum-web';
+
+try {
+  const config: AwsRumConfig = {
+    sessionSampleRate: 1,
+    guestRoleArn: "arn:aws:iam::281186247027:role/amplify-wedsite-dev-230405-unauthRole",
+    identityPoolId: "us-east-1:490faf54-7d71-4641-9853-9e86245f60cf",
+    endpoint: "https://dataplane.rum.us-east-1.amazonaws.com",
+    telemetries: ["performance","errors","http"],
+    allowCookies: true,
+    enableXRay: false
+  };
+
+  const APPLICATION_ID: string = 'a6d632aa-bf95-43d7-8d48-72e1f2cf9f8e';
+  const APPLICATION_VERSION: string = '1.0.0';
+  const APPLICATION_REGION: string = 'us-east-1';
+
+  const awsRum: AwsRum = new AwsRum(
+    APPLICATION_ID,
+    APPLICATION_VERSION,
+    APPLICATION_REGION,
+    config
+  );
+} catch (error) {
+  // Ignore errors thrown during CloudWatch RUM web client initialization
+}
+
 @NgModule({
   declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent],
   imports: [

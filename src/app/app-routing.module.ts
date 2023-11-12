@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'lodging', component: LodgingComponent},
   { path: 'restaurants', component: CommingSoonComponent},
   { path: 'user', component: UserComponent},
-  { path: 'eventdetails/:id', component: EventDetailsComponent},
+  { path: 'eventdetails/:id', component: CommingSoonComponent},
   { path: 'help', component: CommingSoonComponent},
   { path: 'gallery', component: CommingSoonComponent},
   { path: 'areas', component: CommingSoonComponent},
