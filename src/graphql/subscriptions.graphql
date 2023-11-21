@@ -1,5 +1,74 @@
 # this is an auto generated file. This will be overwritten
 
+subscription OnCreateArea($filter: ModelSubscriptionAreaFilterInput) {
+  onCreateArea(filter: $filter) {
+    id
+    location
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateArea($filter: ModelSubscriptionAreaFilterInput) {
+  onUpdateArea(filter: $filter) {
+    id
+    location
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteArea($filter: ModelSubscriptionAreaFilterInput) {
+  onDeleteArea(filter: $filter) {
+    id
+    location
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnCreateQuestion($filter: ModelSubscriptionQuestionFilterInput) {
+  onCreateQuestion(filter: $filter) {
+    id
+    question
+    answer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateQuestion($filter: ModelSubscriptionQuestionFilterInput) {
+  onUpdateQuestion(filter: $filter) {
+    id
+    question
+    answer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteQuestion($filter: ModelSubscriptionQuestionFilterInput) {
+  onDeleteQuestion(filter: $filter) {
+    id
+    question
+    answer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 subscription OnCreateLogin($filter: ModelSubscriptionLoginFilterInput) {
   onCreateLogin(filter: $filter) {
     id

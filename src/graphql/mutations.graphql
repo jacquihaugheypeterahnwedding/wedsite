@@ -1,5 +1,92 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateArea(
+  $input: CreateAreaInput!
+  $condition: ModelAreaConditionInput
+) {
+  createArea(input: $input, condition: $condition) {
+    id
+    location
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateArea(
+  $input: UpdateAreaInput!
+  $condition: ModelAreaConditionInput
+) {
+  updateArea(input: $input, condition: $condition) {
+    id
+    location
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteArea(
+  $input: DeleteAreaInput!
+  $condition: ModelAreaConditionInput
+) {
+  deleteArea(input: $input, condition: $condition) {
+    id
+    location
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateQuestion(
+  $input: CreateQuestionInput!
+  $condition: ModelQuestionConditionInput
+) {
+  createQuestion(input: $input, condition: $condition) {
+    id
+    question
+    answer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateQuestion(
+  $input: UpdateQuestionInput!
+  $condition: ModelQuestionConditionInput
+) {
+  updateQuestion(input: $input, condition: $condition) {
+    id
+    question
+    answer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteQuestion(
+  $input: DeleteQuestionInput!
+  $condition: ModelQuestionConditionInput
+) {
+  deleteQuestion(input: $input, condition: $condition) {
+    id
+    question
+    answer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateLogin(
   $input: CreateLoginInput!
   $condition: ModelLoginConditionInput

@@ -1,5 +1,67 @@
 # this is an auto generated file. This will be overwritten
 
+query GetArea($id: ID!) {
+  getArea(id: $id) {
+    id
+    location
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListAreas(
+  $filter: ModelAreaFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAreas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      location
+      description
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetQuestion($id: ID!) {
+  getQuestion(id: $id) {
+    id
+    question
+    answer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListQuestions(
+  $filter: ModelQuestionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listQuestions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      question
+      answer
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
 query GetLogin($id: ID!) {
   getLogin(id: $id) {
     id

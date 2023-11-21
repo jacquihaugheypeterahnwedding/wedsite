@@ -10,6 +10,12 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateArea: OnCreateAreaSubscription;
+  onUpdateArea: OnUpdateAreaSubscription;
+  onDeleteArea: OnDeleteAreaSubscription;
+  onCreateQuestion: OnCreateQuestionSubscription;
+  onUpdateQuestion: OnUpdateQuestionSubscription;
+  onDeleteQuestion: OnDeleteQuestionSubscription;
   onCreateLogin: OnCreateLoginSubscription;
   onUpdateLogin: OnUpdateLoginSubscription;
   onDeleteLogin: OnDeleteLoginSubscription;
@@ -36,18 +42,20 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateLoginInput = {
+export type CreateAreaInput = {
   id?: string | null;
-  username?: string | null;
-  login?: string | null;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
 };
 
-export type ModelLoginConditionInput = {
-  username?: ModelStringInput | null;
-  login?: ModelStringInput | null;
-  and?: Array<ModelLoginConditionInput | null> | null;
-  or?: Array<ModelLoginConditionInput | null> | null;
-  not?: ModelLoginConditionInput | null;
+export type ModelAreaConditionInput = {
+  location?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelAreaConditionInput | null> | null;
+  or?: Array<ModelAreaConditionInput | null> | null;
+  not?: ModelAreaConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -87,6 +95,74 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type Area = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateAreaInput = {
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+};
+
+export type DeleteAreaInput = {
+  id: string;
+};
+
+export type CreateQuestionInput = {
+  id?: string | null;
+  question?: string | null;
+  answer?: string | null;
+};
+
+export type ModelQuestionConditionInput = {
+  question?: ModelStringInput | null;
+  answer?: ModelStringInput | null;
+  and?: Array<ModelQuestionConditionInput | null> | null;
+  or?: Array<ModelQuestionConditionInput | null> | null;
+  not?: ModelQuestionConditionInput | null;
+};
+
+export type Question = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateQuestionInput = {
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+};
+
+export type DeleteQuestionInput = {
+  id: string;
+};
+
+export type CreateLoginInput = {
+  id?: string | null;
+  username?: string | null;
+  login?: string | null;
+};
+
+export type ModelLoginConditionInput = {
+  username?: ModelStringInput | null;
+  login?: ModelStringInput | null;
+  and?: Array<ModelLoginConditionInput | null> | null;
+  or?: Array<ModelLoginConditionInput | null> | null;
+  not?: ModelLoginConditionInput | null;
 };
 
 export type Login = {
@@ -418,13 +494,14 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelLoginFilterInput = {
+export type ModelAreaFilterInput = {
   id?: ModelIDInput | null;
-  username?: ModelStringInput | null;
-  login?: ModelStringInput | null;
-  and?: Array<ModelLoginFilterInput | null> | null;
-  or?: Array<ModelLoginFilterInput | null> | null;
-  not?: ModelLoginFilterInput | null;
+  location?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelAreaFilterInput | null> | null;
+  or?: Array<ModelAreaFilterInput | null> | null;
+  not?: ModelAreaFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -441,6 +518,36 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelAreaConnection = {
+  __typename: "ModelAreaConnection";
+  items: Array<Area | null>;
+  nextToken?: string | null;
+};
+
+export type ModelQuestionFilterInput = {
+  id?: ModelIDInput | null;
+  question?: ModelStringInput | null;
+  answer?: ModelStringInput | null;
+  and?: Array<ModelQuestionFilterInput | null> | null;
+  or?: Array<ModelQuestionFilterInput | null> | null;
+  not?: ModelQuestionFilterInput | null;
+};
+
+export type ModelQuestionConnection = {
+  __typename: "ModelQuestionConnection";
+  items: Array<Question | null>;
+  nextToken?: string | null;
+};
+
+export type ModelLoginFilterInput = {
+  id?: ModelIDInput | null;
+  username?: ModelStringInput | null;
+  login?: ModelStringInput | null;
+  and?: Array<ModelLoginFilterInput | null> | null;
+  or?: Array<ModelLoginFilterInput | null> | null;
+  not?: ModelLoginFilterInput | null;
 };
 
 export type ModelLoginConnection = {
@@ -572,12 +679,13 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionLoginFilterInput = {
+export type ModelSubscriptionAreaFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  username?: ModelSubscriptionStringInput | null;
-  login?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionLoginFilterInput | null> | null;
-  or?: Array<ModelSubscriptionLoginFilterInput | null> | null;
+  location?: ModelSubscriptionStringInput | null;
+  description?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionAreaFilterInput | null> | null;
+  or?: Array<ModelSubscriptionAreaFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -608,6 +716,22 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionQuestionFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  question?: ModelSubscriptionStringInput | null;
+  answer?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionQuestionFilterInput | null> | null;
+  or?: Array<ModelSubscriptionQuestionFilterInput | null> | null;
+};
+
+export type ModelSubscriptionLoginFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  username?: ModelSubscriptionStringInput | null;
+  login?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionLoginFilterInput | null> | null;
+  or?: Array<ModelSubscriptionLoginFilterInput | null> | null;
 };
 
 export type ModelSubscriptionCityFilterInput = {
@@ -687,6 +811,63 @@ export type ModelSubscriptionRestaurantFilterInput = {
   address?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateAreaMutation = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateAreaMutation = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteAreaMutation = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type CreateQuestionMutation = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateQuestionMutation = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteQuestionMutation = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateLoginMutation = {
@@ -959,6 +1140,52 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetAreaQuery = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListAreasQuery = {
+  __typename: "ModelAreaConnection";
+  items: Array<{
+    __typename: "Area";
+    id: string;
+    location?: string | null;
+    description?: string | null;
+    image?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
+export type GetQuestionQuery = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListQuestionsQuery = {
+  __typename: "ModelQuestionConnection";
+  items: Array<{
+    __typename: "Question";
+    id: string;
+    question?: string | null;
+    answer?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetLoginQuery = {
   __typename: "Login";
   id: string;
@@ -1169,6 +1396,63 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateAreaSubscription = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateAreaSubscription = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteAreaSubscription = {
+  __typename: "Area";
+  id: string;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnCreateQuestionSubscription = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateQuestionSubscription = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteQuestionSubscription = {
+  __typename: "Question";
+  id: string;
+  question?: string | null;
+  answer?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateLoginSubscription = {
@@ -1445,6 +1729,159 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateArea(
+    input: CreateAreaInput,
+    condition?: ModelAreaConditionInput
+  ): Promise<CreateAreaMutation> {
+    const statement = `mutation CreateArea($input: CreateAreaInput!, $condition: ModelAreaConditionInput) {
+        createArea(input: $input, condition: $condition) {
+          __typename
+          id
+          location
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateAreaMutation>response.data.createArea;
+  }
+  async UpdateArea(
+    input: UpdateAreaInput,
+    condition?: ModelAreaConditionInput
+  ): Promise<UpdateAreaMutation> {
+    const statement = `mutation UpdateArea($input: UpdateAreaInput!, $condition: ModelAreaConditionInput) {
+        updateArea(input: $input, condition: $condition) {
+          __typename
+          id
+          location
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateAreaMutation>response.data.updateArea;
+  }
+  async DeleteArea(
+    input: DeleteAreaInput,
+    condition?: ModelAreaConditionInput
+  ): Promise<DeleteAreaMutation> {
+    const statement = `mutation DeleteArea($input: DeleteAreaInput!, $condition: ModelAreaConditionInput) {
+        deleteArea(input: $input, condition: $condition) {
+          __typename
+          id
+          location
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteAreaMutation>response.data.deleteArea;
+  }
+  async CreateQuestion(
+    input: CreateQuestionInput,
+    condition?: ModelQuestionConditionInput
+  ): Promise<CreateQuestionMutation> {
+    const statement = `mutation CreateQuestion($input: CreateQuestionInput!, $condition: ModelQuestionConditionInput) {
+        createQuestion(input: $input, condition: $condition) {
+          __typename
+          id
+          question
+          answer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateQuestionMutation>response.data.createQuestion;
+  }
+  async UpdateQuestion(
+    input: UpdateQuestionInput,
+    condition?: ModelQuestionConditionInput
+  ): Promise<UpdateQuestionMutation> {
+    const statement = `mutation UpdateQuestion($input: UpdateQuestionInput!, $condition: ModelQuestionConditionInput) {
+        updateQuestion(input: $input, condition: $condition) {
+          __typename
+          id
+          question
+          answer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateQuestionMutation>response.data.updateQuestion;
+  }
+  async DeleteQuestion(
+    input: DeleteQuestionInput,
+    condition?: ModelQuestionConditionInput
+  ): Promise<DeleteQuestionMutation> {
+    const statement = `mutation DeleteQuestion($input: DeleteQuestionInput!, $condition: ModelQuestionConditionInput) {
+        deleteQuestion(input: $input, condition: $condition) {
+          __typename
+          id
+          question
+          answer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteQuestionMutation>response.data.deleteQuestion;
+  }
   async CreateLogin(
     input: CreateLoginInput,
     condition?: ModelLoginConditionInput
@@ -2099,6 +2536,114 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetArea(id: string): Promise<GetAreaQuery> {
+    const statement = `query GetArea($id: ID!) {
+        getArea(id: $id) {
+          __typename
+          id
+          location
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetAreaQuery>response.data.getArea;
+  }
+  async ListAreas(
+    filter?: ModelAreaFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListAreasQuery> {
+    const statement = `query ListAreas($filter: ModelAreaFilterInput, $limit: Int, $nextToken: String) {
+        listAreas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            location
+            description
+            image
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListAreasQuery>response.data.listAreas;
+  }
+  async GetQuestion(id: string): Promise<GetQuestionQuery> {
+    const statement = `query GetQuestion($id: ID!) {
+        getQuestion(id: $id) {
+          __typename
+          id
+          question
+          answer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetQuestionQuery>response.data.getQuestion;
+  }
+  async ListQuestions(
+    filter?: ModelQuestionFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListQuestionsQuery> {
+    const statement = `query ListQuestions($filter: ModelQuestionFilterInput, $limit: Int, $nextToken: String) {
+        listQuestions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            question
+            answer
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListQuestionsQuery>response.data.listQuestions;
+  }
   async GetLogin(id: string): Promise<GetLoginQuery> {
     const statement = `query GetLogin($id: ID!) {
         getLogin(id: $id) {
@@ -2559,6 +3104,165 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateAreaListener(
+    filter?: ModelSubscriptionAreaFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateArea">>
+  > {
+    const statement = `subscription OnCreateArea($filter: ModelSubscriptionAreaFilterInput) {
+        onCreateArea(filter: $filter) {
+          __typename
+          id
+          location
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateArea">>
+    >;
+  }
+
+  OnUpdateAreaListener(
+    filter?: ModelSubscriptionAreaFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateArea">>
+  > {
+    const statement = `subscription OnUpdateArea($filter: ModelSubscriptionAreaFilterInput) {
+        onUpdateArea(filter: $filter) {
+          __typename
+          id
+          location
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateArea">>
+    >;
+  }
+
+  OnDeleteAreaListener(
+    filter?: ModelSubscriptionAreaFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteArea">>
+  > {
+    const statement = `subscription OnDeleteArea($filter: ModelSubscriptionAreaFilterInput) {
+        onDeleteArea(filter: $filter) {
+          __typename
+          id
+          location
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteArea">>
+    >;
+  }
+
+  OnCreateQuestionListener(
+    filter?: ModelSubscriptionQuestionFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateQuestion">>
+  > {
+    const statement = `subscription OnCreateQuestion($filter: ModelSubscriptionQuestionFilterInput) {
+        onCreateQuestion(filter: $filter) {
+          __typename
+          id
+          question
+          answer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateQuestion">>
+    >;
+  }
+
+  OnUpdateQuestionListener(
+    filter?: ModelSubscriptionQuestionFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateQuestion">>
+  > {
+    const statement = `subscription OnUpdateQuestion($filter: ModelSubscriptionQuestionFilterInput) {
+        onUpdateQuestion(filter: $filter) {
+          __typename
+          id
+          question
+          answer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateQuestion">>
+    >;
+  }
+
+  OnDeleteQuestionListener(
+    filter?: ModelSubscriptionQuestionFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteQuestion">>
+  > {
+    const statement = `subscription OnDeleteQuestion($filter: ModelSubscriptionQuestionFilterInput) {
+        onDeleteQuestion(filter: $filter) {
+          __typename
+          id
+          question
+          answer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteQuestion">>
+    >;
+  }
+
   OnCreateLoginListener(
     filter?: ModelSubscriptionLoginFilterInput
   ): Observable<

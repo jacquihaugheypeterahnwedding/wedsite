@@ -13,6 +13,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { FaqComponent } from './faq/faq.component';
+import { AreasComponent } from './areas/areas.component';
 
 
 
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'eventdetails/:id', component: CommingSoonComponent},
   { path: 'help', component: CommingSoonComponent},
   { path: 'gallery', component: CommingSoonComponent},
-  { path: 'areas', component: CommingSoonComponent},
+  { path: 'areas', component: AreasComponent},
   { path: 'activities', component: CommingSoonComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'airports', component: CommingSoonComponent},
