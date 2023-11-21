@@ -8,6 +8,7 @@ import { Amplify } from 'aws-amplify';
 import aws_exports from './aws-exports';
 
 
+
 Amplify.configure(aws_exports);
 
 
@@ -22,3 +23,6 @@ import translation_dict from './translation';
 
 
 I18n.putVocabularies(translation_dict);
+
+
+

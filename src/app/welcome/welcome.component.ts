@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 
+import { I18n } from 'aws-amplify';
 
 @Component({
   selector: 'app-welcome',
@@ -8,6 +9,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
+
+  I18n = I18n;
 
   constructor(public userService: UserService) {
 

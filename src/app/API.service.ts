@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateTranslation: OnCreateTranslationSubscription;
+  onUpdateTranslation: OnUpdateTranslationSubscription;
+  onDeleteTranslation: OnDeleteTranslationSubscription;
   onCreateArea: OnCreateAreaSubscription;
   onUpdateArea: OnUpdateAreaSubscription;
   onDeleteArea: OnDeleteAreaSubscription;
@@ -42,20 +45,20 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateAreaInput = {
+export type CreateTranslationInput = {
   id?: string | null;
-  location?: string | null;
-  description?: string | null;
-  image?: string | null;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
 };
 
-export type ModelAreaConditionInput = {
-  location?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  and?: Array<ModelAreaConditionInput | null> | null;
-  or?: Array<ModelAreaConditionInput | null> | null;
-  not?: ModelAreaConditionInput | null;
+export type ModelTranslationConditionInput = {
+  key?: ModelStringInput | null;
+  en?: ModelStringInput | null;
+  ko?: ModelStringInput | null;
+  and?: Array<ModelTranslationConditionInput | null> | null;
+  or?: Array<ModelTranslationConditionInput | null> | null;
+  not?: ModelTranslationConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -95,6 +98,43 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type Translation = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateTranslationInput = {
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+};
+
+export type DeleteTranslationInput = {
+  id: string;
+};
+
+export type CreateAreaInput = {
+  id?: string | null;
+  location?: string | null;
+  description?: string | null;
+  image?: string | null;
+};
+
+export type ModelAreaConditionInput = {
+  location?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelAreaConditionInput | null> | null;
+  or?: Array<ModelAreaConditionInput | null> | null;
+  not?: ModelAreaConditionInput | null;
 };
 
 export type Area = {
@@ -494,14 +534,14 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelAreaFilterInput = {
+export type ModelTranslationFilterInput = {
   id?: ModelIDInput | null;
-  location?: ModelStringInput | null;
-  description?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  and?: Array<ModelAreaFilterInput | null> | null;
-  or?: Array<ModelAreaFilterInput | null> | null;
-  not?: ModelAreaFilterInput | null;
+  key?: ModelStringInput | null;
+  en?: ModelStringInput | null;
+  ko?: ModelStringInput | null;
+  and?: Array<ModelTranslationFilterInput | null> | null;
+  or?: Array<ModelTranslationFilterInput | null> | null;
+  not?: ModelTranslationFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -518,6 +558,22 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelTranslationConnection = {
+  __typename: "ModelTranslationConnection";
+  items: Array<Translation | null>;
+  nextToken?: string | null;
+};
+
+export type ModelAreaFilterInput = {
+  id?: ModelIDInput | null;
+  location?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelAreaFilterInput | null> | null;
+  or?: Array<ModelAreaFilterInput | null> | null;
+  not?: ModelAreaFilterInput | null;
 };
 
 export type ModelAreaConnection = {
@@ -679,13 +735,13 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionAreaFilterInput = {
+export type ModelSubscriptionTranslationFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  location?: ModelSubscriptionStringInput | null;
-  description?: ModelSubscriptionStringInput | null;
-  image?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionAreaFilterInput | null> | null;
-  or?: Array<ModelSubscriptionAreaFilterInput | null> | null;
+  key?: ModelSubscriptionStringInput | null;
+  en?: ModelSubscriptionStringInput | null;
+  ko?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionTranslationFilterInput | null> | null;
+  or?: Array<ModelSubscriptionTranslationFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -716,6 +772,15 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionAreaFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  location?: ModelSubscriptionStringInput | null;
+  description?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionAreaFilterInput | null> | null;
+  or?: Array<ModelSubscriptionAreaFilterInput | null> | null;
 };
 
 export type ModelSubscriptionQuestionFilterInput = {
@@ -811,6 +876,36 @@ export type ModelSubscriptionRestaurantFilterInput = {
   address?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateTranslationMutation = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateTranslationMutation = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteTranslationMutation = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateAreaMutation = {
@@ -1140,6 +1235,30 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetTranslationQuery = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListTranslationsQuery = {
+  __typename: "ModelTranslationConnection";
+  items: Array<{
+    __typename: "Translation";
+    id: string;
+    key?: string | null;
+    en?: string | null;
+    ko?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetAreaQuery = {
   __typename: "Area";
   id: string;
@@ -1396,6 +1515,36 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateTranslationSubscription = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateTranslationSubscription = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteTranslationSubscription = {
+  __typename: "Translation";
+  id: string;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateAreaSubscription = {
@@ -1729,6 +1878,84 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateTranslation(
+    input: CreateTranslationInput,
+    condition?: ModelTranslationConditionInput
+  ): Promise<CreateTranslationMutation> {
+    const statement = `mutation CreateTranslation($input: CreateTranslationInput!, $condition: ModelTranslationConditionInput) {
+        createTranslation(input: $input, condition: $condition) {
+          __typename
+          id
+          key
+          en
+          ko
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateTranslationMutation>response.data.createTranslation;
+  }
+  async UpdateTranslation(
+    input: UpdateTranslationInput,
+    condition?: ModelTranslationConditionInput
+  ): Promise<UpdateTranslationMutation> {
+    const statement = `mutation UpdateTranslation($input: UpdateTranslationInput!, $condition: ModelTranslationConditionInput) {
+        updateTranslation(input: $input, condition: $condition) {
+          __typename
+          id
+          key
+          en
+          ko
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateTranslationMutation>response.data.updateTranslation;
+  }
+  async DeleteTranslation(
+    input: DeleteTranslationInput,
+    condition?: ModelTranslationConditionInput
+  ): Promise<DeleteTranslationMutation> {
+    const statement = `mutation DeleteTranslation($input: DeleteTranslationInput!, $condition: ModelTranslationConditionInput) {
+        deleteTranslation(input: $input, condition: $condition) {
+          __typename
+          id
+          key
+          en
+          ko
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteTranslationMutation>response.data.deleteTranslation;
+  }
   async CreateArea(
     input: CreateAreaInput,
     condition?: ModelAreaConditionInput
@@ -2536,6 +2763,61 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetTranslation(id: string): Promise<GetTranslationQuery> {
+    const statement = `query GetTranslation($id: ID!) {
+        getTranslation(id: $id) {
+          __typename
+          id
+          key
+          en
+          ko
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetTranslationQuery>response.data.getTranslation;
+  }
+  async ListTranslations(
+    filter?: ModelTranslationFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListTranslationsQuery> {
+    const statement = `query ListTranslations($filter: ModelTranslationFilterInput, $limit: Int, $nextToken: String) {
+        listTranslations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            key
+            en
+            ko
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListTranslationsQuery>response.data.listTranslations;
+  }
   async GetArea(id: string): Promise<GetAreaQuery> {
     const statement = `query GetArea($id: ID!) {
         getArea(id: $id) {
@@ -3104,6 +3386,87 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateTranslationListener(
+    filter?: ModelSubscriptionTranslationFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateTranslation">>
+  > {
+    const statement = `subscription OnCreateTranslation($filter: ModelSubscriptionTranslationFilterInput) {
+        onCreateTranslation(filter: $filter) {
+          __typename
+          id
+          key
+          en
+          ko
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateTranslation">>
+    >;
+  }
+
+  OnUpdateTranslationListener(
+    filter?: ModelSubscriptionTranslationFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateTranslation">>
+  > {
+    const statement = `subscription OnUpdateTranslation($filter: ModelSubscriptionTranslationFilterInput) {
+        onUpdateTranslation(filter: $filter) {
+          __typename
+          id
+          key
+          en
+          ko
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateTranslation">>
+    >;
+  }
+
+  OnDeleteTranslationListener(
+    filter?: ModelSubscriptionTranslationFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteTranslation">>
+  > {
+    const statement = `subscription OnDeleteTranslation($filter: ModelSubscriptionTranslationFilterInput) {
+        onDeleteTranslation(filter: $filter) {
+          __typename
+          id
+          key
+          en
+          ko
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteTranslation">>
+    >;
+  }
+
   OnCreateAreaListener(
     filter?: ModelSubscriptionAreaFilterInput
   ): Observable<

@@ -22,11 +22,8 @@ export class UserService {
 
   constructor(private api: APIService, private cognitoService: CognitoService) {
 
-    console.log('csntruct')
     this.cognitoService.getUser().then(value => {
-        console.log(value);
         const username = value.username;
-        console.log(username);
 
         //this.userSettings = await this.api.ListUserSettings({user: {eq: username}});
 
@@ -35,7 +32,6 @@ export class UserService {
           username: username,
           login: (new Date()).toString()
         }
-        console.log(login);
     
         this.api.CreateLogin(login);
 
@@ -52,7 +48,6 @@ export class UserService {
 
   async setup(): Promise<void> {
     this.username = (await this.cognitoService.getUser()).username;
-    console.log(this.username);
     const settings: ListUserSettingsQuery = await this.api.ListUserSettings({user: {eq: this.username}});
 
     if (settings.items.length > 0) {

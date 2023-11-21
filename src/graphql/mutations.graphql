@@ -1,5 +1,50 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateTranslation(
+  $input: CreateTranslationInput!
+  $condition: ModelTranslationConditionInput
+) {
+  createTranslation(input: $input, condition: $condition) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateTranslation(
+  $input: UpdateTranslationInput!
+  $condition: ModelTranslationConditionInput
+) {
+  updateTranslation(input: $input, condition: $condition) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteTranslation(
+  $input: DeleteTranslationInput!
+  $condition: ModelTranslationConditionInput
+) {
+  deleteTranslation(input: $input, condition: $condition) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateArea(
   $input: CreateAreaInput!
   $condition: ModelAreaConditionInput

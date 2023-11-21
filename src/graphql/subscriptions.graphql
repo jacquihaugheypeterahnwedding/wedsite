@@ -1,5 +1,47 @@
 # this is an auto generated file. This will be overwritten
 
+subscription OnCreateTranslation(
+  $filter: ModelSubscriptionTranslationFilterInput
+) {
+  onCreateTranslation(filter: $filter) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateTranslation(
+  $filter: ModelSubscriptionTranslationFilterInput
+) {
+  onUpdateTranslation(filter: $filter) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteTranslation(
+  $filter: ModelSubscriptionTranslationFilterInput
+) {
+  onDeleteTranslation(filter: $filter) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 subscription OnCreateArea($filter: ModelSubscriptionAreaFilterInput) {
   onCreateArea(filter: $filter) {
     id

@@ -1,3 +1,10 @@
+type Translation @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  key: String
+  en: String
+  ko: String
+}
+
 type Area @model @auth(rules: [{allow: public}]) {
   id: ID!
   location: String
