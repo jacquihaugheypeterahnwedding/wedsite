@@ -1,1 +1,8 @@
-<p>faq works!</p>
+
+<mat-accordion displayMode="default" multi="true"
+               class="faq-container">
+  <mat-expansion-panel *ngFor="let faqItem of faqList">
+    <mat-expansion-panel-header>{{faqItem.question}}</mat-expansion-panel-header>
+    <p>{{faqItem.answer}}</p>
+  </mat-expansion-panel>
+</mat-accordion>

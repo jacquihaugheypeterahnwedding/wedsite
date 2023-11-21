@@ -55,7 +55,6 @@ import { FaqComponent } from './faq/faq.component';
 
 
 
-
 @NgModule({
   declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent],
   imports: [

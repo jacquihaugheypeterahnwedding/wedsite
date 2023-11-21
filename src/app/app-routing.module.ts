@@ -14,6 +14,7 @@ import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { FaqComponent } from './faq/faq.component';
 import { AreasComponent } from './areas/areas.component';
+import { AirportsComponent } from './airports/airports.component';
 
 
 
@@ -31,7 +32,7 @@ const routes: Routes = [
   { path: 'areas', component: AreasComponent},
   { path: 'activities', component: CommingSoonComponent},
   { path: 'faq', component: FaqComponent},
-  { path: 'airports', component: CommingSoonComponent},
+  { path: 'airports', component: AirportsComponent},
 ];
 export const appRouting = RouterModule.forRoot(routes);
 @NgModule({
