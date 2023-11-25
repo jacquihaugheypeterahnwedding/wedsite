@@ -53,6 +53,8 @@ import { AirportsComponent } from './airports/airports.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { FaqComponent } from './faq/faq.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 @NgModule({
@@ -61,6 +63,7 @@ import { FaqComponent } from './faq/faq.component';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
+    FlexLayoutModule,
     AmplifyAuthenticatorModule,
     /* configuring form modules */
     FormsModule,

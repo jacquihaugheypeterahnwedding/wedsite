@@ -4,10 +4,23 @@
 }
 
 .eng {
-    width: 50%;
 }
 
 .all {
-    margin-left: 40px;
+    height:100%;
+    padding-left: 30px;
+
+    width: 100%;
 }
 
+.total {
+    /* Firefox */
+    height: -moz-calc(100% - 10%);
+    /* WebKit */
+    height: -webkit-calc(100% - 10%);
+    /* Opera */
+    height: -o-calc(100% - 10%);
+    /* Standard */
+    height: calc(100% - 10%);
+    position: fixed;
+}
