@@ -52,6 +52,33 @@ def create_user(cognito_identity_client, user_pool_id, username, email, password
     print(response)
 
 
+def setup():
+    #groups = get_guests()
+
+    json_file = open("../creds/aws.json")
+
+    a = json.load(json_file)
+    access_key_id = a["access_key_id"]
+    secret_access_key = a["secret_access_key"]
+    user_pool_id = a["user_pool_id"]
+    default_region = "us-east-1"
+
+
+    # Create an authenticated session using Amazon Cognito
+    session = boto3.Session(
+        aws_access_key_id=access_key_id,
+        aws_secret_access_key=secret_access_key,
+        region_name=default_region,
+    )
+    cognito_identity_client = session.client('cognito-idp')
+
+
+    return (cognito_identity_client, user_pool_id)
+
+
+
+    
+
 def main():
     #groups = get_guests()
 
