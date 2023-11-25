@@ -182,6 +182,7 @@ mutation CreateCity(
     id
     name
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -196,6 +197,7 @@ mutation UpdateCity(
     id
     name
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -210,6 +212,7 @@ mutation DeleteCity(
     id
     name
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -225,6 +228,7 @@ mutation CreateAirport(
     name
     address
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -240,6 +244,7 @@ mutation UpdateAirport(
     name
     address
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -255,6 +260,7 @@ mutation DeleteAirport(
     name
     address
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -385,6 +391,7 @@ mutation CreateHotel(
     image
     website
     room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -404,6 +411,7 @@ mutation UpdateHotel(
     image
     website
     room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -423,6 +431,7 @@ mutation DeleteHotel(
     image
     website
     room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -486,6 +495,7 @@ mutation CreateRestaurant(
     name
     description
     address
+    image
     createdAt
     updatedAt
     __typename
@@ -501,6 +511,7 @@ mutation UpdateRestaurant(
     name
     description
     address
+    image
     createdAt
     updatedAt
     __typename
@@ -516,6 +527,7 @@ mutation DeleteRestaurant(
     name
     description
     address
+    image
     createdAt
     updatedAt
     __typename

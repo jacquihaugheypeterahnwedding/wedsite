@@ -228,11 +228,13 @@ export type CreateCityInput = {
   id?: string | null;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
 };
 
 export type ModelCityConditionInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
   and?: Array<ModelCityConditionInput | null> | null;
   or?: Array<ModelCityConditionInput | null> | null;
   not?: ModelCityConditionInput | null;
@@ -243,6 +245,7 @@ export type City = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -251,6 +254,7 @@ export type UpdateCityInput = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
 };
 
 export type DeleteCityInput = {
@@ -262,12 +266,14 @@ export type CreateAirportInput = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
 };
 
 export type ModelAirportConditionInput = {
   name?: ModelStringInput | null;
   address?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
   and?: Array<ModelAirportConditionInput | null> | null;
   or?: Array<ModelAirportConditionInput | null> | null;
   not?: ModelAirportConditionInput | null;
@@ -279,6 +285,7 @@ export type Airport = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -288,6 +295,7 @@ export type UpdateAirportInput = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
 };
 
 export type DeleteAirportInput = {
@@ -405,6 +413,7 @@ export type CreateHotelInput = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
 };
 
 export type ModelHotelConditionInput = {
@@ -415,6 +424,7 @@ export type ModelHotelConditionInput = {
   image?: ModelStringInput | null;
   website?: ModelStringInput | null;
   room_block?: ModelStringInput | null;
+  city?: ModelStringInput | null;
   and?: Array<ModelHotelConditionInput | null> | null;
   or?: Array<ModelHotelConditionInput | null> | null;
   not?: ModelHotelConditionInput | null;
@@ -430,6 +440,7 @@ export type Hotel = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -443,6 +454,7 @@ export type UpdateHotelInput = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
 };
 
 export type DeleteHotelInput = {
@@ -502,12 +514,14 @@ export type CreateRestaurantInput = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
 };
 
 export type ModelRestaurantConditionInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   address?: ModelStringInput | null;
+  image?: ModelStringInput | null;
   and?: Array<ModelRestaurantConditionInput | null> | null;
   or?: Array<ModelRestaurantConditionInput | null> | null;
   not?: ModelRestaurantConditionInput | null;
@@ -519,6 +533,7 @@ export type Restaurant = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -528,6 +543,7 @@ export type UpdateRestaurantInput = {
   name?: string | null;
   description?: string | null;
   address?: string | null;
+  image?: string | null;
 };
 
 export type DeleteRestaurantInput = {
@@ -616,6 +632,7 @@ export type ModelCityFilterInput = {
   id?: ModelIDInput | null;
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
   and?: Array<ModelCityFilterInput | null> | null;
   or?: Array<ModelCityFilterInput | null> | null;
   not?: ModelCityFilterInput | null;
@@ -632,6 +649,7 @@ export type ModelAirportFilterInput = {
   name?: ModelStringInput | null;
   address?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
   and?: Array<ModelAirportFilterInput | null> | null;
   or?: Array<ModelAirportFilterInput | null> | null;
   not?: ModelAirportFilterInput | null;
@@ -691,6 +709,7 @@ export type ModelHotelFilterInput = {
   image?: ModelStringInput | null;
   website?: ModelStringInput | null;
   room_block?: ModelStringInput | null;
+  city?: ModelStringInput | null;
   and?: Array<ModelHotelFilterInput | null> | null;
   or?: Array<ModelHotelFilterInput | null> | null;
   not?: ModelHotelFilterInput | null;
@@ -724,6 +743,7 @@ export type ModelRestaurantFilterInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   address?: ModelStringInput | null;
+  image?: ModelStringInput | null;
   and?: Array<ModelRestaurantFilterInput | null> | null;
   or?: Array<ModelRestaurantFilterInput | null> | null;
   not?: ModelRestaurantFilterInput | null;
@@ -803,6 +823,7 @@ export type ModelSubscriptionCityFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   name?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionCityFilterInput | null> | null;
   or?: Array<ModelSubscriptionCityFilterInput | null> | null;
 };
@@ -812,6 +833,7 @@ export type ModelSubscriptionAirportFilterInput = {
   name?: ModelSubscriptionStringInput | null;
   address?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionAirportFilterInput | null> | null;
   or?: Array<ModelSubscriptionAirportFilterInput | null> | null;
 };
@@ -850,6 +872,7 @@ export type ModelSubscriptionHotelFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   website?: ModelSubscriptionStringInput | null;
   room_block?: ModelSubscriptionStringInput | null;
+  city?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionHotelFilterInput | null> | null;
   or?: Array<ModelSubscriptionHotelFilterInput | null> | null;
 };
@@ -874,6 +897,7 @@ export type ModelSubscriptionRestaurantFilterInput = {
   name?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
   address?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
 };
@@ -997,6 +1021,7 @@ export type CreateCityMutation = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1006,6 +1031,7 @@ export type UpdateCityMutation = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1015,6 +1041,7 @@ export type DeleteCityMutation = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1025,6 +1052,7 @@ export type CreateAirportMutation = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1035,6 +1063,7 @@ export type UpdateAirportMutation = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1045,6 +1074,7 @@ export type DeleteAirportMutation = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1140,6 +1170,7 @@ export type CreateHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1154,6 +1185,7 @@ export type UpdateHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1168,6 +1200,7 @@ export type DeleteHotelMutation = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1211,6 +1244,7 @@ export type CreateRestaurantMutation = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1221,6 +1255,7 @@ export type UpdateRestaurantMutation = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1231,6 +1266,7 @@ export type DeleteRestaurantMutation = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1332,6 +1368,7 @@ export type GetCityQuery = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1343,6 +1380,7 @@ export type ListCitiesQuery = {
     id: string;
     name?: string | null;
     description?: string | null;
+    image?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1355,6 +1393,7 @@ export type GetAirportQuery = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1367,6 +1406,7 @@ export type ListAirportsQuery = {
     name?: string | null;
     address?: string | null;
     description?: string | null;
+    image?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1445,6 +1485,7 @@ export type GetHotelQuery = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1461,6 +1502,7 @@ export type ListHotelsQuery = {
     image?: string | null;
     website?: string | null;
     room_block?: string | null;
+    city?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1499,6 +1541,7 @@ export type GetRestaurantQuery = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1511,6 +1554,7 @@ export type ListRestaurantsQuery = {
     name: string;
     description: string;
     address: string;
+    image?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1636,6 +1680,7 @@ export type OnCreateCitySubscription = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1645,6 +1690,7 @@ export type OnUpdateCitySubscription = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1654,6 +1700,7 @@ export type OnDeleteCitySubscription = {
   id: string;
   name?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1664,6 +1711,7 @@ export type OnCreateAirportSubscription = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1674,6 +1722,7 @@ export type OnUpdateAirportSubscription = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1684,6 +1733,7 @@ export type OnDeleteAirportSubscription = {
   name?: string | null;
   address?: string | null;
   description?: string | null;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1779,6 +1829,7 @@ export type OnCreateHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1793,6 +1844,7 @@ export type OnUpdateHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1807,6 +1859,7 @@ export type OnDeleteHotelSubscription = {
   image?: string | null;
   website?: string | null;
   room_block?: string | null;
+  city?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1850,6 +1903,7 @@ export type OnCreateRestaurantSubscription = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1860,6 +1914,7 @@ export type OnUpdateRestaurantSubscription = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1870,6 +1925,7 @@ export type OnDeleteRestaurantSubscription = {
   name: string;
   description: string;
   address: string;
+  image?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2194,6 +2250,7 @@ export class APIService {
           id
           name
           description
+          image
           createdAt
           updatedAt
         }
@@ -2219,6 +2276,7 @@ export class APIService {
           id
           name
           description
+          image
           createdAt
           updatedAt
         }
@@ -2244,6 +2302,7 @@ export class APIService {
           id
           name
           description
+          image
           createdAt
           updatedAt
         }
@@ -2270,6 +2329,7 @@ export class APIService {
           name
           address
           description
+          image
           createdAt
           updatedAt
         }
@@ -2296,6 +2356,7 @@ export class APIService {
           name
           address
           description
+          image
           createdAt
           updatedAt
         }
@@ -2322,6 +2383,7 @@ export class APIService {
           name
           address
           description
+          image
           createdAt
           updatedAt
         }
@@ -2529,6 +2591,7 @@ export class APIService {
           image
           website
           room_block
+          city
           createdAt
           updatedAt
         }
@@ -2559,6 +2622,7 @@ export class APIService {
           image
           website
           room_block
+          city
           createdAt
           updatedAt
         }
@@ -2589,6 +2653,7 @@ export class APIService {
           image
           website
           room_block
+          city
           createdAt
           updatedAt
         }
@@ -2696,6 +2761,7 @@ export class APIService {
           name
           description
           address
+          image
           createdAt
           updatedAt
         }
@@ -2722,6 +2788,7 @@ export class APIService {
           name
           description
           address
+          image
           createdAt
           updatedAt
         }
@@ -2748,6 +2815,7 @@ export class APIService {
           name
           description
           address
+          image
           createdAt
           updatedAt
         }
@@ -2986,6 +3054,7 @@ export class APIService {
           id
           name
           description
+          image
           createdAt
           updatedAt
         }
@@ -3011,6 +3080,7 @@ export class APIService {
             id
             name
             description
+            image
             createdAt
             updatedAt
           }
@@ -3040,6 +3110,7 @@ export class APIService {
           name
           address
           description
+          image
           createdAt
           updatedAt
         }
@@ -3066,6 +3137,7 @@ export class APIService {
             name
             address
             description
+            image
             createdAt
             updatedAt
           }
@@ -3223,6 +3295,7 @@ export class APIService {
           image
           website
           room_block
+          city
           createdAt
           updatedAt
         }
@@ -3253,6 +3326,7 @@ export class APIService {
             image
             website
             room_block
+            city
             createdAt
             updatedAt
           }
@@ -3339,6 +3413,7 @@ export class APIService {
           name
           description
           address
+          image
           createdAt
           updatedAt
         }
@@ -3365,6 +3440,7 @@ export class APIService {
             name
             description
             address
+            image
             createdAt
             updatedAt
           }
@@ -3715,6 +3791,7 @@ export class APIService {
           id
           name
           description
+          image
           createdAt
           updatedAt
         }
@@ -3741,6 +3818,7 @@ export class APIService {
           id
           name
           description
+          image
           createdAt
           updatedAt
         }
@@ -3767,6 +3845,7 @@ export class APIService {
           id
           name
           description
+          image
           createdAt
           updatedAt
         }
@@ -3794,6 +3873,7 @@ export class APIService {
           name
           address
           description
+          image
           createdAt
           updatedAt
         }
@@ -3821,6 +3901,7 @@ export class APIService {
           name
           address
           description
+          image
           createdAt
           updatedAt
         }
@@ -3848,6 +3929,7 @@ export class APIService {
           name
           address
           description
+          image
           createdAt
           updatedAt
         }
@@ -4062,6 +4144,7 @@ export class APIService {
           image
           website
           room_block
+          city
           createdAt
           updatedAt
         }
@@ -4093,6 +4176,7 @@ export class APIService {
           image
           website
           room_block
+          city
           createdAt
           updatedAt
         }
@@ -4124,6 +4208,7 @@ export class APIService {
           image
           website
           room_block
+          city
           createdAt
           updatedAt
         }
@@ -4241,6 +4326,7 @@ export class APIService {
           name
           description
           address
+          image
           createdAt
           updatedAt
         }
@@ -4268,6 +4354,7 @@ export class APIService {
           name
           description
           address
+          image
           createdAt
           updatedAt
         }
@@ -4295,6 +4382,7 @@ export class APIService {
           name
           description
           address
+          image
           createdAt
           updatedAt
         }

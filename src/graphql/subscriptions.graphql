@@ -149,6 +149,7 @@ subscription OnCreateCity($filter: ModelSubscriptionCityFilterInput) {
     id
     name
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -160,6 +161,7 @@ subscription OnUpdateCity($filter: ModelSubscriptionCityFilterInput) {
     id
     name
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -171,6 +173,7 @@ subscription OnDeleteCity($filter: ModelSubscriptionCityFilterInput) {
     id
     name
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -183,6 +186,7 @@ subscription OnCreateAirport($filter: ModelSubscriptionAirportFilterInput) {
     name
     address
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -195,6 +199,7 @@ subscription OnUpdateAirport($filter: ModelSubscriptionAirportFilterInput) {
     name
     address
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -207,6 +212,7 @@ subscription OnDeleteAirport($filter: ModelSubscriptionAirportFilterInput) {
     name
     address
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -316,6 +322,7 @@ subscription OnCreateHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -332,6 +339,7 @@ subscription OnUpdateHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -348,6 +356,7 @@ subscription OnDeleteHotel($filter: ModelSubscriptionHotelFilterInput) {
     image
     website
     room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -407,6 +416,7 @@ subscription OnCreateRestaurant(
     name
     description
     address
+    image
     createdAt
     updatedAt
     __typename
@@ -421,6 +431,7 @@ subscription OnUpdateRestaurant(
     name
     description
     address
+    image
     createdAt
     updatedAt
     __typename
@@ -435,6 +446,7 @@ subscription OnDeleteRestaurant(
     name
     description
     address
+    image
     createdAt
     updatedAt
     __typename

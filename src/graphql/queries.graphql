@@ -129,6 +129,7 @@ query GetCity($id: ID!) {
     id
     name
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -145,6 +146,7 @@ query ListCities(
       id
       name
       description
+      image
       createdAt
       updatedAt
       __typename
@@ -160,6 +162,7 @@ query GetAirport($id: ID!) {
     name
     address
     description
+    image
     createdAt
     updatedAt
     __typename
@@ -177,6 +180,7 @@ query ListAirports(
       name
       address
       description
+      image
       createdAt
       updatedAt
       __typename
@@ -274,6 +278,7 @@ query GetHotel($id: ID!) {
     image
     website
     room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -295,6 +300,7 @@ query ListHotels(
       image
       website
       room_block
+      city
       createdAt
       updatedAt
       __typename
@@ -344,6 +350,7 @@ query GetRestaurant($id: ID!) {
     name
     description
     address
+    image
     createdAt
     updatedAt
     __typename
@@ -361,6 +368,7 @@ query ListRestaurants(
       name
       description
       address
+      image
       createdAt
       updatedAt
       __typename
