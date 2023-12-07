@@ -19,6 +19,8 @@ export class OurstoryComponent {
   ngOnInit(): void {
     this.api.ListStories().then(value => {
       this.pagesList = value.items as Story[];
+      console.log(this.pagesList);
+      this.pagesList.sort((a, b) =>  (a.footer > b.footer) ? 1 : -1);
 
       setTimeout(() => {
         const pageFlip = new PageFlip(

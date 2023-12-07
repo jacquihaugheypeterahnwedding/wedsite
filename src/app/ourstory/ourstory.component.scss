@@ -1,16 +1,9 @@
 .all {
-    height:100%;
-      padding-left: 30px;
-      position: relative;
-      top: 0px;
-      left: 0px;
-  
-      width: 100%;
-      overflow: scroll;
+    
   
   
   
-      background-image: url("../../assets/paper_o.png");
+      background-image: url("../../assets/wood_o.png");
       background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -18,11 +11,12 @@
   }
 
 
-.container {
-  background-image: url("../../assets/wood.png");
-      background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
+.containerx {
+//padding: 30px;
+//position: relative;
+height: 90%;
+width: 90%;
+padding: 5%;
 }
 
   .flip-book {
@@ -37,11 +31,11 @@
     background-color: hsl(35, 55, 98);
     color: hsl(239, 82%, 47%);
   
-    overflow: hidden;
+    overflow: scroll;
   
     .page-content {
-      width: 100%;
-      height: 100%;
+      width: 90%;
+      height: 90%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -55,10 +49,10 @@
       }
   
       .page-image {
-        height: 100%;
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
+        max-height: 50%;
       }
   
       .page-text {
