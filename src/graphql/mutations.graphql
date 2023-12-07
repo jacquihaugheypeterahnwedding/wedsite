@@ -1,5 +1,53 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateStory(
+  $input: CreateStoryInput!
+  $condition: ModelStoryConditionInput
+) {
+  createStory(input: $input, condition: $condition) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateStory(
+  $input: UpdateStoryInput!
+  $condition: ModelStoryConditionInput
+) {
+  updateStory(input: $input, condition: $condition) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteStory(
+  $input: DeleteStoryInput!
+  $condition: ModelStoryConditionInput
+) {
+  deleteStory(input: $input, condition: $condition) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateTranslation(
   $input: CreateTranslationInput!
   $condition: ModelTranslationConditionInput

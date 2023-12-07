@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateStory: OnCreateStorySubscription;
+  onUpdateStory: OnUpdateStorySubscription;
+  onDeleteStory: OnDeleteStorySubscription;
   onCreateTranslation: OnCreateTranslationSubscription;
   onUpdateTranslation: OnUpdateTranslationSubscription;
   onDeleteTranslation: OnDeleteTranslationSubscription;
@@ -45,20 +48,22 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateTranslationInput = {
+export type CreateStoryInput = {
   id?: string | null;
-  key?: string | null;
-  en?: string | null;
-  ko?: string | null;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
 };
 
-export type ModelTranslationConditionInput = {
-  key?: ModelStringInput | null;
-  en?: ModelStringInput | null;
-  ko?: ModelStringInput | null;
-  and?: Array<ModelTranslationConditionInput | null> | null;
-  or?: Array<ModelTranslationConditionInput | null> | null;
-  not?: ModelTranslationConditionInput | null;
+export type ModelStoryConditionInput = {
+  body?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  header?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelStoryConditionInput | null> | null;
+  or?: Array<ModelStoryConditionInput | null> | null;
+  not?: ModelStoryConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -98,6 +103,45 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type Story = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateStoryInput = {
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+};
+
+export type DeleteStoryInput = {
+  id: string;
+};
+
+export type CreateTranslationInput = {
+  id?: string | null;
+  key?: string | null;
+  en?: string | null;
+  ko?: string | null;
+};
+
+export type ModelTranslationConditionInput = {
+  key?: ModelStringInput | null;
+  en?: ModelStringInput | null;
+  ko?: ModelStringInput | null;
+  and?: Array<ModelTranslationConditionInput | null> | null;
+  or?: Array<ModelTranslationConditionInput | null> | null;
+  not?: ModelTranslationConditionInput | null;
 };
 
 export type Translation = {
@@ -550,14 +594,15 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelTranslationFilterInput = {
+export type ModelStoryFilterInput = {
   id?: ModelIDInput | null;
-  key?: ModelStringInput | null;
-  en?: ModelStringInput | null;
-  ko?: ModelStringInput | null;
-  and?: Array<ModelTranslationFilterInput | null> | null;
-  or?: Array<ModelTranslationFilterInput | null> | null;
-  not?: ModelTranslationFilterInput | null;
+  body?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  header?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelStoryFilterInput | null> | null;
+  or?: Array<ModelStoryFilterInput | null> | null;
+  not?: ModelStoryFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -574,6 +619,22 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelStoryConnection = {
+  __typename: "ModelStoryConnection";
+  items: Array<Story | null>;
+  nextToken?: string | null;
+};
+
+export type ModelTranslationFilterInput = {
+  id?: ModelIDInput | null;
+  key?: ModelStringInput | null;
+  en?: ModelStringInput | null;
+  ko?: ModelStringInput | null;
+  and?: Array<ModelTranslationFilterInput | null> | null;
+  or?: Array<ModelTranslationFilterInput | null> | null;
+  not?: ModelTranslationFilterInput | null;
 };
 
 export type ModelTranslationConnection = {
@@ -755,13 +816,14 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionTranslationFilterInput = {
+export type ModelSubscriptionStoryFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  key?: ModelSubscriptionStringInput | null;
-  en?: ModelSubscriptionStringInput | null;
-  ko?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionTranslationFilterInput | null> | null;
-  or?: Array<ModelSubscriptionTranslationFilterInput | null> | null;
+  body?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  header?: ModelSubscriptionStringInput | null;
+  footer?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionStoryFilterInput | null> | null;
+  or?: Array<ModelSubscriptionStoryFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -792,6 +854,15 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionTranslationFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  key?: ModelSubscriptionStringInput | null;
+  en?: ModelSubscriptionStringInput | null;
+  ko?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionTranslationFilterInput | null> | null;
+  or?: Array<ModelSubscriptionTranslationFilterInput | null> | null;
 };
 
 export type ModelSubscriptionAreaFilterInput = {
@@ -900,6 +971,39 @@ export type ModelSubscriptionRestaurantFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateStoryMutation = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateStoryMutation = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteStoryMutation = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateTranslationMutation = {
@@ -1271,6 +1375,32 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetStoryQuery = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListStoriesQuery = {
+  __typename: "ModelStoryConnection";
+  items: Array<{
+    __typename: "Story";
+    id: string;
+    body?: string | null;
+    image?: string | null;
+    header?: string | null;
+    footer?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetTranslationQuery = {
   __typename: "Translation";
   id: string;
@@ -1559,6 +1689,39 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateStorySubscription = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateStorySubscription = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteStorySubscription = {
+  __typename: "Story";
+  id: string;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateTranslationSubscription = {
@@ -1934,6 +2097,87 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateStory(
+    input: CreateStoryInput,
+    condition?: ModelStoryConditionInput
+  ): Promise<CreateStoryMutation> {
+    const statement = `mutation CreateStory($input: CreateStoryInput!, $condition: ModelStoryConditionInput) {
+        createStory(input: $input, condition: $condition) {
+          __typename
+          id
+          body
+          image
+          header
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateStoryMutation>response.data.createStory;
+  }
+  async UpdateStory(
+    input: UpdateStoryInput,
+    condition?: ModelStoryConditionInput
+  ): Promise<UpdateStoryMutation> {
+    const statement = `mutation UpdateStory($input: UpdateStoryInput!, $condition: ModelStoryConditionInput) {
+        updateStory(input: $input, condition: $condition) {
+          __typename
+          id
+          body
+          image
+          header
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateStoryMutation>response.data.updateStory;
+  }
+  async DeleteStory(
+    input: DeleteStoryInput,
+    condition?: ModelStoryConditionInput
+  ): Promise<DeleteStoryMutation> {
+    const statement = `mutation DeleteStory($input: DeleteStoryInput!, $condition: ModelStoryConditionInput) {
+        deleteStory(input: $input, condition: $condition) {
+          __typename
+          id
+          body
+          image
+          header
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteStoryMutation>response.data.deleteStory;
+  }
   async CreateTranslation(
     input: CreateTranslationInput,
     condition?: ModelTranslationConditionInput
@@ -2831,6 +3075,63 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetStory(id: string): Promise<GetStoryQuery> {
+    const statement = `query GetStory($id: ID!) {
+        getStory(id: $id) {
+          __typename
+          id
+          body
+          image
+          header
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetStoryQuery>response.data.getStory;
+  }
+  async ListStories(
+    filter?: ModelStoryFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListStoriesQuery> {
+    const statement = `query ListStories($filter: ModelStoryFilterInput, $limit: Int, $nextToken: String) {
+        listStories(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            body
+            image
+            header
+            footer
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListStoriesQuery>response.data.listStories;
+  }
   async GetTranslation(id: string): Promise<GetTranslationQuery> {
     const statement = `query GetTranslation($id: ID!) {
         getTranslation(id: $id) {
@@ -3462,6 +3763,90 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateStoryListener(
+    filter?: ModelSubscriptionStoryFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateStory">>
+  > {
+    const statement = `subscription OnCreateStory($filter: ModelSubscriptionStoryFilterInput) {
+        onCreateStory(filter: $filter) {
+          __typename
+          id
+          body
+          image
+          header
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateStory">>
+    >;
+  }
+
+  OnUpdateStoryListener(
+    filter?: ModelSubscriptionStoryFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateStory">>
+  > {
+    const statement = `subscription OnUpdateStory($filter: ModelSubscriptionStoryFilterInput) {
+        onUpdateStory(filter: $filter) {
+          __typename
+          id
+          body
+          image
+          header
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateStory">>
+    >;
+  }
+
+  OnDeleteStoryListener(
+    filter?: ModelSubscriptionStoryFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteStory">>
+  > {
+    const statement = `subscription OnDeleteStory($filter: ModelSubscriptionStoryFilterInput) {
+        onDeleteStory(filter: $filter) {
+          __typename
+          id
+          body
+          image
+          header
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteStory">>
+    >;
+  }
+
   OnCreateTranslationListener(
     filter?: ModelSubscriptionTranslationFilterInput
   ): Observable<

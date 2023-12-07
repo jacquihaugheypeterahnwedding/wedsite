@@ -1,5 +1,44 @@
 # this is an auto generated file. This will be overwritten
 
+subscription OnCreateStory($filter: ModelSubscriptionStoryFilterInput) {
+  onCreateStory(filter: $filter) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateStory($filter: ModelSubscriptionStoryFilterInput) {
+  onUpdateStory(filter: $filter) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteStory($filter: ModelSubscriptionStoryFilterInput) {
+  onDeleteStory(filter: $filter) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 subscription OnCreateTranslation(
   $filter: ModelSubscriptionTranslationFilterInput
 ) {

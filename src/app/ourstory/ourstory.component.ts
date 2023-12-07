@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {PageFlip} from 'page-flip';
+import { APIService, Story } from '../API.service';
 
 @Component({
   selector: 'app-ourstory',
@@ -8,28 +9,45 @@ import {PageFlip} from 'page-flip';
 })
 export class OurstoryComponent {
 
+  public pagesList: Array<Story> = [];
+
+  constructor(public api: APIService) {
+
+
+  }
+
   ngOnInit(): void {
-    const pageFlip = new PageFlip(
-      document.getElementById("demoBookExample"),
-      {
-          width: 550, // base page width
-          height: 733, // base page height
+    this.api.ListStories().then(value => {
+      this.pagesList = value.items as Story[];
 
-          size: "stretch",
-          // set threshold values:
-          minWidth: 315,
-          maxWidth: 1000,
-          minHeight: 420,
-          maxHeight: 1350,
+      setTimeout(() => {
+        const pageFlip = new PageFlip(
+          document.getElementById("demoBookExample"),
+          {
+              width: 550, // base page width
+              height: 733, // base page height
+    
+              size: "stretch",
+              // set threshold values:
+              minWidth: 315,
+              maxWidth: 1000,
+              minHeight: 420,
+              maxHeight: 1350,
+    
+              maxShadowOpacity: 0.5, // Half shadow intensity
+              showCover: true,
+              mobileScrollSupport: false // disable content scrolling on mobile devices
+          }
+        );
+    
+      // load pages
+         pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+      }, 2000);
+      
+    });
 
-          maxShadowOpacity: 0.5, // Half shadow intensity
-          showCover: true,
-          mobileScrollSupport: false // disable content scrolling on mobile devices
-      }
-  );
 
-  // load pages
-  pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+   
 
 /*
   document.querySelector(".page-total").innerText = pageFlip.getPageCount();

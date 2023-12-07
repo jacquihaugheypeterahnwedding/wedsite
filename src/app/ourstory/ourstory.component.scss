@@ -18,10 +18,15 @@
   }
 
 
-
+.container {
+  background-image: url("../../assets/wood.png");
+      background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
 
   .flip-book {
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+
     display: none;
     background-size: cover;
   }
@@ -30,8 +35,7 @@
     padding: 20px;
   
     background-color: hsl(35, 55, 98);
-    color: hsl(35, 35, 35);
-    border: solid 1px hsl(35, 20, 70);
+    color: hsl(239, 82%, 47%);
   
     overflow: hidden;
   
@@ -65,12 +69,10 @@
         margin-top: 10px;
         padding-top: 10px;
         box-sizing: border-box;
-        border-top: solid 1px hsl(35, 55, 90);
       }
   
       .page-footer {
         height: 30px;
-        border-top: solid 1px hsl(35, 55, 90);
         font-size: 80%;
         color: hsl(35, 20, 50);
       }
@@ -92,13 +94,16 @@
   
     &.hard { // for hard page
       background-color: hsl(35, 50, 90);
-      border: solid 1px hsl(35, 20, 50);
     }
   
     &.page-cover {
-      background-color: hsl(35, 45, 80);
-      color:  hsl(35, 35, 35);
-      border: solid 1px hsl(35, 20, 50);
+      //background-color: hsl(35, 45, 80);
+      //color:  hsl(35, 35, 35);
+      background-image: url("../../assets/wood_lights.png");
+      background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+  
   
       h2 {
         text-align: center;
