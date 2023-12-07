@@ -26,5 +26,8 @@ export class LodgingComponent {
     });
   }
 
+  goToLink(link: any): void{
+    window.open(link as string);
+  }
 
 }

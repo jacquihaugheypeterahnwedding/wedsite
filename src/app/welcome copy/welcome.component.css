@@ -1,0 +1,616 @@
+.pic {
+    height: 60px;
+    width: 60px;
+}
+
+.eng {
+    max-width: 25%;
+    max-height: 75%;
+}
+
+
+
+.all {
+    height:100%;
+    padding-left: 30px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;/*
+    background-image: url("../../assets/cruise_o.png");
+    background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; */
+
+}
+
+.total {
+    /* Firefox */
+    height: -moz-calc(100% - 10%);
+    /* WebKit */
+    height: -webkit-calc(100% - 10%);
+    /* Opera */
+    height: -o-calc(100% - 10%);
+    /* Standard */
+    height: calc(100% - 10%);
+    position: fixed;
+    overflow: scroll;
+}
+
+
+
+
+
+
+
+
+#envelope {
+    position:absolute;
+    top: calc(50vh - 200px);
+    left: calc(50vw - 150px);
+    width:300px;
+    height:300px;
+}
+
+#envelope > * {
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+#back {
+    display:block;
+    z-index:0;
+}
+
+#front {
+    display:block;
+    z-index:10;
+}
+
+#top {
+    display:block;
+    z-index:11;
+}
+
+#top.animate, #front.animate, #back.animate, #envelope button.animate { 
+    opacity:0;
+    transition: opacity 1s;
+    transition-delay: 1s;
+}
+
+
+
+#letter {
+    display:none;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+    background-color: white;
+    padding:10px;
+    z-index:5;
+    left:15px;
+    right:15px;
+    bottom:5px;
+    top:105px;
+    /* https://boxshadows.com/presets */
+    box-shadow:0px 1px 3px 0px rgba(0,0,0,0.1) , 0px 1px 2px 0px rgba(0,0,0,0.06) ;
+    overflow:hidden;
+    font-size:16px;
+    
+}
+
+#letter.animate {
+    animation:makebig 2s forwards; 
+    animation-delay: 1s;
+}
+
+@keyframes makebig {
+    0% { top: 105px; left: 15px; right: 15px; bottom: 5px; font-size:16px;}
+    33% { top: -100px; left: 15px; right: 15px; bottom: 150px; font-size:16px; }
+    100% { top: -100px; left: -25px; right: -25px; bottom: -100px;font-size: 24px; }
+}
+
+
+#letter h1 {
+    font-size:inherit;
+}
+
+#letter h2 {
+    font-size:inherit;
+}
+
+#letter img {
+    height:50%;
+}
+
+#envelope button {
+    display:block;
+    z-index:15;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:none;
+    background-color:gold;
+    font-weight:bold;
+    text-align: center;
+    color:white;
+    cursor:pointer;
+    top:calc(200px - 25px);
+    left:calc(150px - 25px);
+    transition: transform 1s, background-color 1s, color 1s;
+}
+
+#envelope button:hover {
+    background-color:pink;
+    transform:scale(1.5);
+    color: black;
+    transition: transform 1s, background-color 1s, color 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.x1 {
+    left: 5%;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+      transform: scale(0.9);
+      opacity: 0.6;
+      -webkit-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+      -moz-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  }
+  
+  .x2 {
+      left: 25%;
+      -webkit-transform: scale(0.6);
+      -moz-transform: scale(0.6);
+      transform: scale(0.6);
+      opacity: 0.9;
+      -webkit-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+      -moz-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+  }
+  .x3 {
+      left: 55%;
+      -webkit-transform: scale(0.8);
+      -moz-transform: scale(0.8);
+      transform: scale(0.8);
+      opacity: 0.8;
+      -webkit-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+      -moz-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  }
+  .x4 {
+      left: 72%;
+      -webkit-transform: scale(0.75);
+      -moz-transform: scale(0.75);
+      transform: scale(0.75);
+      opacity: 0.9;
+      -webkit-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+      -moz-animation: moveclouds 18s linear infinite, sideWays 0zs ease-in-out infinite alternate;
+  }
+  .x5 {
+      left: 88%;
+      -webkit-transform: scale(0.8);
+      -moz-transform: scale(0.8);
+      transform: scale(0.8);
+      opacity: 0.3; 
+      -webkit-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+      -moz-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+  }
+  .x6 {
+      left: 33%;
+      opacity: 1; 
+      -webkit-animation: moveclouds 2s linear infinite, swayWays 1s ease-in-out infinite alternate;
+      animation: moveclouds 10s linear infinite, swayWays 9s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes moveclouds { 
+      0% { 
+          top: 500px;
+      }
+      100% { 
+          top: -500px;
+      }
+  }
+  
+  @keyframes moveclouds {     
+      0% { 
+          top: 500px;
+      }
+      100% { 
+          top: -500px;
+      }
+  }
+  
+  @-webkit-keyframes sideWays { 
+      0% { 
+          margin-left:0px;
+      }
+      100% { 
+          margin-left:50px;
+      }
+  }
+  
+  @keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+  }
+  
+  @-keyframes swayWays {
+    0% {
+      transform: rotate(12deg);
+      left:-0.3%;
+    }
+    33%{
+      transform: rotate(-2deg);
+      left: 0.7%;
+    }
+    100% {
+      transform: rotate(0deg);
+      left:-12%;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* //  HEART CODE */
+  .altheart {
+    background: url(
+  http://static.indigoimages.ca/2016/shop/113439_img25_twotoneheart.png) no-repeat center;
+    width: 24px;
+    height: 21px;
+    position: relative;
+    display: block;
+  }
+  
+  .heart {
+      position: relative;
+  }
+  .heart:before,
+  .heart:after {
+      position: absolute;
+      content: "";
+      left: 18px;
+      top: 0;
+      width: 18px;
+      height: 30px;
+      background: #CC2022;
+      
+      -moz-border-radius: 20px 50% 0 0;
+      border-radius: 30px 30px 0 0;
+      -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+      -webkit-transform-origin: 0 100%;
+          -ms-transform-origin: 0 100%;
+              transform-origin: 0 100%;
+              
+  }
+  .heart:after {
+      left: 0;
+      -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+      -webkit-transform-origin: 100% 100%;
+          -ms-transform-origin: 100% 100%;
+              transform-origin :100% 100%;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  .hearts {
+    width: 5%;
+    min-width: 100px;
+    height: 25%;
+    min-height: 250px;
+    position: absolute;
+   z-index: 10;
+   display: none;
+ }
+
+ .heartx {
+    height: 20%;
+    min-height: 25px;
+    width: 20%;
+    min-width: 25px;
+    background-color: red;
+ -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+         mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+         -webkit-mask-repeat: no-repeat;
+         mask-repeat: no-repeat;
+ -webkit-mask-position: bottom;
+         mask-position: bottom;
+         opacity: 0;
+  animation: floating-heart 1s infinite cubic-bezier(0.5, 0.5, 0.5, 0.5);
+
+
+  }
+
+
+
+  @keyframes floating-heart {
+    0% {
+      opacity: 0;
+      bottom: 0%;
+      left: 0%;
+    }
+    10% {
+      opacity: 1;
+      bottom: 20%;
+      left: 70%;
+    }
+    20% {
+      bottom: 40%;
+      left: 10%;
+    }
+    30% {
+      bottom: 60%;
+      left: 50%;
+    }
+    40% {
+      opacity: 1;
+      bottom: 80%;
+      left: 5%;
+    }
+    48% {
+      opacity: 0;
+      bottom: 100%;
+      left: 60%;
+    }
+    100% {
+      opacity: 0;
+      bottom: 100%;
+      left: 90%;
+    }
+  }
+
+
+  .heartx:nth-child(1) {  
+    animation-delay: .1s;
+  }
+  
+  .heartx:nth-child(2) {
+    animation-delay: .3s;
+  }
+  
+  .heartx:nth-child(3) {
+    animation-delay: .5s;
+  }
+  
+  .heartx:nth-child(4) {
+    animation-delay: .7s;
+  }
+
+
+
+
+
+
+
+
+/*
+
+  .hearty {
+    position: absolute;
+    top: -50%;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -m-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+
+
+    background-color: red;
+ -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+         mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+         -webkit-mask-repeat: no-repeat;
+         mask-repeat: no-repeat;
+ -webkit-mask-position: bottom;
+         mask-position: bottom;
+ }
+
+.hearty:before {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 100%;
+}
+
+.hearty:after {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 100%;
+}
+
+@-webkit-keyframes love {
+  0%{top:110%}
+}
+@-moz-keyframes love {
+  0%{top:110%}
+}
+@-ms-keyframes love {
+  0%{top:110%}
+}
+@keyframes love {
+  0%{top:110%}
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+.upper {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden
+}
+
+.bg_heart {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden
+}
+
+
+.altheart {
+  background: url(
+http://static.indigoimages.ca/2016/shop/113439_img25_twotoneheart.png) no-repeat center;
+  width: 24px;
+  height: 21px;
+  position: relative;
+  display: block;
+}
+
+.heartz {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+.heartz:before,
+.heartz:after {
+    position: absolute;
+    content: "";
+    left: 18px;
+    top: 0;
+    width: 18px;
+    height: 30px;
+    background: blue;
+    
+    -moz-border-radius: 20px 50% 0 0;
+    border-radius: 30px 30px 0 0;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            
+}
+.heartz:after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+            transform-origin :100% 100%;
+}
+
+
+
+/*
+
+.heartz {
+  top: -50%;
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+}
+/*
+.heartz:before {
+  top: -50%;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 100%;
+}
+
+.heartz:after {
+  top: 0;
+  right: -50%;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 100%;
+}
+*/
+@-webkit-keyframes love {
+0%{top:110%}
+}
+@-moz-keyframes love {
+0%{top:110%}
+}
+@-ms-keyframes love {
+0%{top:110%}
+}
+@keyframes love {
+0%{top:110%}
+}

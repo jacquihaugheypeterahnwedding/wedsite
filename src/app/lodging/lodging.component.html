@@ -20,8 +20,8 @@
 <button mat-raised-button color="primary" class="actbutton">Details</button>
             -->
           
-          <button mat-raised-button color="primary" class="actbutton">Website</button>
-          <button mat-raised-button color="primary" class="actbutton">Book</button>
+          <button mat-raised-button color="primary" class="actbutton" (click)="goToLink(hotel.website)">Website</button>
+          <button *ngIf="hotel.room_block" mat-raised-button color="primary" class="actbutton" (click)="goToLink(hotel.room_block)">Room Block</button>
 
           </mat-card-actions>
 

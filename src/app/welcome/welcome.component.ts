@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 
 import { I18n } from 'aws-amplify';
 
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -18,10 +19,7 @@ export class WelcomeComponent {
 
   async ngOnInit() {
     
-  
 
   }
-
-
 
 }
