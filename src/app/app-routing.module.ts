@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'home', component:  HomeComponent},
   { path: 'invite', component:  InviteComponent},
   { path: 'welcome', component:  WelcomeComponent},
-  { path: 'ourstory', component:  CommingSoonComponent},
+  { path: 'ourstory', component:  OurstoryComponent},
   { path: 'events', component: EventsComponent},
   { path: 'lodging', component: LodgingComponent},
   { path: 'restaurants', component: CommingSoonComponent},
