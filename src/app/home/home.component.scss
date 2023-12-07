@@ -1,0 +1,44 @@
+.all {
+    height:100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+
+    width: 100%;
+    background-image: url("../../assets/cruise.jpg");
+    background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+
+}
+
+.info {
+    width: 70%;
+    height: 100%;
+    float: right;
+    padding-bottom: 15%;
+    padding-right: 3%;
+}
+
+.title {
+    text-align: right;
+    font-size: 30px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.where {
+    text-align: left;
+    font-size: 15px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    padding-left: 40%;
+}
+
+.when {
+    text-align: left;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.inside {
+    border: red;
+    border-width: 5px;
+}

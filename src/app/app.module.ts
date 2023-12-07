@@ -54,11 +54,14 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { FaqComponent } from './faq/faq.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomeComponent } from './home/home.component';
+import { InviteComponent } from './invite/invite.component';
+import { CountdownComponent } from './countdown/countdown.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent],
+  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent],
   imports: [
     BrowserModule,
     NgbModule,

@@ -15,11 +15,14 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { FaqComponent } from './faq/faq.component';
 import { AreasComponent } from './areas/areas.component';
 import { AirportsComponent } from './airports/airports.component';
-
+import { HomeComponent } from './home/home.component';
+import { InviteComponent } from './invite/invite.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component:  HomeComponent},
+  { path: 'invite', component:  InviteComponent},
   { path: 'welcome', component:  WelcomeComponent},
   { path: 'ourstory', component:  CommingSoonComponent},
   { path: 'events', component: EventsComponent},

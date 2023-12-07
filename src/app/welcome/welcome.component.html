@@ -2,34 +2,15 @@
 
 <div class='all'>
 
-   <!--
-<img src="assets/invite.gif"/>
-
-   --> 
-
 
    <div fxLayout="column">
-<!--
-   <h1  >We've waited 4,063 days for this.</h1>
-
-   <h1  >Party accordingly.</h1>
-   <span  >TODO Personal message:  {{userService.userInfo.message}}</span>
--->   
-<br/><br/>
+ 
+    <br/><br/>
 
 
    <div fxFlex fxLayout="row">
-    <div fxFlex >
-        Welcome cherished family and friends! 
-        You've stumbled upon the cyber hub of our love story—our wedding website! 
-        This is the GitHub repository of our love story, 
-        filled with commits of cherished memories, branches of shared dreams, 
-        and occasional pull requests for advice 
-        (because, hey, love can be as tricky as debugging a complex algorithm!).
-        So, whether you're here to peek at the source code of our romance, 
-        debug any wedding jitters, or simply to 'fork' some cake, 
-        we’re thrilled to have you part of this adventure. 
-        Get ready for an unforgettable 'code merge' as we commit to a lifetime of happiness together!
+    <div fxFlex [innerHTML]="welcome">
+        
     </div>
     <img  fxFlex class="git" src="assets/githeart.drawio.png"/>
     
@@ -40,28 +21,19 @@
 
    
    <div fxFlex fxLayout="row">
-    <img  fxFlex class="cal" src="assets/april_14.png"/>
-    <div fxFlex >
-    Ready to dive into the epic schedule of fun we've cooked up? 
-    Head on over to our Events Page for all the juicy details!
-    Let the countdown to the festivities begin!
+    <!--<img  fxFlex class="cal" src="assets/april_14.png"/>-->
+    <app-countdown fxFlex="30"></app-countdown>
+    <div fxFlex [innerHTML]="date">
 
-    Look out for the main event on April 14th!
-    The day when taxes have to be in and love is in the air—quite the combo, huh? 
-    It's like the universe saying, "Hey, here's a tax deadline and a chance to celebrate love simultaneously!"
-        </div>
+    </div>
  
     
    </div>
 
    <br/><br/>
    <div fxFlex fxLayout="row">
-    <div fxFlex="80" >
-    Craving knowledge? 
-    Venture into our 'FAQ - Fantastic Answers Quest'; 
-    your personal "debugging console" for unraveling life's mysteries. 
-    It's where you bring your burning questions, and just like a console, 
-    it throws back witty answers instead of error codes.
+    <div fxFlex="80" [innerHTML]="faq">
+
     </div>
 
 
@@ -75,13 +47,8 @@
 
    <div fxFlex fxLayout="row">
     <img  fxFlex="30" src="assets/virginia_plane.png"/>
-    <div fxFlex >
-    Attention, fellow adventurers from far and wide! If your path to our legendary celebration involves traversing the vast digital highways or braving the interstellar byways, look no further than our Travel Section—an invaluable treasure trove of guidance and wisdom specially crafted for explorers like you!
+    <div fxFlex [innerHTML]="travel">
 
-
-    Whether you're navigating through the quantum realms or hitchhiking on a friendly spaceship, our Travel Section is your trusty sidekick, ready to ensure your journey is smoother than debugging a tricky piece of code.
-    Our collection of insider insights and dimension-hopping advice awaits your discovery. 
-    Safe travels!
     </div>
     
    </div>
@@ -89,13 +56,8 @@
    <br/><br/>
 
    <div fxFlex fxLayout="row">
-    <div fxFlex="90" >
-    Scroll through our virtual blueprint, witness the structural integrity of our journey, 
-    and join us as we revel in the beauty of a perfectly engineered union.
+    <div fxFlex="90" [innerHTML]="story">
 
-    Think of this as the interface to our love story, where bytes of laughter, loops of cherished moments, and a sprinkle of binary banter all come together in a beautifully compiled code of memories.
- 
-    
     </div>
     <img  fxFlex class="book" src="assets/love_story.png"/>
 
@@ -107,12 +69,7 @@
 
    <div fxFlex fxLayout="row">
     <img  fxFlex class="book" src="assets/jp_gallrey.png"/>
-    <div fxFlex >
-
-    Our journey has been a symphony of calculated risks, 
-    moments perfectly engineered, and a beautiful equation of love that's stood the test of time.
-
-    Welcome to our pixel-perfect adventure of love, unity, and a lifetime of 'syntax errors' turned 'perfect code!'
+    <div fxFlex [innerHTML]="gallery">
 
     </div>
     
@@ -123,8 +80,8 @@
 
    <br/><br/>
 
-    <div fxFlex >
-    Stay tuned for more tales of love, chaotic planning adventures, and a few surprise plot twists. 
+    <div fxFlex [innerHTML]="update">
+
    </div> 
    <br/>
     <img fxFlex src="assets/stay_tuned.png"/>

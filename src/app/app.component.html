@@ -43,9 +43,15 @@
       <mat-sidenav-container class="app-container">
         <mat-sidenav #sidenav mode="over" [class.mat-elevation-z4]="true" class="app-sidenav">
             <mat-nav-list>
-                <mat-list-item routerLink="/welcome">
+                <mat-list-item routerLink="/home">
                     <mat-icon>home</mat-icon><span>Home</span>
                 </mat-list-item>
+                <mat-list-item routerLink="/welcome">
+                  <mat-icon>pan_tool</mat-icon><span>Welcome</span>
+              </mat-list-item>
+              <mat-list-item routerLink="/invite">
+                <mat-icon>email</mat-icon><span>Invite</span>
+            </mat-list-item>
                 <mat-list-item routerLink="/events">
                   <mat-icon>event</mat-icon><span>Events</span>
                 </mat-list-item>
