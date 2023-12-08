@@ -18,6 +18,7 @@ type Area @model @auth(rules: [{allow: public}]) {
   location: String
   description: String
   image: String
+  website: String
 }
 
 type Question @model @auth(rules: [{allow: public}]) {

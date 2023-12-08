@@ -44,7 +44,7 @@ export class OurstoryComponent {
     
       // load pages
          pageFlip.loadFromHTML(document.querySelectorAll(".page"));
-      }, 2000);
+      }, 500);
       
     });
 

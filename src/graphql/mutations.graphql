@@ -102,6 +102,7 @@ mutation CreateArea(
     location
     description
     image
+    website
     createdAt
     updatedAt
     __typename
@@ -117,6 +118,7 @@ mutation UpdateArea(
     location
     description
     image
+    website
     createdAt
     updatedAt
     __typename
@@ -132,6 +134,7 @@ mutation DeleteArea(
     location
     description
     image
+    website
     createdAt
     updatedAt
     __typename

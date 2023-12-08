@@ -170,12 +170,14 @@ export type CreateAreaInput = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
 };
 
 export type ModelAreaConditionInput = {
   location?: ModelStringInput | null;
   description?: ModelStringInput | null;
   image?: ModelStringInput | null;
+  website?: ModelStringInput | null;
   and?: Array<ModelAreaConditionInput | null> | null;
   or?: Array<ModelAreaConditionInput | null> | null;
   not?: ModelAreaConditionInput | null;
@@ -187,6 +189,7 @@ export type Area = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -196,6 +199,7 @@ export type UpdateAreaInput = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
 };
 
 export type DeleteAreaInput = {
@@ -648,6 +652,7 @@ export type ModelAreaFilterInput = {
   location?: ModelStringInput | null;
   description?: ModelStringInput | null;
   image?: ModelStringInput | null;
+  website?: ModelStringInput | null;
   and?: Array<ModelAreaFilterInput | null> | null;
   or?: Array<ModelAreaFilterInput | null> | null;
   not?: ModelAreaFilterInput | null;
@@ -870,6 +875,7 @@ export type ModelSubscriptionAreaFilterInput = {
   location?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
   image?: ModelSubscriptionStringInput | null;
+  website?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionAreaFilterInput | null> | null;
   or?: Array<ModelSubscriptionAreaFilterInput | null> | null;
 };
@@ -1042,6 +1048,7 @@ export type CreateAreaMutation = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1052,6 +1059,7 @@ export type UpdateAreaMutation = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1062,6 +1070,7 @@ export type DeleteAreaMutation = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1431,6 +1440,7 @@ export type GetAreaQuery = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1443,6 +1453,7 @@ export type ListAreasQuery = {
     location?: string | null;
     description?: string | null;
     image?: string | null;
+    website?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1760,6 +1771,7 @@ export type OnCreateAreaSubscription = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1770,6 +1782,7 @@ export type OnUpdateAreaSubscription = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1780,6 +1793,7 @@ export type OnDeleteAreaSubscription = {
   location?: string | null;
   description?: string | null;
   image?: string | null;
+  website?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2267,6 +2281,7 @@ export class APIService {
           location
           description
           image
+          website
           createdAt
           updatedAt
         }
@@ -2293,6 +2308,7 @@ export class APIService {
           location
           description
           image
+          website
           createdAt
           updatedAt
         }
@@ -2319,6 +2335,7 @@ export class APIService {
           location
           description
           image
+          website
           createdAt
           updatedAt
         }
@@ -3195,6 +3212,7 @@ export class APIService {
           location
           description
           image
+          website
           createdAt
           updatedAt
         }
@@ -3221,6 +3239,7 @@ export class APIService {
             location
             description
             image
+            website
             createdAt
             updatedAt
           }
@@ -3940,6 +3959,7 @@ export class APIService {
           location
           description
           image
+          website
           createdAt
           updatedAt
         }
@@ -3967,6 +3987,7 @@ export class APIService {
           location
           description
           image
+          website
           createdAt
           updatedAt
         }
@@ -3994,6 +4015,7 @@ export class APIService {
           location
           description
           image
+          website
           createdAt
           updatedAt
         }
