@@ -17,6 +17,7 @@ import { AreasComponent } from './areas/areas.component';
 import { AirportsComponent } from './airports/airports.component';
 import { HomeComponent } from './home/home.component';
 import { InviteComponent } from './invite/invite.component';
+import { RsvpComponent } from './rsvp/rsvp.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'activities', component: CommingSoonComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'airports', component: AirportsComponent},
+  { path: 'rsvp', component: CommingSoonComponent},
 ];
 export const appRouting = RouterModule.forRoot(routes);
 @NgModule({

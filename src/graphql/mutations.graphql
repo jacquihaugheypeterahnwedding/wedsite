@@ -1,5 +1,62 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreatePicture(
+  $input: CreatePictureInput!
+  $condition: ModelPictureConditionInput
+) {
+  createPicture(input: $input, condition: $condition) {
+    id
+    itemImageSrc
+    cols
+    rows
+    alt
+    frameSrc
+    frameCut
+    frameRepeat
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdatePicture(
+  $input: UpdatePictureInput!
+  $condition: ModelPictureConditionInput
+) {
+  updatePicture(input: $input, condition: $condition) {
+    id
+    itemImageSrc
+    cols
+    rows
+    alt
+    frameSrc
+    frameCut
+    frameRepeat
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeletePicture(
+  $input: DeletePictureInput!
+  $condition: ModelPictureConditionInput
+) {
+  deletePicture(input: $input, condition: $condition) {
+    id
+    itemImageSrc
+    cols
+    rows
+    alt
+    frameSrc
+    frameCut
+    frameRepeat
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateStory(
   $input: CreateStoryInput!
   $condition: ModelStoryConditionInput

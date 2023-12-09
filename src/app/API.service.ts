@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreatePicture: OnCreatePictureSubscription;
+  onUpdatePicture: OnUpdatePictureSubscription;
+  onDeletePicture: OnDeletePictureSubscription;
   onCreateStory: OnCreateStorySubscription;
   onUpdateStory: OnUpdateStorySubscription;
   onDeleteStory: OnDeleteStorySubscription;
@@ -48,22 +51,28 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateStoryInput = {
+export type CreatePictureInput = {
   id?: string | null;
-  body?: string | null;
-  image?: string | null;
-  header?: string | null;
-  footer?: string | null;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
 };
 
-export type ModelStoryConditionInput = {
-  body?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  header?: ModelStringInput | null;
-  footer?: ModelStringInput | null;
-  and?: Array<ModelStoryConditionInput | null> | null;
-  or?: Array<ModelStoryConditionInput | null> | null;
-  not?: ModelStoryConditionInput | null;
+export type ModelPictureConditionInput = {
+  itemImageSrc?: ModelStringInput | null;
+  cols?: ModelIntInput | null;
+  rows?: ModelIntInput | null;
+  alt?: ModelStringInput | null;
+  frameSrc?: ModelStringInput | null;
+  frameCut?: ModelIntInput | null;
+  frameRepeat?: ModelStringInput | null;
+  and?: Array<ModelPictureConditionInput | null> | null;
+  or?: Array<ModelPictureConditionInput | null> | null;
+  not?: ModelPictureConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -103,6 +112,65 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type ModelIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+};
+
+export type Picture = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdatePictureInput = {
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+};
+
+export type DeletePictureInput = {
+  id: string;
+};
+
+export type CreateStoryInput = {
+  id?: string | null;
+  body?: string | null;
+  image?: string | null;
+  header?: string | null;
+  footer?: string | null;
+};
+
+export type ModelStoryConditionInput = {
+  body?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  header?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelStoryConditionInput | null> | null;
+  or?: Array<ModelStoryConditionInput | null> | null;
+  not?: ModelStoryConditionInput | null;
 };
 
 export type Story = {
@@ -598,15 +666,18 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelStoryFilterInput = {
+export type ModelPictureFilterInput = {
   id?: ModelIDInput | null;
-  body?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  header?: ModelStringInput | null;
-  footer?: ModelStringInput | null;
-  and?: Array<ModelStoryFilterInput | null> | null;
-  or?: Array<ModelStoryFilterInput | null> | null;
-  not?: ModelStoryFilterInput | null;
+  itemImageSrc?: ModelStringInput | null;
+  cols?: ModelIntInput | null;
+  rows?: ModelIntInput | null;
+  alt?: ModelStringInput | null;
+  frameSrc?: ModelStringInput | null;
+  frameCut?: ModelIntInput | null;
+  frameRepeat?: ModelStringInput | null;
+  and?: Array<ModelPictureFilterInput | null> | null;
+  or?: Array<ModelPictureFilterInput | null> | null;
+  not?: ModelPictureFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -623,6 +694,23 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelPictureConnection = {
+  __typename: "ModelPictureConnection";
+  items: Array<Picture | null>;
+  nextToken?: string | null;
+};
+
+export type ModelStoryFilterInput = {
+  id?: ModelIDInput | null;
+  body?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  header?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelStoryFilterInput | null> | null;
+  or?: Array<ModelStoryFilterInput | null> | null;
+  not?: ModelStoryFilterInput | null;
 };
 
 export type ModelStoryConnection = {
@@ -821,14 +909,17 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionStoryFilterInput = {
+export type ModelSubscriptionPictureFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  body?: ModelSubscriptionStringInput | null;
-  image?: ModelSubscriptionStringInput | null;
-  header?: ModelSubscriptionStringInput | null;
-  footer?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionStoryFilterInput | null> | null;
-  or?: Array<ModelSubscriptionStoryFilterInput | null> | null;
+  itemImageSrc?: ModelSubscriptionStringInput | null;
+  cols?: ModelSubscriptionIntInput | null;
+  rows?: ModelSubscriptionIntInput | null;
+  alt?: ModelSubscriptionStringInput | null;
+  frameSrc?: ModelSubscriptionStringInput | null;
+  frameCut?: ModelSubscriptionIntInput | null;
+  frameRepeat?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionPictureFilterInput | null> | null;
+  or?: Array<ModelSubscriptionPictureFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -859,6 +950,28 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  in?: Array<number | null> | null;
+  notIn?: Array<number | null> | null;
+};
+
+export type ModelSubscriptionStoryFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  body?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  header?: ModelSubscriptionStringInput | null;
+  footer?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionStoryFilterInput | null> | null;
+  or?: Array<ModelSubscriptionStoryFilterInput | null> | null;
 };
 
 export type ModelSubscriptionTranslationFilterInput = {
@@ -977,6 +1090,48 @@ export type ModelSubscriptionRestaurantFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreatePictureMutation = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdatePictureMutation = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeletePictureMutation = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateStoryMutation = {
@@ -1384,6 +1539,38 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetPictureQuery = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListPicturesQuery = {
+  __typename: "ModelPictureConnection";
+  items: Array<{
+    __typename: "Picture";
+    id: string;
+    itemImageSrc?: string | null;
+    cols?: number | null;
+    rows?: number | null;
+    alt?: string | null;
+    frameSrc?: string | null;
+    frameCut?: number | null;
+    frameRepeat?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetStoryQuery = {
   __typename: "Story";
   id: string;
@@ -1700,6 +1887,48 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreatePictureSubscription = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdatePictureSubscription = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeletePictureSubscription = {
+  __typename: "Picture";
+  id: string;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateStorySubscription = {
@@ -2111,6 +2340,96 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreatePicture(
+    input: CreatePictureInput,
+    condition?: ModelPictureConditionInput
+  ): Promise<CreatePictureMutation> {
+    const statement = `mutation CreatePicture($input: CreatePictureInput!, $condition: ModelPictureConditionInput) {
+        createPicture(input: $input, condition: $condition) {
+          __typename
+          id
+          itemImageSrc
+          cols
+          rows
+          alt
+          frameSrc
+          frameCut
+          frameRepeat
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreatePictureMutation>response.data.createPicture;
+  }
+  async UpdatePicture(
+    input: UpdatePictureInput,
+    condition?: ModelPictureConditionInput
+  ): Promise<UpdatePictureMutation> {
+    const statement = `mutation UpdatePicture($input: UpdatePictureInput!, $condition: ModelPictureConditionInput) {
+        updatePicture(input: $input, condition: $condition) {
+          __typename
+          id
+          itemImageSrc
+          cols
+          rows
+          alt
+          frameSrc
+          frameCut
+          frameRepeat
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdatePictureMutation>response.data.updatePicture;
+  }
+  async DeletePicture(
+    input: DeletePictureInput,
+    condition?: ModelPictureConditionInput
+  ): Promise<DeletePictureMutation> {
+    const statement = `mutation DeletePicture($input: DeletePictureInput!, $condition: ModelPictureConditionInput) {
+        deletePicture(input: $input, condition: $condition) {
+          __typename
+          id
+          itemImageSrc
+          cols
+          rows
+          alt
+          frameSrc
+          frameCut
+          frameRepeat
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeletePictureMutation>response.data.deletePicture;
+  }
   async CreateStory(
     input: CreateStoryInput,
     condition?: ModelStoryConditionInput
@@ -3092,6 +3411,69 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetPicture(id: string): Promise<GetPictureQuery> {
+    const statement = `query GetPicture($id: ID!) {
+        getPicture(id: $id) {
+          __typename
+          id
+          itemImageSrc
+          cols
+          rows
+          alt
+          frameSrc
+          frameCut
+          frameRepeat
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetPictureQuery>response.data.getPicture;
+  }
+  async ListPictures(
+    filter?: ModelPictureFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListPicturesQuery> {
+    const statement = `query ListPictures($filter: ModelPictureFilterInput, $limit: Int, $nextToken: String) {
+        listPictures(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            itemImageSrc
+            cols
+            rows
+            alt
+            frameSrc
+            frameCut
+            frameRepeat
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListPicturesQuery>response.data.listPictures;
+  }
   async GetStory(id: string): Promise<GetStoryQuery> {
     const statement = `query GetStory($id: ID!) {
         getStory(id: $id) {
@@ -3782,6 +4164,99 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreatePictureListener(
+    filter?: ModelSubscriptionPictureFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreatePicture">>
+  > {
+    const statement = `subscription OnCreatePicture($filter: ModelSubscriptionPictureFilterInput) {
+        onCreatePicture(filter: $filter) {
+          __typename
+          id
+          itemImageSrc
+          cols
+          rows
+          alt
+          frameSrc
+          frameCut
+          frameRepeat
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreatePicture">>
+    >;
+  }
+
+  OnUpdatePictureListener(
+    filter?: ModelSubscriptionPictureFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdatePicture">>
+  > {
+    const statement = `subscription OnUpdatePicture($filter: ModelSubscriptionPictureFilterInput) {
+        onUpdatePicture(filter: $filter) {
+          __typename
+          id
+          itemImageSrc
+          cols
+          rows
+          alt
+          frameSrc
+          frameCut
+          frameRepeat
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdatePicture">>
+    >;
+  }
+
+  OnDeletePictureListener(
+    filter?: ModelSubscriptionPictureFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeletePicture">>
+  > {
+    const statement = `subscription OnDeletePicture($filter: ModelSubscriptionPictureFilterInput) {
+        onDeletePicture(filter: $filter) {
+          __typename
+          id
+          itemImageSrc
+          cols
+          rows
+          alt
+          frameSrc
+          frameCut
+          frameRepeat
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeletePicture">>
+    >;
+  }
+
   OnCreateStoryListener(
     filter?: ModelSubscriptionStoryFilterInput
   ): Observable<

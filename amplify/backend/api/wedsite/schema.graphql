@@ -1,3 +1,14 @@
+type Picture @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  itemImageSrc: String
+  cols: Int
+  rows: Int
+  alt: String
+  frameSrc: String
+  frameCut: Int
+  frameRepeat: String
+}
+
 type Story @model @auth(rules: [{allow: public}]) {
   id: ID!
   body: String

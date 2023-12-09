@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { APIService, Picture } from '../API.service';
 
-import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
 
 @Component({
   selector: 'app-gallery',
@@ -9,39 +9,24 @@ import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
 })
 export class GalleryComponent {
 
-  images: ImageItem[] = [];
 
-  images1: any[] = [];
+  images: any[] = [];
 
-  responsiveOptions: any[] | undefined;
+  constructor(public api: APIService) {
+
+
+  }
 
   ngOnInit() {
     // Set items array
+   
+    this.api.ListPictures().then(value => {
+      this.images = value.items as Picture[];
+    });
+
+
+/*
     this.images = [
-      new ImageItem({ src: 'assets/engagement/268.jpg', thumb: 'assets/engagement/268.jpg' }),
-      new ImageItem({ src: 'assets/engagement/303.jpg', thumb: 'assets/engagement/303.jpg' }),
-      new ImageItem({ src: 'assets/engagement/308.jpg', thumb: 'assets/engagement/308.jpg' }),
-    ];
-
-    this.responsiveOptions = [
-      {
-          breakpoint: '1024px',
-          numVisible: 5
-      },
-      {
-          breakpoint: '768px',
-          numVisible: 3
-      },
-      {
-          breakpoint: '560px',
-          numVisible: 1
-      }
-  ];
-
-
-
-
-    this.images1 = [
         
         {
           itemImageSrc: 'assets/engagement/303.jpg',
@@ -103,7 +88,8 @@ export class GalleryComponent {
           cols: 1,
           rows: 1
         }
-    ]
+    ];
+    */
   }
 
 }
