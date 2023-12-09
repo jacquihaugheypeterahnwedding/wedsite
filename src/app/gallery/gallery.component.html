@@ -9,7 +9,8 @@
         (mouseenter)="tile.hover=true"
         (mouseleave)="tile.hover=false"
         class="tile">
-      <img src="{{tile.itemImageSrc}}" class="img">
+      <img src="{{tile.itemImageSrc}}" class="img"  [style.color]="'red'" [style.border-image-slice]="tile.frameCut" [style.border-image-repeat]="tile.frameRepeat" [style.border-image-source]="'url(' + tile.frameSrc + ')'"  >
+
       <div class="hover" *ngIf="tile.hover">{{tile.alt}}</div>
     </mat-grid-tile>
   </mat-grid-list>
