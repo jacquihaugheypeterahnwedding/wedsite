@@ -26,8 +26,8 @@ export class OurstoryComponent {
         const pageFlip = new PageFlip(
           document.getElementById("demoBookExample"),
           {
-              width: 550, // base page width
-              height: 733, // base page height
+              width: 315, // base page width
+              height: 420, // base page height
     
               size: "stretch",
               // set threshold values:
@@ -35,10 +35,10 @@ export class OurstoryComponent {
               maxWidth: 1000,
               minHeight: 420,
               maxHeight: 1350,
-    
+              autoSize: false,
               maxShadowOpacity: 0.5, // Half shadow intensity
               showCover: true,
-              mobileScrollSupport: false // disable content scrolling on mobile devices
+              mobileScrollSupport: true // disable content scrolling on mobile devices
           }
         );
     
