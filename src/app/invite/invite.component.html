@@ -1,7 +1,16 @@
 <div class="all" fxLayout="column">
+    <div fxFlex class="message" fxLayout="column">
+        <div fxFlex class="write">
+            Dear {{display_name}},
+        </div>
+        <div  fxFlex [innerHTML]="message">
 
-    <div fxFlex [innerHTML]="message">
+        </div>
 
+        <div fxFlex class="write">
+            Love,
+            <br/>Jacqui and Peter
+        </div>
     </div>
 
     <div fxFlex class="envelope" (mouseenter)="hover=true"
@@ -13,11 +22,17 @@
         <!--
  <button mat-raised-button class="open"  color="primary">Open</button>
         -->
-        <div *ngIf="hover" class="hint">Pssst... Click Me!</div>
+        <div *ngIf="hover || media.isActive('xs')" class="hint">Pssst... Click Me!</div>
        
     </div>
 
-    <img  *ngIf="show_invite" src="assets/invite.gif"  class="invite"/>
+    
+        <img id="gif"  src="assets/invite.gif"  class="invite"/>
+    
+    <!--
+<img id="gif"  class="invite"/>
+    -->
+    
     
 
 

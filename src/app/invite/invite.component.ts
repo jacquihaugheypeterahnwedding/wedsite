@@ -3,6 +3,9 @@ import { APIService } from '../API.service';
 import { UserService } from '../user.service';
 import { CognitoService } from '../cognito.service';
 
+import { MediaObserver } from '@angular/flex-layout';
+
+
 @Component({
   selector: 'app-invite',
   templateUrl: './invite.component.html',
@@ -15,28 +18,27 @@ export class InviteComponent {
   show_invite = false;
   been_closed = false;
   hover = false;
+  gif = new Image();
+  img;
+  closeTimer;
 
-  constructor(public api: APIService, public userService: UserService, private cognitoService: CognitoService) {
+  constructor(public api: APIService, public userService: UserService, private cognitoService: CognitoService, public media: MediaObserver) {
 
 
   }
 
 
   ngOnInit(): void {
-    console.log('here');
     this.cognitoService.getUser().then(item => {
-      console.timeLog(this.userService.username);
-      console.log(item);  
+
       this.api.ListUsers({username: {eq: item.username}}).then(value => {
-        console.log(value);
+
         this.display_name = value.items[0].display_name;
         this.message = value.items[0].message;
       });
     });
 
-
-    
-    
+    this.img = document.getElementById("gif");
 
 
   }
@@ -44,14 +46,16 @@ export class InviteComponent {
 
   openInvite(): void {
     this.show_invite = true;
-    this.been_closed = false;
+    const new_src = this.img.getAttribute('src');
 
-    setTimeout(() => {
-      if (!this.been_closed) {
-        this.show_invite = false;
-        this.been_closed = true;
-      }
-        
+    this.img.src  = "";
+
+    this.img.src= new_src;
+    this.img.style.display = "block";
+
+    this.closeTimer = setTimeout(() => {
+
+        this.close()
     }, 36000);
   }
 
@@ -59,7 +63,8 @@ export class InviteComponent {
 
   close(): void {
     this.show_invite = false;
-    this.been_closed = true;
+    this.img.style.display = "none";
+    clearTimeout(this.closeTimer);
   }
 
 }
