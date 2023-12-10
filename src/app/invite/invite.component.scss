@@ -12,3 +12,62 @@
     background-repeat: no-repeat; 
     background-size: cover; 
   }
+
+
+  .envelope {
+    height: 50%;
+    width: 75%;
+    left: 14%;
+    bottom: 30px;
+    position: relative;
+  }
+
+  .img {
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    box-shadow: 10px 10px 8px 0 rgba(0, 0, 0, 0.2), 20px 20px 20px 0 rgba(0, 0, 0, 0.19);
+
+  }
+
+
+  .to {
+    position: absolute;
+    top:50%;
+    left: 20%;
+  }
+
+  .hint {
+    position: absolute;
+    bottom: 0%;
+    height: 10%;
+    width: 100%;
+    //background-color: rgba(128, 128, 128, .5);
+    text-align: center;
+  }
+
+  .open {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+  }
+
+
+.cover {
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  background-color: rgba(128, 128, 128, .5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+  .invite {
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    z-index:10;
+  }

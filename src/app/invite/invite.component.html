@@ -1,1 +1,25 @@
-<p>invite works!</p>
+<div class="all" fxLayout="column">
+
+    <div fxFlex [innerHTML]="message">
+
+    </div>
+
+    <div fxFlex class="envelope" (mouseenter)="hover=true"
+    (mouseleave)="hover=false"
+    (click)="openInvite()">
+        <img class="img" src="assets/et.png"/>
+
+        <div class="to">To: {{display_name}}</div>
+        <!--
+ <button mat-raised-button class="open"  color="primary">Open</button>
+        -->
+        <div *ngIf="hover" class="hint">Pssst... Click Me!</div>
+       
+    </div>
+
+    <img  *ngIf="show_invite" src="assets/invite1.gif"  class="invite"/>
+    
+
+
+</div>
+<div *ngIf="show_invite" class="cover" (click)="close()"></div>
