@@ -12,6 +12,28 @@
 
 }
 
+.small {
+    height:100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+
+    width: 100%;
+    background-image: url("../../assets/cruise_l.png");
+    background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  overflow: scroll;
+}
+
+.info_l {
+    width: 90%;
+    height: 100%;
+    float: right;
+    padding-bottom: 15%;
+    padding-right: 3%;
+}
+
 .info {
     width: 70%;
     height: 100%;
@@ -31,6 +53,14 @@
     font-size: 15px;
     font-family: "Lucida Console", "Courier New", monospace;
     padding-left: 40%;
+}
+
+
+.where_l {
+    text-align: left;
+    font-size: 12px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    padding-left: 50%;
 }
 
 .when {

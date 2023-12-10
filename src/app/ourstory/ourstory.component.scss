@@ -107,16 +107,30 @@ overflow: scroll;
     &.hard { // for hard page
       background-color: hsl(35, 50, 90);
     }
-  
-    &.page-cover {
-      background-color: hsl(35, 77%, 67%);
-      //color:  hsl(35, 35, 35);
-      /*
-      background-image: url("../../assets/wood_lights.png");
+
+    &.page-cover-top {
+      background-image: url("../../assets/book_cover.png");
       background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    */
+    }
+
+    &.page-cover-bottom {
+      background-image: url("../../assets/blue_back.png");
+      background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+
+    
+    
+    }
+  
+    &.page-cover {
+      //background-color: hsl(35, 77%, 67%);
+      //color:  hsl(35, 35, 35);
+      
+      
+    
   
   
       h2 {
@@ -133,4 +147,11 @@ overflow: scroll;
         box-shadow: inset 0px 0 30px 0px rgba(36, 10, 3, 0.5), 10px 0 8px 0px rgba(0, 0, 0, 0.4);
       }
     }
+  }
+
+
+  .back-content {
+    color: rgb(255, 215, 0, .8);
+  text-align: center;
+  padding-top: 40%;
   }
