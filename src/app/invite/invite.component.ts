@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { CognitoService } from '../cognito.service';
 
 import { MediaObserver } from '@angular/flex-layout';
+import {  MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class InviteComponent {
   img;
   closeTimer;
 
-  constructor(public api: APIService, public userService: UserService, private cognitoService: CognitoService, public media: MediaObserver) {
+  constructor(public api: APIService, public userService: UserService, private cognitoService: CognitoService, public snackBar: MatSnackBar, public media: MediaObserver) {
 
 
   }
@@ -40,6 +41,10 @@ export class InviteComponent {
 
     this.img = document.getElementById("gif");
 
+    this.snackBar.openFromComponent(ClickHelpComponent, {
+      duration: 0,
+    });
+
 
   }
 
@@ -47,6 +52,7 @@ export class InviteComponent {
   openInvite(): void {
     this.show_invite = true;
     const new_src = this.img.getAttribute('src');
+    this.snackBar.dismiss();
 
     this.img.src  = "";
 
@@ -56,7 +62,7 @@ export class InviteComponent {
     this.closeTimer = setTimeout(() => {
 
         this.close()
-    }, 36000);
+    }, 48000);
   }
 
 
@@ -66,5 +72,22 @@ export class InviteComponent {
     this.img.style.display = "none";
     clearTimeout(this.closeTimer);
   }
+
+  ngOnDestroy(): void {
+    this.snackBar.dismiss();
+  }
+
+}
+
+
+
+@Component({
+  selector: 'click-help',
+  templateUrl: './click-help.html',
+  styles: [],
+})
+export class ClickHelpComponent {
+
+
 
 }

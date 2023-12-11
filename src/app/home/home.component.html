@@ -2,7 +2,7 @@
 
 
 
-<div class="small" *ngIf="media.isActive('xs') || media.isActive('sm')">
+<div class="small" *ngIf="media.isActive('xs')">
 
     <div class="info_l" fxLayout="column" >
         <div fxFlex class="title">
@@ -30,7 +30,7 @@
   </div>
 
 
-<div class="all" *ngIf="media.isActive('md') || media.isActive('lg') || media.isActive('xl')">
+<div class="all" *ngIf="media.isActive('sm') || media.isActive('md') || media.isActive('lg') || media.isActive('xl')">
 
     <div class="info" fxLayout="column" >
         <div fxFlex class="title">

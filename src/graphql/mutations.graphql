@@ -1,5 +1,53 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateWelcome(
+  $input: CreateWelcomeInput!
+  $condition: ModelWelcomeConditionInput
+) {
+  createWelcome(input: $input, condition: $condition) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateWelcome(
+  $input: UpdateWelcomeInput!
+  $condition: ModelWelcomeConditionInput
+) {
+  updateWelcome(input: $input, condition: $condition) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteWelcome(
+  $input: DeleteWelcomeInput!
+  $condition: ModelWelcomeConditionInput
+) {
+  deleteWelcome(input: $input, condition: $condition) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreatePicture(
   $input: CreatePictureInput!
   $condition: ModelPictureConditionInput

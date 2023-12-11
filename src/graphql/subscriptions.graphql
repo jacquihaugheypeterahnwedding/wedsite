@@ -1,5 +1,44 @@
 # this is an auto generated file. This will be overwritten
 
+subscription OnCreateWelcome($filter: ModelSubscriptionWelcomeFilterInput) {
+  onCreateWelcome(filter: $filter) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateWelcome($filter: ModelSubscriptionWelcomeFilterInput) {
+  onUpdateWelcome(filter: $filter) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteWelcome($filter: ModelSubscriptionWelcomeFilterInput) {
+  onDeleteWelcome(filter: $filter) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 subscription OnCreatePicture($filter: ModelSubscriptionPictureFilterInput) {
   onCreatePicture(filter: $filter) {
     id

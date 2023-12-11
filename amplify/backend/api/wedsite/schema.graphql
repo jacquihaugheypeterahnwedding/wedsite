@@ -1,3 +1,11 @@
+type Welcome @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  header: String
+  image: String
+  body: String
+  footer: String
+}
+
 type Picture @model @auth(rules: [{allow: public}]) {
   id: ID!
   itemImageSrc: String

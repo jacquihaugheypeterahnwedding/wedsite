@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateWelcome: OnCreateWelcomeSubscription;
+  onUpdateWelcome: OnUpdateWelcomeSubscription;
+  onDeleteWelcome: OnDeleteWelcomeSubscription;
   onCreatePicture: OnCreatePictureSubscription;
   onUpdatePicture: OnUpdatePictureSubscription;
   onDeletePicture: OnDeletePictureSubscription;
@@ -51,28 +54,22 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreatePictureInput = {
+export type CreateWelcomeInput = {
   id?: string | null;
-  itemImageSrc?: string | null;
-  cols?: number | null;
-  rows?: number | null;
-  alt?: string | null;
-  frameSrc?: string | null;
-  frameCut?: number | null;
-  frameRepeat?: string | null;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
 };
 
-export type ModelPictureConditionInput = {
-  itemImageSrc?: ModelStringInput | null;
-  cols?: ModelIntInput | null;
-  rows?: ModelIntInput | null;
-  alt?: ModelStringInput | null;
-  frameSrc?: ModelStringInput | null;
-  frameCut?: ModelIntInput | null;
-  frameRepeat?: ModelStringInput | null;
-  and?: Array<ModelPictureConditionInput | null> | null;
-  or?: Array<ModelPictureConditionInput | null> | null;
-  not?: ModelPictureConditionInput | null;
+export type ModelWelcomeConditionInput = {
+  header?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  body?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelWelcomeConditionInput | null> | null;
+  or?: Array<ModelWelcomeConditionInput | null> | null;
+  not?: ModelWelcomeConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -112,6 +109,53 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type Welcome = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateWelcomeInput = {
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+};
+
+export type DeleteWelcomeInput = {
+  id: string;
+};
+
+export type CreatePictureInput = {
+  id?: string | null;
+  itemImageSrc?: string | null;
+  cols?: number | null;
+  rows?: number | null;
+  alt?: string | null;
+  frameSrc?: string | null;
+  frameCut?: number | null;
+  frameRepeat?: string | null;
+};
+
+export type ModelPictureConditionInput = {
+  itemImageSrc?: ModelStringInput | null;
+  cols?: ModelIntInput | null;
+  rows?: ModelIntInput | null;
+  alt?: ModelStringInput | null;
+  frameSrc?: ModelStringInput | null;
+  frameCut?: ModelIntInput | null;
+  frameRepeat?: ModelStringInput | null;
+  and?: Array<ModelPictureConditionInput | null> | null;
+  or?: Array<ModelPictureConditionInput | null> | null;
+  not?: ModelPictureConditionInput | null;
 };
 
 export type ModelIntInput = {
@@ -666,18 +710,15 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelPictureFilterInput = {
+export type ModelWelcomeFilterInput = {
   id?: ModelIDInput | null;
-  itemImageSrc?: ModelStringInput | null;
-  cols?: ModelIntInput | null;
-  rows?: ModelIntInput | null;
-  alt?: ModelStringInput | null;
-  frameSrc?: ModelStringInput | null;
-  frameCut?: ModelIntInput | null;
-  frameRepeat?: ModelStringInput | null;
-  and?: Array<ModelPictureFilterInput | null> | null;
-  or?: Array<ModelPictureFilterInput | null> | null;
-  not?: ModelPictureFilterInput | null;
+  header?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  body?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelWelcomeFilterInput | null> | null;
+  or?: Array<ModelWelcomeFilterInput | null> | null;
+  not?: ModelWelcomeFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -694,6 +735,26 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelWelcomeConnection = {
+  __typename: "ModelWelcomeConnection";
+  items: Array<Welcome | null>;
+  nextToken?: string | null;
+};
+
+export type ModelPictureFilterInput = {
+  id?: ModelIDInput | null;
+  itemImageSrc?: ModelStringInput | null;
+  cols?: ModelIntInput | null;
+  rows?: ModelIntInput | null;
+  alt?: ModelStringInput | null;
+  frameSrc?: ModelStringInput | null;
+  frameCut?: ModelIntInput | null;
+  frameRepeat?: ModelStringInput | null;
+  and?: Array<ModelPictureFilterInput | null> | null;
+  or?: Array<ModelPictureFilterInput | null> | null;
+  not?: ModelPictureFilterInput | null;
 };
 
 export type ModelPictureConnection = {
@@ -909,17 +970,14 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionPictureFilterInput = {
+export type ModelSubscriptionWelcomeFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  itemImageSrc?: ModelSubscriptionStringInput | null;
-  cols?: ModelSubscriptionIntInput | null;
-  rows?: ModelSubscriptionIntInput | null;
-  alt?: ModelSubscriptionStringInput | null;
-  frameSrc?: ModelSubscriptionStringInput | null;
-  frameCut?: ModelSubscriptionIntInput | null;
-  frameRepeat?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionPictureFilterInput | null> | null;
-  or?: Array<ModelSubscriptionPictureFilterInput | null> | null;
+  header?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  body?: ModelSubscriptionStringInput | null;
+  footer?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionWelcomeFilterInput | null> | null;
+  or?: Array<ModelSubscriptionWelcomeFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -950,6 +1008,19 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionPictureFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  itemImageSrc?: ModelSubscriptionStringInput | null;
+  cols?: ModelSubscriptionIntInput | null;
+  rows?: ModelSubscriptionIntInput | null;
+  alt?: ModelSubscriptionStringInput | null;
+  frameSrc?: ModelSubscriptionStringInput | null;
+  frameCut?: ModelSubscriptionIntInput | null;
+  frameRepeat?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionPictureFilterInput | null> | null;
+  or?: Array<ModelSubscriptionPictureFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIntInput = {
@@ -1090,6 +1161,39 @@ export type ModelSubscriptionRestaurantFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateWelcomeMutation = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateWelcomeMutation = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteWelcomeMutation = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreatePictureMutation = {
@@ -1539,6 +1643,32 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetWelcomeQuery = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListWelcomesQuery = {
+  __typename: "ModelWelcomeConnection";
+  items: Array<{
+    __typename: "Welcome";
+    id: string;
+    header?: string | null;
+    image?: string | null;
+    body?: string | null;
+    footer?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetPictureQuery = {
   __typename: "Picture";
   id: string;
@@ -1887,6 +2017,39 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateWelcomeSubscription = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateWelcomeSubscription = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteWelcomeSubscription = {
+  __typename: "Welcome";
+  id: string;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreatePictureSubscription = {
@@ -2340,6 +2503,87 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateWelcome(
+    input: CreateWelcomeInput,
+    condition?: ModelWelcomeConditionInput
+  ): Promise<CreateWelcomeMutation> {
+    const statement = `mutation CreateWelcome($input: CreateWelcomeInput!, $condition: ModelWelcomeConditionInput) {
+        createWelcome(input: $input, condition: $condition) {
+          __typename
+          id
+          header
+          image
+          body
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateWelcomeMutation>response.data.createWelcome;
+  }
+  async UpdateWelcome(
+    input: UpdateWelcomeInput,
+    condition?: ModelWelcomeConditionInput
+  ): Promise<UpdateWelcomeMutation> {
+    const statement = `mutation UpdateWelcome($input: UpdateWelcomeInput!, $condition: ModelWelcomeConditionInput) {
+        updateWelcome(input: $input, condition: $condition) {
+          __typename
+          id
+          header
+          image
+          body
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateWelcomeMutation>response.data.updateWelcome;
+  }
+  async DeleteWelcome(
+    input: DeleteWelcomeInput,
+    condition?: ModelWelcomeConditionInput
+  ): Promise<DeleteWelcomeMutation> {
+    const statement = `mutation DeleteWelcome($input: DeleteWelcomeInput!, $condition: ModelWelcomeConditionInput) {
+        deleteWelcome(input: $input, condition: $condition) {
+          __typename
+          id
+          header
+          image
+          body
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteWelcomeMutation>response.data.deleteWelcome;
+  }
   async CreatePicture(
     input: CreatePictureInput,
     condition?: ModelPictureConditionInput
@@ -3411,6 +3655,63 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetWelcome(id: string): Promise<GetWelcomeQuery> {
+    const statement = `query GetWelcome($id: ID!) {
+        getWelcome(id: $id) {
+          __typename
+          id
+          header
+          image
+          body
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetWelcomeQuery>response.data.getWelcome;
+  }
+  async ListWelcomes(
+    filter?: ModelWelcomeFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListWelcomesQuery> {
+    const statement = `query ListWelcomes($filter: ModelWelcomeFilterInput, $limit: Int, $nextToken: String) {
+        listWelcomes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            header
+            image
+            body
+            footer
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListWelcomesQuery>response.data.listWelcomes;
+  }
   async GetPicture(id: string): Promise<GetPictureQuery> {
     const statement = `query GetPicture($id: ID!) {
         getPicture(id: $id) {
@@ -4164,6 +4465,90 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateWelcomeListener(
+    filter?: ModelSubscriptionWelcomeFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateWelcome">>
+  > {
+    const statement = `subscription OnCreateWelcome($filter: ModelSubscriptionWelcomeFilterInput) {
+        onCreateWelcome(filter: $filter) {
+          __typename
+          id
+          header
+          image
+          body
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateWelcome">>
+    >;
+  }
+
+  OnUpdateWelcomeListener(
+    filter?: ModelSubscriptionWelcomeFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateWelcome">>
+  > {
+    const statement = `subscription OnUpdateWelcome($filter: ModelSubscriptionWelcomeFilterInput) {
+        onUpdateWelcome(filter: $filter) {
+          __typename
+          id
+          header
+          image
+          body
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateWelcome">>
+    >;
+  }
+
+  OnDeleteWelcomeListener(
+    filter?: ModelSubscriptionWelcomeFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteWelcome">>
+  > {
+    const statement = `subscription OnDeleteWelcome($filter: ModelSubscriptionWelcomeFilterInput) {
+        onDeleteWelcome(filter: $filter) {
+          __typename
+          id
+          header
+          image
+          body
+          footer
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteWelcome">>
+    >;
+  }
+
   OnCreatePictureListener(
     filter?: ModelSubscriptionPictureFilterInput
   ): Observable<

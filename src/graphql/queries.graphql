@@ -1,5 +1,39 @@
 # this is an auto generated file. This will be overwritten
 
+query GetWelcome($id: ID!) {
+  getWelcome(id: $id) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListWelcomes(
+  $filter: ModelWelcomeFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listWelcomes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      header
+      image
+      body
+      footer
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
 query GetPicture($id: ID!) {
   getPicture(id: $id) {
     id

@@ -1,96 +1,30 @@
+<div class="all">
 
+   <div class="containery">
+   <div class="containerx">
+       <div class="flip-book" id="demoBookExample">
+           <div class="page page-cover page-cover-top" data-density="hard">
 
-<div class='all'>
+           </div>
+           <div *ngFor="let page of pagesList" class="page">
+               <div class="page-content">
+                   <h2 class="page-header">{{page.header}}</h2>
+                   <div class="page-image">
+                     <img *ngIf="page.image != 'countdown' && page.image " class="image" src="{{page.image}}" />
+                     <app-countdown  *ngIf="page.image == 'countdown'" class="image" class="countdown" ></app-countdown>
+                   </div>
+                   
+                   <div class="page-text" [innerHTML]="page.body"></div>
+                   <div class="page-footer">{{page.footer}}</div>
+               </div>
+           </div>
 
-
-   <div fxLayout="column">
- 
-    <br/><br/>
-
-
-   <div fxFlex fxLayout="row" fxLayout.xs="column">
-    <div fxFlex [innerHTML]="welcome">
-        
-    </div>
-    <img  fxFlex class="git" src="assets/githeart.drawio.png"/>
-    
-
+           <div class="page page-cover page-cover-bottom" data-density="hard">
+               <div class="page-content back-content">
+                   <h2>ENJOY!</h2>
+               </div>
+           </div>
+       </div>
    </div>
-
-   <br/><br/>
-
-   
-   <div fxFlex fxLayout="row"  fxLayout.xs="column">
-    <!--<img  fxFlex class="cal" src="assets/april_14.png"/>-->
-    <app-countdown class="countdown" fxFlex="30"></app-countdown>
-    <div fxFlex [innerHTML]="date">
-
-    </div>
- 
-    
-   </div>
-
-   <br/><br/>
-   <div fxFlex fxLayout="row"  fxLayout.xs="column">
-    <div fxFlex="80" [innerHTML]="faq">
-
-    </div>
-
-
-    <img  class="terminal" fxFlex src="assets/computer_console.png"/>
-
-   </div>
-
-
-
-   <br/><br/>
-
-   <div fxFlex fxLayout="row"  fxLayout.xs="column">
-    <img  fxFlex="30" src="assets/virginia_plane.png"/>
-    <div fxFlex [innerHTML]="travel">
-
-    </div>
-    
-   </div>
-
-   <br/><br/>
-
-   <div fxFlex fxLayout="row"  fxLayout.xs="column">
-    <div fxFlex="90" [innerHTML]="story">
-
-    </div>
-    <img  fxFlex class="book" src="assets/book_cover.png"/>
-
-   </div>
-
-   <br/><br/>
-
-
-
-   <div fxFlex fxLayout="row"  fxLayout.xs="column">
-    <img  fxFlex class="book" src="assets/jp_gallrey.png"/>
-    <div fxFlex [innerHTML]="gallery">
-
-    </div>
-    
-
-    
-   </div>
-
-
-   <br/><br/>
-
-    <div fxFlex [innerHTML]="update">
-
-   </div> 
-   <br/>
-    <img fxFlex class="tuned" src="assets/stay_tuned.png"/>
-    
-
-
-
-
-   </div>
-
-
+</div>
 </div>
