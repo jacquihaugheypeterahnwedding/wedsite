@@ -19,7 +19,7 @@
     position: absolute;
 
     width: 100%;
-    background-image: url("../../assets/cruise_l.png");
+    background-image: url("../../assets/home_l.png");
     background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover; 
@@ -27,24 +27,34 @@
 }
 
 .info_l {
-    width: 90%;
+    width: 100%;
     height: 100%;
     float: right;
-    padding-bottom: 15%;
+    padding-bottom: 25%;
     padding-right: 3%;
+}
+
+mat-icon {
+    padding-top: 5px;
 }
 
 .info {
     width: 70%;
     height: 100%;
     float: right;
-    padding-bottom: 15%;
+    padding-bottom: 3%;
     padding-right: 3%;
 }
 
 .title {
     text-align: right;
     font-size: 30px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.title_l {
+    text-align: center;
+    font-size: 25px;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
@@ -60,7 +70,7 @@
     text-align: left;
     font-size: 12px;
     font-family: "Lucida Console", "Courier New", monospace;
-    padding-left: 50%;
+    padding-left: 55%;
 }
 
 .when {

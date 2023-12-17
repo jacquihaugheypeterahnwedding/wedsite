@@ -70,7 +70,8 @@ overflow: scroll;
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat;
-      max-height: 50%;
+      max-height: 40%;
+      text-align: center;
     }
 
     .page-text {
@@ -150,12 +151,25 @@ overflow: scroll;
 
 
 .image {
-  height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 70%;
 }
 
 .back-content {
   color: rgb(255, 215, 0, .8);
 text-align: center;
 padding-top: 40%;
+}
+
+.button {
+  top: 0px;
+}
+
+
+.cptr {
+  top:0px;
+  right: 5px;
+  height: 150px;
+  width: 100px;
+  position: absolute;
 }

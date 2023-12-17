@@ -39,10 +39,11 @@ export class InviteComponent {
       });
     });
 
-    this.img = document.getElementById("gif");
+   
 
     this.snackBar.openFromComponent(ClickHelpComponent, {
       duration: 0,
+      panelClass: ['blue-snackbar']
     });
 
 
@@ -51,6 +52,7 @@ export class InviteComponent {
 
   openInvite(): void {
     this.show_invite = true;
+    this.img = document.getElementById("gif");
     const new_src = this.img.getAttribute('src');
     this.snackBar.dismiss();
 
@@ -62,7 +64,7 @@ export class InviteComponent {
     this.closeTimer = setTimeout(() => {
 
         this.close()
-    }, 48000);
+    }, 30000);
   }
 
 

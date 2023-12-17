@@ -19,22 +19,16 @@
         <img class="img" src="assets/et.png"/>
 
         <div class="to">To: {{display_name}}</div>
-        <!--
- <button mat-raised-button class="open"  color="primary">Open</button>
-        -->
-        <div *ngIf="hover || media.isActive('xs')" class="hint">Pssst... Click Me!</div>
+
+        
        
     </div>
 
-    
-        <img id="gif"  src="assets/invite.gif"  class="invite"/>
-    
-    <!--
-<img id="gif"  class="invite"/>
-    -->
-    
+
+        <img *ngIf="media.isActive('xs')" id="gif"  src="assets/invite-cell.gif"  class="invite"/>
+        <img *ngIf="media.isActive('sm') || media.isActive('md') || media.isActive('lg') || media.isActive('xl')" id="gif"  src="assets/invite.gif"  class="invite"/>
     
 
 
 </div>
-<div *ngIf="show_invite" class="cover" (click)="close()"></div>
+<div *ngIf="show_invite && !media.isActive('xs')" class="cover" (click)="close()"></div>
