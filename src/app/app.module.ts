@@ -26,6 +26,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import  {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -76,7 +77,7 @@ import { RsvpComponent } from './rsvp/rsvp.component';
     NgIf,
     GalleriaModule,
     ReactiveFormsModule, MatGridListModule,
-    MatInputModule, MatSidenavModule, MatMenuModule,
+    MatInputModule, MatSidenavModule, MatMenuModule, MatProgressSpinnerModule,
     MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule,
     MatTabsModule, MatRadioModule,
     BrowserAnimationsModule,

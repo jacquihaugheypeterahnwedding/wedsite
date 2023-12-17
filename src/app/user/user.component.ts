@@ -4,10 +4,14 @@ import { I18n } from 'aws-amplify';
 import { APIService } from '../API.service';
 import { UserService } from '../user.service';
 
+import { Auth } from 'aws-amplify';
+
 
 import {
   FormControl,
   FormGroupDirective,
+  FormBuilder,
+  FormGroup,
   NgForm,
   Validators,
   FormsModule,
@@ -31,6 +35,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 
 
+export function checkMatchValidator(field1: string, field2: string) {
+  return function (frm) {
+    let field1Value = frm.get(field1).value;
+    let field2Value = frm.get(field2).value;
+
+    if (field1Value !== field2Value) {
+      return { 'match': `value ${field1Value} is not equal to ${field2Value}` }
+    }
+    return null;
+  }
+}
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -42,15 +58,33 @@ export class UserComponent {
   I18n = I18n;
 
   text = null;
+  changeLoading = false;
+  retError = null;
+  succChange = false;
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   matcher = new MyErrorStateMatcher();
+  oldPwd = new FormControl('', Validators.required);
+  newPwd = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  confirmPwd = new FormControl('', Validators.required);
 
 
-
-  constructor (private api: APIService, public userService: UserService) {
+  changePasswordForm = new FormGroup({
+    oldPwd: this.oldPwd,
+    newPwd: this.newPwd,
+    confirmPwd: this.confirmPwd,
+  }, {
+    validators: checkMatchValidator('newPwd', 'confirmPwd')
   }
+  );
+
+
+
+  constructor (private api: APIService, public userService: UserService, fb: FormBuilder) {
+
+  }
+
 
 
 
@@ -71,4 +105,25 @@ export class UserComponent {
 
   }
 
+  changePassword()
+  {
+    const th = this;
+    this.changeLoading = true;
+    this.retError = null;
+    this.succChange = false;
+    Auth.currentAuthenticatedUser().then(user => {
+      console.log(this.changePasswordForm);
+      Auth.changePassword(user, this.oldPwd.value as unknown as string, this.newPwd.value as unknown as string).then(success => {
+        console.log(success);
+        th.changeLoading = false;
+        th.succChange = true;
+      }, error => {
+        console.log(error);
+        console.log(error.message);
+        th.changeLoading = false;
+        th.retError = error.message;
+      });
+    });
+    
+  }
 }

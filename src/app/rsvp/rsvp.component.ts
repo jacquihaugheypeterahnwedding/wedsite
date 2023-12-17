@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-rsvp',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./rsvp.component.scss']
 })
 export class RsvpComponent {
+
+  favoriteColorControl = new FormControl('');
+
 
 }

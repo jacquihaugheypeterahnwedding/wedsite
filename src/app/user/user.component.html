@@ -1,7 +1,7 @@
 
-<div class="box all">
+<div class=" all">
 
-
+<div class="box">
 
 
 <h1>{{I18n.get('Welcome')}} {{userService.userSettings.user}}</h1>
@@ -46,6 +46,58 @@
   </mat-form-field>
 </form>
 
+<br/>
+<br/>
+
+<mat-divider>
+</mat-divider>
+
+<br/>
+<br/>
+
+
+<form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+  <mat-form-field>
+    <mat-label>Old Password</mat-label>
+    <input matInput formControlName="oldPwd" type="password"  />
+
+      <mat-error *ngIf="oldPwd.invalid">Old Password is required.</mat-error>
+    
+    
+  </mat-form-field>
+
+  <br/>
+
+  <mat-form-field>
+    <mat-label>New Password</mat-label>
+    <input matInput formControlName="newPwd" type="password"  />
+    <mat-error *ngIf="newPwd.invalid">New Password must be >=6 characters.</mat-error>
+     
+  </mat-form-field>
+
+  <br/>
+
+
+  <mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input matInput formControlName="confirmPwd" type="password"  />
+    <mat-error *ngIf="confirmPwd.invalid">Confirm Password is required.</mat-error>
+
+  </mat-form-field>
+
+  <mat-error *ngIf="changePasswordForm.errors?.['match']">Passwords do not match.</mat-error>
+
+  <br/>
+
+  <mat-spinner *ngIf="changeLoading"></mat-spinner>
+  <div *ngIf="succChange">Successfully changed password.</div>
+  <mat-error *ngIf="retError"> {{retError}}</mat-error>
+
+  <button class="btn btn-primary" [disabled]="!changePasswordForm.valid">Change Password</button>
+
+
+</form>
 
 </div>
 
+</div>

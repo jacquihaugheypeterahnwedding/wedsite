@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'activities', component: CommingSoonComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'airports', component: AirportsComponent},
-  { path: 'rsvp', component: CommingSoonComponent},
+  { path: 'rsvp', component: RsvpComponent},
 ];
 export const appRouting = RouterModule.forRoot(routes);
 @NgModule({
