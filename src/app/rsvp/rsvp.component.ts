@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { I18n } from 'aws-amplify';
+import { APIService } from '../API.service';
+import { UserService } from '../user.service';
+import { CognitoService } from '../cognito.service';
 
 @Component({
   selector: 'app-rsvp',
@@ -9,7 +12,66 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class RsvpComponent {
 
-  favoriteColorControl = new FormControl('');
+  I18n = I18n;
+  rsvp_status = "Not Responded";
+  has_rsvped = false;
+
+  username;
+
+
+  constructor (private api: APIService, public userService: UserService, private cognitoService: CognitoService) {
+
+  }
+
+  ngOnInit() {
+
+    this.cognitoService.getUser().then(value => {
+      const username = value.username;
+      this.username = username;
+      console.log(username);
+
+      this.api.GetRSVP(username).then(value => {
+        console.log(value);
+        if (value != null) {
+          this.rsvp_status = value.coming;
+          this.has_rsvped = true;
+        }
+      });
+
+    });
+    
+    
+  }
+
+
+
+  yes() {
+    console.log(this.username)
+    console.log('yes')
+    if (this.has_rsvped) {
+      this.api.UpdateRSVP({
+        coming: 'Yes',
+        id: this.username
+      });
+    } else {
+      this.api.CreateRSVP({
+        username: this.username,
+        coming: 'Yes',
+        id: this.username
+      })
+    }
+    
+    
+  }
+
+  no() {
+    console.log('no');
+    this.api.UpdateRSVP({
+      username: this.username,
+      coming: 'No',
+      id: this.username
+    });
+  }
 
 
 }

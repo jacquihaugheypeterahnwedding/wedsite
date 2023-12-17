@@ -1,5 +1,41 @@
 # this is an auto generated file. This will be overwritten
 
+subscription OnCreateRSVP($filter: ModelSubscriptionRSVPFilterInput) {
+  onCreateRSVP(filter: $filter) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateRSVP($filter: ModelSubscriptionRSVPFilterInput) {
+  onUpdateRSVP(filter: $filter) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteRSVP($filter: ModelSubscriptionRSVPFilterInput) {
+  onDeleteRSVP(filter: $filter) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 subscription OnCreateWelcome($filter: ModelSubscriptionWelcomeFilterInput) {
   onCreateWelcome(filter: $filter) {
     id
@@ -212,6 +248,8 @@ subscription OnCreateQuestion($filter: ModelSubscriptionQuestionFilterInput) {
     id
     question
     answer
+    username
+    group
     createdAt
     updatedAt
     __typename
@@ -223,6 +261,8 @@ subscription OnUpdateQuestion($filter: ModelSubscriptionQuestionFilterInput) {
     id
     question
     answer
+    username
+    group
     createdAt
     updatedAt
     __typename
@@ -234,6 +274,8 @@ subscription OnDeleteQuestion($filter: ModelSubscriptionQuestionFilterInput) {
     id
     question
     answer
+    username
+    group
     createdAt
     updatedAt
     __typename
@@ -355,6 +397,7 @@ subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
     username
     groups
     message
+    family
     createdAt
     updatedAt
     __typename
@@ -368,6 +411,7 @@ subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
     username
     groups
     message
+    family
     createdAt
     updatedAt
     __typename
@@ -381,6 +425,7 @@ subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
     username
     groups
     message
+    family
     createdAt
     updatedAt
     __typename

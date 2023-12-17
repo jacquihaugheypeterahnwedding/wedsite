@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateRSVP: OnCreateRSVPSubscription;
+  onUpdateRSVP: OnUpdateRSVPSubscription;
+  onDeleteRSVP: OnDeleteRSVPSubscription;
   onCreateWelcome: OnCreateWelcomeSubscription;
   onUpdateWelcome: OnUpdateWelcomeSubscription;
   onDeleteWelcome: OnDeleteWelcomeSubscription;
@@ -54,22 +57,20 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateWelcomeInput = {
+export type CreateRSVPInput = {
   id?: string | null;
-  header?: string | null;
-  image?: string | null;
-  body?: string | null;
-  footer?: string | null;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
 };
 
-export type ModelWelcomeConditionInput = {
-  header?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  body?: ModelStringInput | null;
-  footer?: ModelStringInput | null;
-  and?: Array<ModelWelcomeConditionInput | null> | null;
-  or?: Array<ModelWelcomeConditionInput | null> | null;
-  not?: ModelWelcomeConditionInput | null;
+export type ModelRSVPConditionInput = {
+  username?: ModelStringInput | null;
+  coming?: ModelStringInput | null;
+  info?: ModelStringInput | null;
+  and?: Array<ModelRSVPConditionInput | null> | null;
+  or?: Array<ModelRSVPConditionInput | null> | null;
+  not?: ModelRSVPConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -109,6 +110,45 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type RSVP = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateRSVPInput = {
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+};
+
+export type DeleteRSVPInput = {
+  id: string;
+};
+
+export type CreateWelcomeInput = {
+  id?: string | null;
+  header?: string | null;
+  image?: string | null;
+  body?: string | null;
+  footer?: string | null;
+};
+
+export type ModelWelcomeConditionInput = {
+  header?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  body?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelWelcomeConditionInput | null> | null;
+  or?: Array<ModelWelcomeConditionInput | null> | null;
+  not?: ModelWelcomeConditionInput | null;
 };
 
 export type Welcome = {
@@ -322,11 +362,15 @@ export type CreateQuestionInput = {
   id?: string | null;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
 };
 
 export type ModelQuestionConditionInput = {
   question?: ModelStringInput | null;
   answer?: ModelStringInput | null;
+  username?: ModelStringInput | null;
+  group?: ModelStringInput | null;
   and?: Array<ModelQuestionConditionInput | null> | null;
   or?: Array<ModelQuestionConditionInput | null> | null;
   not?: ModelQuestionConditionInput | null;
@@ -337,6 +381,8 @@ export type Question = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -345,6 +391,8 @@ export type UpdateQuestionInput = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
 };
 
 export type DeleteQuestionInput = {
@@ -468,6 +516,7 @@ export type CreateUserInput = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
 };
 
 export type ModelUserConditionInput = {
@@ -475,6 +524,7 @@ export type ModelUserConditionInput = {
   username?: ModelStringInput | null;
   groups?: ModelStringInput | null;
   message?: ModelStringInput | null;
+  family?: ModelStringInput | null;
   and?: Array<ModelUserConditionInput | null> | null;
   or?: Array<ModelUserConditionInput | null> | null;
   not?: ModelUserConditionInput | null;
@@ -487,6 +537,7 @@ export type User = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -497,6 +548,7 @@ export type UpdateUserInput = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
 };
 
 export type DeleteUserInput = {
@@ -710,15 +762,14 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelWelcomeFilterInput = {
+export type ModelRSVPFilterInput = {
   id?: ModelIDInput | null;
-  header?: ModelStringInput | null;
-  image?: ModelStringInput | null;
-  body?: ModelStringInput | null;
-  footer?: ModelStringInput | null;
-  and?: Array<ModelWelcomeFilterInput | null> | null;
-  or?: Array<ModelWelcomeFilterInput | null> | null;
-  not?: ModelWelcomeFilterInput | null;
+  username?: ModelStringInput | null;
+  coming?: ModelStringInput | null;
+  info?: ModelStringInput | null;
+  and?: Array<ModelRSVPFilterInput | null> | null;
+  or?: Array<ModelRSVPFilterInput | null> | null;
+  not?: ModelRSVPFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -735,6 +786,23 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelRSVPConnection = {
+  __typename: "ModelRSVPConnection";
+  items: Array<RSVP | null>;
+  nextToken?: string | null;
+};
+
+export type ModelWelcomeFilterInput = {
+  id?: ModelIDInput | null;
+  header?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  body?: ModelStringInput | null;
+  footer?: ModelStringInput | null;
+  and?: Array<ModelWelcomeFilterInput | null> | null;
+  or?: Array<ModelWelcomeFilterInput | null> | null;
+  not?: ModelWelcomeFilterInput | null;
 };
 
 export type ModelWelcomeConnection = {
@@ -817,6 +885,8 @@ export type ModelQuestionFilterInput = {
   id?: ModelIDInput | null;
   question?: ModelStringInput | null;
   answer?: ModelStringInput | null;
+  username?: ModelStringInput | null;
+  group?: ModelStringInput | null;
   and?: Array<ModelQuestionFilterInput | null> | null;
   or?: Array<ModelQuestionFilterInput | null> | null;
   not?: ModelQuestionFilterInput | null;
@@ -882,6 +952,7 @@ export type ModelUserFilterInput = {
   username?: ModelStringInput | null;
   groups?: ModelStringInput | null;
   message?: ModelStringInput | null;
+  family?: ModelStringInput | null;
   and?: Array<ModelUserFilterInput | null> | null;
   or?: Array<ModelUserFilterInput | null> | null;
   not?: ModelUserFilterInput | null;
@@ -970,14 +1041,13 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionWelcomeFilterInput = {
+export type ModelSubscriptionRSVPFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  header?: ModelSubscriptionStringInput | null;
-  image?: ModelSubscriptionStringInput | null;
-  body?: ModelSubscriptionStringInput | null;
-  footer?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionWelcomeFilterInput | null> | null;
-  or?: Array<ModelSubscriptionWelcomeFilterInput | null> | null;
+  username?: ModelSubscriptionStringInput | null;
+  coming?: ModelSubscriptionStringInput | null;
+  info?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
+  or?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -1008,6 +1078,16 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionWelcomeFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  header?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  body?: ModelSubscriptionStringInput | null;
+  footer?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionWelcomeFilterInput | null> | null;
+  or?: Array<ModelSubscriptionWelcomeFilterInput | null> | null;
 };
 
 export type ModelSubscriptionPictureFilterInput = {
@@ -1068,6 +1148,8 @@ export type ModelSubscriptionQuestionFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   question?: ModelSubscriptionStringInput | null;
   answer?: ModelSubscriptionStringInput | null;
+  username?: ModelSubscriptionStringInput | null;
+  group?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionQuestionFilterInput | null> | null;
   or?: Array<ModelSubscriptionQuestionFilterInput | null> | null;
 };
@@ -1105,6 +1187,7 @@ export type ModelSubscriptionUserFilterInput = {
   username?: ModelSubscriptionStringInput | null;
   groups?: ModelSubscriptionStringInput | null;
   message?: ModelSubscriptionStringInput | null;
+  family?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionUserFilterInput | null> | null;
   or?: Array<ModelSubscriptionUserFilterInput | null> | null;
 };
@@ -1161,6 +1244,36 @@ export type ModelSubscriptionRestaurantFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateRSVPMutation = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateRSVPMutation = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteRSVPMutation = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateWelcomeMutation = {
@@ -1339,6 +1452,8 @@ export type CreateQuestionMutation = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1348,6 +1463,8 @@ export type UpdateQuestionMutation = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1357,6 +1474,8 @@ export type DeleteQuestionMutation = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1458,6 +1577,7 @@ export type CreateUserMutation = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1469,6 +1589,7 @@ export type UpdateUserMutation = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1480,6 +1601,7 @@ export type DeleteUserMutation = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1643,6 +1765,30 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetRSVPQuery = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListRSVPSQuery = {
+  __typename: "ModelRSVPConnection";
+  items: Array<{
+    __typename: "RSVP";
+    id: string;
+    username?: string | null;
+    coming?: string | null;
+    info?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetWelcomeQuery = {
   __typename: "Welcome";
   id: string;
@@ -1782,6 +1928,8 @@ export type GetQuestionQuery = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1793,6 +1941,8 @@ export type ListQuestionsQuery = {
     id: string;
     question?: string | null;
     answer?: string | null;
+    username?: string | null;
+    group?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -1878,6 +2028,7 @@ export type GetUserQuery = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1891,6 +2042,7 @@ export type ListUsersQuery = {
     username?: string | null;
     groups?: string | null;
     message?: string | null;
+    family?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -2017,6 +2169,36 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateRSVPSubscription = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateRSVPSubscription = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteRSVPSubscription = {
+  __typename: "RSVP";
+  id: string;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateWelcomeSubscription = {
@@ -2195,6 +2377,8 @@ export type OnCreateQuestionSubscription = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2204,6 +2388,8 @@ export type OnUpdateQuestionSubscription = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2213,6 +2399,8 @@ export type OnDeleteQuestionSubscription = {
   id: string;
   question?: string | null;
   answer?: string | null;
+  username?: string | null;
+  group?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2314,6 +2502,7 @@ export type OnCreateUserSubscription = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2325,6 +2514,7 @@ export type OnUpdateUserSubscription = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2336,6 +2526,7 @@ export type OnDeleteUserSubscription = {
   username?: string | null;
   groups?: string | null;
   message?: string | null;
+  family?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2503,6 +2694,84 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateRSVP(
+    input: CreateRSVPInput,
+    condition?: ModelRSVPConditionInput
+  ): Promise<CreateRSVPMutation> {
+    const statement = `mutation CreateRSVP($input: CreateRSVPInput!, $condition: ModelRSVPConditionInput) {
+        createRSVP(input: $input, condition: $condition) {
+          __typename
+          id
+          username
+          coming
+          info
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateRSVPMutation>response.data.createRSVP;
+  }
+  async UpdateRSVP(
+    input: UpdateRSVPInput,
+    condition?: ModelRSVPConditionInput
+  ): Promise<UpdateRSVPMutation> {
+    const statement = `mutation UpdateRSVP($input: UpdateRSVPInput!, $condition: ModelRSVPConditionInput) {
+        updateRSVP(input: $input, condition: $condition) {
+          __typename
+          id
+          username
+          coming
+          info
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateRSVPMutation>response.data.updateRSVP;
+  }
+  async DeleteRSVP(
+    input: DeleteRSVPInput,
+    condition?: ModelRSVPConditionInput
+  ): Promise<DeleteRSVPMutation> {
+    const statement = `mutation DeleteRSVP($input: DeleteRSVPInput!, $condition: ModelRSVPConditionInput) {
+        deleteRSVP(input: $input, condition: $condition) {
+          __typename
+          id
+          username
+          coming
+          info
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteRSVPMutation>response.data.deleteRSVP;
+  }
   async CreateWelcome(
     input: CreateWelcomeInput,
     condition?: ModelWelcomeConditionInput
@@ -2924,6 +3193,8 @@ export class APIService {
           id
           question
           answer
+          username
+          group
           createdAt
           updatedAt
         }
@@ -2949,6 +3220,8 @@ export class APIService {
           id
           question
           answer
+          username
+          group
           createdAt
           updatedAt
         }
@@ -2974,6 +3247,8 @@ export class APIService {
           id
           question
           answer
+          username
+          group
           createdAt
           updatedAt
         }
@@ -3235,6 +3510,7 @@ export class APIService {
           username
           groups
           message
+          family
           createdAt
           updatedAt
         }
@@ -3262,6 +3538,7 @@ export class APIService {
           username
           groups
           message
+          family
           createdAt
           updatedAt
         }
@@ -3289,6 +3566,7 @@ export class APIService {
           username
           groups
           message
+          family
           createdAt
           updatedAt
         }
@@ -3655,6 +3933,61 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetRSVP(id: string): Promise<GetRSVPQuery> {
+    const statement = `query GetRSVP($id: ID!) {
+        getRSVP(id: $id) {
+          __typename
+          id
+          username
+          coming
+          info
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetRSVPQuery>response.data.getRSVP;
+  }
+  async ListRSVPS(
+    filter?: ModelRSVPFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListRSVPSQuery> {
+    const statement = `query ListRSVPS($filter: ModelRSVPFilterInput, $limit: Int, $nextToken: String) {
+        listRSVPS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            username
+            coming
+            info
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListRSVPSQuery>response.data.listRSVPS;
+  }
   async GetWelcome(id: string): Promise<GetWelcomeQuery> {
     const statement = `query GetWelcome($id: ID!) {
         getWelcome(id: $id) {
@@ -3951,6 +4284,8 @@ export class APIService {
           id
           question
           answer
+          username
+          group
           createdAt
           updatedAt
         }
@@ -3976,6 +4311,8 @@ export class APIService {
             id
             question
             answer
+            username
+            group
             createdAt
             updatedAt
           }
@@ -4171,6 +4508,7 @@ export class APIService {
           username
           groups
           message
+          family
           createdAt
           updatedAt
         }
@@ -4198,6 +4536,7 @@ export class APIService {
             username
             groups
             message
+            family
             createdAt
             updatedAt
           }
@@ -4465,6 +4804,87 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateRSVPListener(
+    filter?: ModelSubscriptionRSVPFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateRSVP">>
+  > {
+    const statement = `subscription OnCreateRSVP($filter: ModelSubscriptionRSVPFilterInput) {
+        onCreateRSVP(filter: $filter) {
+          __typename
+          id
+          username
+          coming
+          info
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateRSVP">>
+    >;
+  }
+
+  OnUpdateRSVPListener(
+    filter?: ModelSubscriptionRSVPFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateRSVP">>
+  > {
+    const statement = `subscription OnUpdateRSVP($filter: ModelSubscriptionRSVPFilterInput) {
+        onUpdateRSVP(filter: $filter) {
+          __typename
+          id
+          username
+          coming
+          info
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateRSVP">>
+    >;
+  }
+
+  OnDeleteRSVPListener(
+    filter?: ModelSubscriptionRSVPFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteRSVP">>
+  > {
+    const statement = `subscription OnDeleteRSVP($filter: ModelSubscriptionRSVPFilterInput) {
+        onDeleteRSVP(filter: $filter) {
+          __typename
+          id
+          username
+          coming
+          info
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteRSVP">>
+    >;
+  }
+
   OnCreateWelcomeListener(
     filter?: ModelSubscriptionWelcomeFilterInput
   ): Observable<
@@ -4902,6 +5322,8 @@ export class APIService {
           id
           question
           answer
+          username
+          group
           createdAt
           updatedAt
         }
@@ -4928,6 +5350,8 @@ export class APIService {
           id
           question
           answer
+          username
+          group
           createdAt
           updatedAt
         }
@@ -4954,6 +5378,8 @@ export class APIService {
           id
           question
           answer
+          username
+          group
           createdAt
           updatedAt
         }
@@ -5225,6 +5651,7 @@ export class APIService {
           username
           groups
           message
+          family
           createdAt
           updatedAt
         }
@@ -5253,6 +5680,7 @@ export class APIService {
           username
           groups
           message
+          family
           createdAt
           updatedAt
         }
@@ -5281,6 +5709,7 @@ export class APIService {
           username
           groups
           message
+          family
           createdAt
           updatedAt
         }

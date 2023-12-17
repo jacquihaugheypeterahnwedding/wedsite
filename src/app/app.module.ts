@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -53,18 +54,19 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AreasComponent } from './areas/areas.component';
 import { AirportsComponent } from './airports/airports.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { FaqComponent } from './faq/faq.component';
+import { DialogOverviewExampleDialog, FaqComponent } from './faq/faq.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { InviteComponent } from './invite/invite.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
+import { RsvpYesComponent } from './rsvp-yes/rsvp-yes.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent],
+  declarations: [AppComponent, DialogOverviewExampleDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent, RsvpYesComponent],
   imports: [
     BrowserModule,
     NgbModule,
@@ -73,7 +75,7 @@ import { RsvpComponent } from './rsvp/rsvp.component';
     AmplifyAuthenticatorModule,
     /* configuring form modules */
     FormsModule,
-    MatFormFieldModule, MatExpansionModule, MatListModule,
+    MatFormFieldModule, MatExpansionModule, MatListModule, MatDialogModule,
     NgIf,
     GalleriaModule,
     ReactiveFormsModule, MatGridListModule,

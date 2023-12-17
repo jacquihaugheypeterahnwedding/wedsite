@@ -1,5 +1,50 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateRSVP(
+  $input: CreateRSVPInput!
+  $condition: ModelRSVPConditionInput
+) {
+  createRSVP(input: $input, condition: $condition) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateRSVP(
+  $input: UpdateRSVPInput!
+  $condition: ModelRSVPConditionInput
+) {
+  updateRSVP(input: $input, condition: $condition) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteRSVP(
+  $input: DeleteRSVPInput!
+  $condition: ModelRSVPConditionInput
+) {
+  deleteRSVP(input: $input, condition: $condition) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateWelcome(
   $input: CreateWelcomeInput!
   $condition: ModelWelcomeConditionInput
@@ -254,6 +299,8 @@ mutation CreateQuestion(
     id
     question
     answer
+    username
+    group
     createdAt
     updatedAt
     __typename
@@ -268,6 +315,8 @@ mutation UpdateQuestion(
     id
     question
     answer
+    username
+    group
     createdAt
     updatedAt
     __typename
@@ -282,6 +331,8 @@ mutation DeleteQuestion(
     id
     question
     answer
+    username
+    group
     createdAt
     updatedAt
     __typename
@@ -433,6 +484,7 @@ mutation CreateUser(
     username
     groups
     message
+    family
     createdAt
     updatedAt
     __typename
@@ -449,6 +501,7 @@ mutation UpdateUser(
     username
     groups
     message
+    family
     createdAt
     updatedAt
     __typename
@@ -465,6 +518,7 @@ mutation DeleteUser(
     username
     groups
     message
+    family
     createdAt
     updatedAt
     __typename

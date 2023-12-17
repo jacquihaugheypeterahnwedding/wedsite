@@ -1,5 +1,37 @@
 # this is an auto generated file. This will be overwritten
 
+query GetRSVP($id: ID!) {
+  getRSVP(id: $id) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListRSVPS(
+  $filter: ModelRSVPFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRSVPS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      coming
+      info
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
 query GetWelcome($id: ID!) {
   getWelcome(id: $id) {
     id
@@ -179,6 +211,8 @@ query GetQuestion($id: ID!) {
     id
     question
     answer
+    username
+    group
     createdAt
     updatedAt
     __typename
@@ -195,6 +229,8 @@ query ListQuestions(
       id
       question
       answer
+      username
+      group
       createdAt
       updatedAt
       __typename
@@ -307,6 +343,7 @@ query GetUser($id: ID!) {
     username
     groups
     message
+    family
     createdAt
     updatedAt
     __typename
@@ -325,6 +362,7 @@ query ListUsers(
       username
       groups
       message
+      family
       createdAt
       updatedAt
       __typename
