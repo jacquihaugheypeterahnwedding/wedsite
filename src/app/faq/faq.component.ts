@@ -26,7 +26,13 @@ import { MatButtonModule } from '@angular/material/button';
 export class FaqComponent {
   I18n = I18n;
 
-  public faqList: Array<Question> = [];
+  public questionGroups = {
+
+  };
+  groupKeys = ['Venue', 'Virginia'];
+  showPending = false;
+
+  //public faqList: Array<Question> = [];
   public faqListPending: Array<Question> = [];
 
   constructor(public api: APIService, public dialog: MatDialog) {
@@ -40,10 +46,31 @@ export class FaqComponent {
       const questions = value.items as Question[];
       for(let question of questions) {
         if (question.answer) {
-          this.faqList.push(question);
+          //this.faqList.push(question);
+          if (question.group == null) {
+            question.group = 'Other';
+          }
+          if (question.group in this.questionGroups) {
+            this.questionGroups[question.group].push(question);
+          } else {
+            this.questionGroups[question.group] = [question]
+          }
+
+
         } else {
           this.faqListPending.push(question);
         }
+      }
+
+      const keys = Object.keys(this.questionGroups);
+      for (let key_i in keys) {
+        const key = keys[key_i];
+        if(!this.groupKeys.includes(key)) {
+          this.groupKeys.push(key);
+        }
+      }
+      if (this.faqListPending.length > 0) {
+        this.showPending = true;
       }
     });
   }
