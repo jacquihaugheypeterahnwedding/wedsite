@@ -1,5 +1,5 @@
 <div class="all" fxLayout="column">
-    <div fxFlex class="message" fxLayout="column">
+    <div fxFlex="50" class="message" fxLayout="column">
         <div fxFlex class="write">
             Dear {{display_name}},
         </div>
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div fxFlex class="envelope" (mouseenter)="hover=true"
+    <div fxFlex="40" class="envelope" (mouseenter)="hover=true"
     (mouseleave)="hover=false"
     (click)="openInvite()">
         <img class="img" src="assets/et.png"/>
