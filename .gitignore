@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 /bazel-out
+/creds
+
+__pycache__
 
 # Node
 /node_modules

@@ -6,6 +6,10 @@ import { AppModule } from './app/app.module';
 
 import { Amplify } from 'aws-amplify';
 import aws_exports from './aws-exports';
+import 'hammerjs';
+
+
+
 Amplify.configure(aws_exports);
 
 
@@ -14,19 +18,12 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 
   import { I18n } from 'aws-amplify';
+import translation_dict from './translation';
 
 //I18n.setLanguage('ko');
-const translation_dict = {
-  ko: {
-    'Sign In': 'Se connecter',
-    'Sign Up': "S'inscrire",
-    'Test String!': '안녕하세요. 어떻게 지내세요'
-  },
-  es: {
-    'Sign In': 'Registrarse',
-    'Sign Up': 'Regístrate',
-    'Test String!': 'Span Test String!'
-  }
-};
+
 
 I18n.putVocabularies(translation_dict);
+
+
+

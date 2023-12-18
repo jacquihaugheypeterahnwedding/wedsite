@@ -7,6 +7,8 @@ import { Auth } from 'aws-amplify';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
 import { I18n } from 'aws-amplify';
+import { APIService, Translation } from './API.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +21,11 @@ export class AppComponent {
   navLinks: any[];
   activeLinkIndex = -1; 
 
-  text = I18n.get('Test String!');
   I18n = I18n;
 
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private cognitoService: CognitoService,public authenticator: AuthenticatorService) {
+  constructor(private route: ActivatedRoute, private api: APIService, private router: Router, private userService: UserService, private cognitoService: CognitoService,public authenticator: AuthenticatorService) {
     this.navLinks = [
         {
             label: 'Welcome',
@@ -54,7 +55,23 @@ export class AppComponent {
     ];
 
     
+    this.api.ListTranslations().then(value => {
+      const trans = value.items as Translation[];
+      const translation_dict: any = {
+        ko: {
+        },
+        en: {
+        }
+      };
 
+      for (let tran of trans) {
+        const key = `${tran.key}`;
+        translation_dict.ko[key] = tran.ko;
+        translation_dict.en[key] = tran.en;
+        
+      }
+      I18n.putVocabularies(translation_dict);
+    });
 
 
   }
@@ -91,7 +108,6 @@ export class AppComponent {
   switchLanguage() {
     console.log('switch')
     I18n.setLanguage('ko-KR');
-    this.text = I18n.get('Test String!');
   }
 
 

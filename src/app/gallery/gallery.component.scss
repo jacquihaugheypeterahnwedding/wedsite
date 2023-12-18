@@ -1,0 +1,42 @@
+.all {
+    height:100%;
+      position: relative;
+      top: 0px;
+      left: 0px;
+  
+      width: 100%;
+      overflow: scroll;
+
+      background-image: url("../../assets/paper_o.png");
+      background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+  }
+
+
+  .hover {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 255, 255, .6);
+
+  }
+
+.tile {
+    //position: relative; 
+    text-align: center;
+}
+.img {
+    height: 100%;
+    width: 100%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent;
+    //border-image-source: url("https://webcode.tools/img/border-image.png");
+    //border-image-source: url("../../assets/frames/pf.png");
+    //border-image-slice: 100;
+    //border-image-repeat: round;
+}
+
+
+

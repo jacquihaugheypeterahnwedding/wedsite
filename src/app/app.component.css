@@ -1,3 +1,33 @@
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+
+span {
+  padding-left: 5px;
+}
+
+.app-container {
+  height: 90%;
+  margin: 0;
+}  
+.app-sidenav {
+  width: 230px;
+}
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+} 
+
+.example-card {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 40px !important;
+  margin-top: 40px !important;
+}
+
+
 #background-img {  
     background-image: url("../assets/lightwood.jpeg");  
     min-height: 100%;

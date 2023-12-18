@@ -1,63 +1,113 @@
 <!-- Render loading if authStatus is still configuring  -->
 <ng-container *ngIf="authenticator.authStatus === 'configuring'">
-    Loading...
-  </ng-container>
-  
-  <!-- Only render this if there's an authenticated user -->
-  <ng-container *ngIf="authenticator.authStatus === 'authenticated'">
+  Loading...
+</ng-container>
 
-    <div id="background-img">       
-    
-    </div>  
-    <div id="flowers" >       
-    
-    </div>  
+<!-- Only render this if there's an authenticated user -->
+<ng-container *ngIf="authenticator.authStatus === 'authenticated'">
 
-
-    <nav mat-tab-nav-bar [tabPanel]="tabPanel">
-        <a mat-tab-link
-        *ngFor="let link of navLinks"
-        [routerLink]="link.link"
-        routerLinkActive #rla="routerLinkActive"
-        [active]="rla.isActive"
-        class="tab"
-        i18n>
-        <span class="test">
-          {{link.label}} 
-        </span>
-         <!--{{ '6/15/15' | date:undefined:undefined:'ko-KR' }}-->
-        
-        </a>
-        </nav>
-        <mat-tab-nav-panel #tabPanel >
-          <router-outlet></router-outlet>
-        </mat-tab-nav-panel>
-
-
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>{{I18n.get('Jacqui & Peter Wedding')}}</span>
+        <span class="toolbar-item-spacer"></span>
 
         <!--
-        <ng-container i18n>Hello i18n!</ng-container>
+        <button mat-icon-button matTooltip="Notifications">
+            <mat-icon>notifications</mat-icon>
+        </button>
+      -->
+        <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+          <!--
+            <button mat-menu-item routerLink="#">
+                <mat-icon>person</mat-icon><span>My Account</span>
+            </button>
+          -->
+            <button mat-menu-item routerLink="/user">
+                <mat-icon>settings</mat-icon><span>Settings</span>
+            </button>
+            <button mat-menu-item routerLink="/help">
+                <mat-icon>help</mat-icon><span>Help</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="signOut()">
+                <mat-icon>exit_to_app</mat-icon>Logout
+            </button>
+        </mat-menu>
+      </mat-toolbar>
 
-        <h1>{{text}}</h1>
+      <mat-sidenav-container class="app-container">
+        <mat-sidenav #sidenav mode="over" [class.mat-elevation-z4]="true" class="app-sidenav">
+            <mat-nav-list>
+                <mat-list-item routerLink="/home">
+                    <mat-icon>home</mat-icon><span>Home</span>
+                </mat-list-item>
+                <mat-list-item routerLink="/welcome">
+                  <mat-icon>pan_tool</mat-icon><span>Welcome</span>
+              </mat-list-item>
+              <mat-list-item routerLink="/invite">
+                <mat-icon>email</mat-icon><span>Invite</span>
+            </mat-list-item>
+                <mat-list-item routerLink="/events">
+                  <mat-icon>event</mat-icon><span>Events</span>
+                </mat-list-item>
+                <mat-list-item routerLink="/ourstory">
+                  <mat-icon>menu_book</mat-icon><span>Our Story</span>
+                </mat-list-item>
+                <mat-list-item routerLink="/gallery">
+                  <mat-icon>photo_library</mat-icon><span>Gallery</span>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/faq">
+                    <mat-icon>question_mark</mat-icon><span>FAQ</span>
+                    </mat-list-item>
+                    <mat-list-item routerLink="/rsvp">
+                      <mat-icon>mark_email_read</mat-icon><span>RSVP</span>
+                      </mat-list-item>
+                <mat-expansion-panel [class.mat-elevation-z0]="true">
+                    <mat-expansion-panel-header>
+                        Travel
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                      <mat-list-item routerLink="/lodging">
+                        <mat-icon>hotel</mat-icon><span>Lodging</span>
+                      </mat-list-item>
+                      <mat-list-item routerLink="/restaurants">
+                        <mat-icon>restaurant_menu</mat-icon><span>Food</span>
+                      </mat-list-item>
+                      <mat-list-item routerLink="/activities">
+                        <mat-icon>local_activity</mat-icon><span>Activities</span>
+                      </mat-list-item>
+                      <mat-list-item routerLink="/areas">
+                        <mat-icon>map</mat-icon><span>Areas</span>
+                      </mat-list-item>
+                      <mat-list-item routerLink="/airports">
+                        <mat-icon>flight</mat-icon><span>Airports</span>
+                      </mat-list-item>
 
-      <h1>{{I18n.get('Test String!')}}</h1>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet>
 
-      <button (click)="switchLanguage()">Switch language</button>
+            </router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container> 
 
-    <button (click)="signOut()">Sign Out</button>
-        -->
-
-
-  </ng-container>
+    </ng-container>
   
-  <!-- Render sign-in screen otherwise with authenticator -->
-  <ng-container *ngIf="authenticator.authStatus !== 'authenticated'">
-    <amplify-authenticator>
-        <ng-template
-              amplifySlot="authenticated"
-              let-user="user"
-              let-signOut="signOut"
-            />
-    </amplify-authenticator>
-  </ng-container>
-
+    <!-- Render sign-in screen otherwise with authenticator -->
+    <ng-container *ngIf="authenticator.authStatus !== 'authenticated'">
+      <amplify-authenticator [hideSignUp]="true">
+          <ng-template
+                amplifySlot="authenticated"
+                let-user="user"
+                let-signOut="signOut"
+              />
+      </amplify-authenticator>
+    </ng-container>

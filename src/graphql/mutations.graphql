@@ -1,5 +1,593 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateRSVP(
+  $input: CreateRSVPInput!
+  $condition: ModelRSVPConditionInput
+) {
+  createRSVP(input: $input, condition: $condition) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateRSVP(
+  $input: UpdateRSVPInput!
+  $condition: ModelRSVPConditionInput
+) {
+  updateRSVP(input: $input, condition: $condition) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteRSVP(
+  $input: DeleteRSVPInput!
+  $condition: ModelRSVPConditionInput
+) {
+  deleteRSVP(input: $input, condition: $condition) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateWelcome(
+  $input: CreateWelcomeInput!
+  $condition: ModelWelcomeConditionInput
+) {
+  createWelcome(input: $input, condition: $condition) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateWelcome(
+  $input: UpdateWelcomeInput!
+  $condition: ModelWelcomeConditionInput
+) {
+  updateWelcome(input: $input, condition: $condition) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteWelcome(
+  $input: DeleteWelcomeInput!
+  $condition: ModelWelcomeConditionInput
+) {
+  deleteWelcome(input: $input, condition: $condition) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreatePicture(
+  $input: CreatePictureInput!
+  $condition: ModelPictureConditionInput
+) {
+  createPicture(input: $input, condition: $condition) {
+    id
+    itemImageSrc
+    cols
+    rows
+    alt
+    frameSrc
+    frameCut
+    frameRepeat
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdatePicture(
+  $input: UpdatePictureInput!
+  $condition: ModelPictureConditionInput
+) {
+  updatePicture(input: $input, condition: $condition) {
+    id
+    itemImageSrc
+    cols
+    rows
+    alt
+    frameSrc
+    frameCut
+    frameRepeat
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeletePicture(
+  $input: DeletePictureInput!
+  $condition: ModelPictureConditionInput
+) {
+  deletePicture(input: $input, condition: $condition) {
+    id
+    itemImageSrc
+    cols
+    rows
+    alt
+    frameSrc
+    frameCut
+    frameRepeat
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateStory(
+  $input: CreateStoryInput!
+  $condition: ModelStoryConditionInput
+) {
+  createStory(input: $input, condition: $condition) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateStory(
+  $input: UpdateStoryInput!
+  $condition: ModelStoryConditionInput
+) {
+  updateStory(input: $input, condition: $condition) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteStory(
+  $input: DeleteStoryInput!
+  $condition: ModelStoryConditionInput
+) {
+  deleteStory(input: $input, condition: $condition) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateTranslation(
+  $input: CreateTranslationInput!
+  $condition: ModelTranslationConditionInput
+) {
+  createTranslation(input: $input, condition: $condition) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateTranslation(
+  $input: UpdateTranslationInput!
+  $condition: ModelTranslationConditionInput
+) {
+  updateTranslation(input: $input, condition: $condition) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteTranslation(
+  $input: DeleteTranslationInput!
+  $condition: ModelTranslationConditionInput
+) {
+  deleteTranslation(input: $input, condition: $condition) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateArea(
+  $input: CreateAreaInput!
+  $condition: ModelAreaConditionInput
+) {
+  createArea(input: $input, condition: $condition) {
+    id
+    location
+    description
+    image
+    website
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateArea(
+  $input: UpdateAreaInput!
+  $condition: ModelAreaConditionInput
+) {
+  updateArea(input: $input, condition: $condition) {
+    id
+    location
+    description
+    image
+    website
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteArea(
+  $input: DeleteAreaInput!
+  $condition: ModelAreaConditionInput
+) {
+  deleteArea(input: $input, condition: $condition) {
+    id
+    location
+    description
+    image
+    website
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateQuestion(
+  $input: CreateQuestionInput!
+  $condition: ModelQuestionConditionInput
+) {
+  createQuestion(input: $input, condition: $condition) {
+    id
+    question
+    answer
+    username
+    group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateQuestion(
+  $input: UpdateQuestionInput!
+  $condition: ModelQuestionConditionInput
+) {
+  updateQuestion(input: $input, condition: $condition) {
+    id
+    question
+    answer
+    username
+    group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteQuestion(
+  $input: DeleteQuestionInput!
+  $condition: ModelQuestionConditionInput
+) {
+  deleteQuestion(input: $input, condition: $condition) {
+    id
+    question
+    answer
+    username
+    group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateLogin(
+  $input: CreateLoginInput!
+  $condition: ModelLoginConditionInput
+) {
+  createLogin(input: $input, condition: $condition) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateLogin(
+  $input: UpdateLoginInput!
+  $condition: ModelLoginConditionInput
+) {
+  updateLogin(input: $input, condition: $condition) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteLogin(
+  $input: DeleteLoginInput!
+  $condition: ModelLoginConditionInput
+) {
+  deleteLogin(input: $input, condition: $condition) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateCity(
+  $input: CreateCityInput!
+  $condition: ModelCityConditionInput
+) {
+  createCity(input: $input, condition: $condition) {
+    id
+    name
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateCity(
+  $input: UpdateCityInput!
+  $condition: ModelCityConditionInput
+) {
+  updateCity(input: $input, condition: $condition) {
+    id
+    name
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteCity(
+  $input: DeleteCityInput!
+  $condition: ModelCityConditionInput
+) {
+  deleteCity(input: $input, condition: $condition) {
+    id
+    name
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateAirport(
+  $input: CreateAirportInput!
+  $condition: ModelAirportConditionInput
+) {
+  createAirport(input: $input, condition: $condition) {
+    id
+    name
+    address
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateAirport(
+  $input: UpdateAirportInput!
+  $condition: ModelAirportConditionInput
+) {
+  updateAirport(input: $input, condition: $condition) {
+    id
+    name
+    address
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteAirport(
+  $input: DeleteAirportInput!
+  $condition: ModelAirportConditionInput
+) {
+  deleteAirport(input: $input, condition: $condition) {
+    id
+    name
+    address
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    display_name
+    username
+    groups
+    message
+    family
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    display_name
+    username
+    groups
+    message
+    family
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    display_name
+    username
+    groups
+    message
+    family
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateEvent(
+  $input: CreateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  createEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateEvent(
+  $input: UpdateEventInput!
+  $condition: ModelEventConditionInput
+) {
+  updateEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteEvent(
+  $input: DeleteEventInput!
+  $condition: ModelEventConditionInput
+) {
+  deleteEvent(input: $input, condition: $condition) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateHotel(
   $input: CreateHotelInput!
   $condition: ModelHotelConditionInput
@@ -11,6 +599,9 @@ mutation CreateHotel(
     phone
     description
     image
+    website
+    room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -28,6 +619,9 @@ mutation UpdateHotel(
     phone
     description
     image
+    website
+    room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -45,69 +639,9 @@ mutation DeleteHotel(
     phone
     description
     image
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-
-mutation CreateEvent(
-  $input: CreateEventInput!
-  $condition: ModelEventConditionInput
-) {
-  createEvent(input: $input, condition: $condition) {
-    id
-    name
-    date
-    start
-    stop
-    image
-    description
-    address
-    address_name
-    groups
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-
-mutation UpdateEvent(
-  $input: UpdateEventInput!
-  $condition: ModelEventConditionInput
-) {
-  updateEvent(input: $input, condition: $condition) {
-    id
-    name
-    date
-    start
-    stop
-    image
-    description
-    address
-    address_name
-    groups
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-
-mutation DeleteEvent(
-  $input: DeleteEventInput!
-  $condition: ModelEventConditionInput
-) {
-  deleteEvent(input: $input, condition: $condition) {
-    id
-    name
-    date
-    start
-    stop
-    image
-    description
-    address
-    address_name
-    groups
+    website
+    room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -122,6 +656,8 @@ mutation CreateUserSettings(
     id
     user
     language
+    notifications
+    email
     createdAt
     updatedAt
     __typename
@@ -136,6 +672,8 @@ mutation UpdateUserSettings(
     id
     user
     language
+    notifications
+    email
     createdAt
     updatedAt
     __typename
@@ -150,6 +688,8 @@ mutation DeleteUserSettings(
     id
     user
     language
+    notifications
+    email
     createdAt
     updatedAt
     __typename
@@ -164,7 +704,8 @@ mutation CreateRestaurant(
     id
     name
     description
-    city
+    address
+    image
     createdAt
     updatedAt
     __typename
@@ -179,7 +720,8 @@ mutation UpdateRestaurant(
     id
     name
     description
-    city
+    address
+    image
     createdAt
     updatedAt
     __typename
@@ -194,7 +736,8 @@ mutation DeleteRestaurant(
     id
     name
     description
-    city
+    address
+    image
     createdAt
     updatedAt
     __typename

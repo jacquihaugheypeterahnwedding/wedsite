@@ -1,0 +1,84 @@
+.all {
+    height:100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+
+    width: 100%;
+    background-image: url("../../assets/cruise.jpg");
+    background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+
+}
+
+.small {
+    height:100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+
+    width: 100%;
+    background-image: url("../../assets/home_l.png");
+    background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  overflow: scroll;
+}
+
+.info_l {
+    width: 100%;
+    height: 100%;
+    float: right;
+    padding-bottom: 25%;
+    padding-right: 3%;
+}
+
+mat-icon {
+    padding-top: 5px;
+}
+
+.info {
+    width: 70%;
+    height: 100%;
+    float: right;
+    padding-bottom: 3%;
+    padding-right: 3%;
+}
+
+.title {
+    text-align: right;
+    font-size: 30px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.title_l {
+    text-align: center;
+    font-size: 25px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.where {
+    text-align: left;
+    font-size: 15px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    padding-left: 40%;
+}
+
+
+.where_l {
+    text-align: left;
+    font-size: 12px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    padding-left: 55%;
+}
+
+.when {
+    text-align: left;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.inside {
+    border: red;
+    border-width: 5px;
+}

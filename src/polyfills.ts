@@ -1,4 +1,5 @@
 import 'zone.js/dist/zone'; // Included with Angular CLI.
+import 'hammerjs';
 
 (window as any).Zone['__zone_symbol__ignoreConsoleErrorUncaughtError'] = true;
 

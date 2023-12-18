@@ -1,19 +1,20 @@
-<p>user works!</p>
-<h1>Test String!</h1>
 
-<h1>{{text}}</h1>
+<div class=" all">
 
-<h1>{{I18n.get('Test String!')}}</h1>
+<div class="box">
 
 
-<h1>{{I18n.get('Test Stasdring!')}}</h1>
+<h1>{{I18n.get('Welcome')}} {{userService.userSettings.user}}</h1>
 
 
-<label id="example-radio-group-label">Language Preferance:</label>
+<!--
+<label id="example-radio-group-label">{{I18n.get('Language Preferance:')}}</label>
+<br/>
+
 <mat-radio-group
   aria-labelledby="example-radio-group-label"
   class="example-radio-group"
-  [(ngModel)]="language"
+  [(ngModel)]="userService.userSettings.language"
   (change)="changeLanguage($event)">
   <mat-radio-button class="example-radio-button" value="ko-KR">
     한국인
@@ -23,6 +24,80 @@
     English
   </mat-radio-button>
 </mat-radio-group>
+-->
+<br/>
+<br/>
+<br/>
+
+<mat-slide-toggle>{{I18n.get('Recieve Email Notifications of website updates:')}}</mat-slide-toggle>
+<br/>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+           placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</form>
+
+<br/>
+<br/>
+
+<mat-divider>
+</mat-divider>
+
+<br/>
+<br/>
+
+<h3>Change Password</h3>
+<form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+  <mat-form-field>
+    <mat-label>Old Password</mat-label>
+    <input matInput formControlName="oldPwd" type="password"  />
+
+      <mat-error *ngIf="oldPwd.invalid">Old Password is required.</mat-error>
+    
+    
+  </mat-form-field>
+
+  <br/>
+
+  <mat-form-field>
+    <mat-label>New Password</mat-label>
+    <input matInput formControlName="newPwd" type="password"  />
+    <mat-error *ngIf="newPwd.invalid">New Password must be >=6 characters.</mat-error>
+     
+  </mat-form-field>
+
+  <br/>
 
 
-      <button (click)="switchLanguage()">Switch language</button>
+  <mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input matInput formControlName="confirmPwd" type="password"  />
+    <mat-error *ngIf="confirmPwd.invalid">Confirm Password is required.</mat-error>
+
+  </mat-form-field>
+
+  <mat-error *ngIf="changePasswordForm.errors?.['match']">Passwords do not match.</mat-error>
+
+  <br/>
+
+  <mat-spinner *ngIf="changeLoading"></mat-spinner>
+  <div *ngIf="succChange">Successfully changed password.</div>
+  <mat-error *ngIf="retError"> {{retError}}</mat-error>
+
+  <button class="btn btn-primary" [disabled]="!changePasswordForm.valid">Change Password</button>
+
+
+</form>
+
+</div>
+
+</div>

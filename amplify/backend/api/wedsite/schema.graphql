@@ -1,3 +1,90 @@
+type RSVP @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String
+  coming: String
+  info: AWSJSON
+}
+
+type Welcome @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  header: String
+  image: String
+  body: String
+  footer: String
+}
+
+type Picture @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  itemImageSrc: String
+  cols: Int
+  rows: Int
+  alt: String
+  frameSrc: String
+  frameCut: Int
+  frameRepeat: String
+}
+
+type Story @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  body: String
+  image: String
+  header: String
+  footer: String
+}
+
+type Translation @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  key: String
+  en: String
+  ko: String
+}
+
+type Area @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  location: String
+  description: String
+  image: String
+  website: String
+}
+
+type Question @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  question: String
+  answer: String
+  username: String
+  group: String
+}
+
+type Login @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String
+  login: String
+}
+
+type City @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+  image: String
+}
+
+type Airport @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  address: String
+  description: String
+  image: String
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  display_name: String
+  username: String
+  groups: String
+  message: String
+  family: AWSJSON
+}
+
 type Event @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
@@ -18,12 +105,17 @@ type Hotel @model @auth(rules: [{allow: public}]) {
   phone: AWSPhone
   description: String
   image: String
+  website: String
+  room_block: String
+  city: String
 }
 
 type UserSettings @model @auth(rules: [{allow: public}]) {
   id: ID!
   user: String
   language: String
+  notifications: Boolean
+  email: AWSEmail
 }
 
 type Restaurant @model @auth(rules: [{allow: public}]) {
@@ -31,5 +123,5 @@ type Restaurant @model @auth(rules: [{allow: public}]) {
   name: String!
   description: String!
   address: String!
-}
- 
+  image: String
+} 

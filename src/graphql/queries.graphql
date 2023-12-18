@@ -1,5 +1,421 @@
 # this is an auto generated file. This will be overwritten
 
+query GetRSVP($id: ID!) {
+  getRSVP(id: $id) {
+    id
+    username
+    coming
+    info
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListRSVPS(
+  $filter: ModelRSVPFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRSVPS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      coming
+      info
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetWelcome($id: ID!) {
+  getWelcome(id: $id) {
+    id
+    header
+    image
+    body
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListWelcomes(
+  $filter: ModelWelcomeFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listWelcomes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      header
+      image
+      body
+      footer
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetPicture($id: ID!) {
+  getPicture(id: $id) {
+    id
+    itemImageSrc
+    cols
+    rows
+    alt
+    frameSrc
+    frameCut
+    frameRepeat
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListPictures(
+  $filter: ModelPictureFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPictures(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      itemImageSrc
+      cols
+      rows
+      alt
+      frameSrc
+      frameCut
+      frameRepeat
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetStory($id: ID!) {
+  getStory(id: $id) {
+    id
+    body
+    image
+    header
+    footer
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListStories(
+  $filter: ModelStoryFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listStories(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      body
+      image
+      header
+      footer
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetTranslation($id: ID!) {
+  getTranslation(id: $id) {
+    id
+    key
+    en
+    ko
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListTranslations(
+  $filter: ModelTranslationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTranslations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      key
+      en
+      ko
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetArea($id: ID!) {
+  getArea(id: $id) {
+    id
+    location
+    description
+    image
+    website
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListAreas(
+  $filter: ModelAreaFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAreas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      location
+      description
+      image
+      website
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetQuestion($id: ID!) {
+  getQuestion(id: $id) {
+    id
+    question
+    answer
+    username
+    group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListQuestions(
+  $filter: ModelQuestionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listQuestions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      question
+      answer
+      username
+      group
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetLogin($id: ID!) {
+  getLogin(id: $id) {
+    id
+    username
+    login
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListLogins(
+  $filter: ModelLoginFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listLogins(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      login
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetCity($id: ID!) {
+  getCity(id: $id) {
+    id
+    name
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListCities(
+  $filter: ModelCityFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCities(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetAirport($id: ID!) {
+  getAirport(id: $id) {
+    id
+    name
+    address
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListAirports(
+  $filter: ModelAirportFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAirports(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      address
+      description
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    display_name
+    username
+    groups
+    message
+    family
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      display_name
+      username
+      groups
+      message
+      family
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetEvent($id: ID!) {
+  getEvent(id: $id) {
+    id
+    name
+    description
+    date
+    start
+    stop
+    image
+    address
+    address_name
+    groups
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListEvents(
+  $filter: ModelEventFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+      date
+      start
+      stop
+      image
+      address
+      address_name
+      groups
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
 query GetHotel($id: ID!) {
   getHotel(id: $id) {
     id
@@ -8,6 +424,9 @@ query GetHotel($id: ID!) {
     phone
     description
     image
+    website
+    room_block
+    city
     createdAt
     updatedAt
     __typename
@@ -27,50 +446,9 @@ query ListHotels(
       phone
       description
       image
-      createdAt
-      updatedAt
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-
-query GetEvent($id: ID!) {
-  getEvent(id: $id) {
-    id
-    name
-    date
-    start
-    stop
-    image
-    description
-    address
-    address_name
-    groups
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-
-query ListEvents(
-  $filter: ModelEventFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      date
-      start
-      stop
-      image
-      description
-      address
-      address_name
-      groups
+      website
+      room_block
+      city
       createdAt
       updatedAt
       __typename
@@ -85,6 +463,8 @@ query GetUserSettings($id: ID!) {
     id
     user
     language
+    notifications
+    email
     createdAt
     updatedAt
     __typename
@@ -101,6 +481,8 @@ query ListUserSettings(
       id
       user
       language
+      notifications
+      email
       createdAt
       updatedAt
       __typename
@@ -115,7 +497,8 @@ query GetRestaurant($id: ID!) {
     id
     name
     description
-    city
+    address
+    image
     createdAt
     updatedAt
     __typename
@@ -132,7 +515,8 @@ query ListRestaurants(
       id
       name
       description
-      city
+      address
+      image
       createdAt
       updatedAt
       __typename

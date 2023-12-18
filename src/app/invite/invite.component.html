@@ -1,0 +1,34 @@
+<div class="all" fxLayout="column">
+    <div fxFlex class="message" fxLayout="column">
+        <div fxFlex class="write">
+            Dear {{display_name}},
+        </div>
+        <div  fxFlex [innerHTML]="message">
+
+        </div>
+
+        <div fxFlex class="write">
+            Love,
+            <br/>Jacqui and Peter
+        </div>
+    </div>
+
+    <div fxFlex class="envelope" (mouseenter)="hover=true"
+    (mouseleave)="hover=false"
+    (click)="openInvite()">
+        <img class="img" src="assets/et.png"/>
+
+        <div class="to">To: {{display_name}}</div>
+
+        
+       
+    </div>
+
+
+        <img *ngIf="media.isActive('xs')" id="gif"  src="assets/invite-cell.gif"  class="invite"/>
+        <img *ngIf="media.isActive('sm') || media.isActive('md') || media.isActive('lg') || media.isActive('xl')" id="gif"  src="assets/invite.gif"  class="invite"/>
+    
+
+
+</div>
+<div *ngIf="show_invite && !media.isActive('xs')" class="cover" (click)="close()"></div>
