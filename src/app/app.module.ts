@@ -22,6 +22,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -75,7 +76,7 @@ import { RsvpYesComponent } from './rsvp-yes/rsvp-yes.component';
     AmplifyAuthenticatorModule,
     /* configuring form modules */
     FormsModule,
-    MatFormFieldModule, MatExpansionModule, MatListModule, MatDialogModule,
+    MatFormFieldModule, MatExpansionModule, MatListModule, MatDialogModule, MatTooltipModule,
     NgIf,
     GalleriaModule,
     ReactiveFormsModule, MatGridListModule,

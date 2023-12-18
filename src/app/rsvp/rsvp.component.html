@@ -1,16 +1,15 @@
 <div class="all">
 
 
-<div> Your curent RSVP status: {{rsvp_status}}</div>
+<h3> Your curent RSVP status: {{rsvp_status}}</h3>
 
-<div>Change your RSVP status</div>
+
 <br/>
 <div class="buttons">
 
-<button mat-raised-button class="rsvp" (click)="sendRsvp('yes')" routerLink="/rsvpyes"><mat-icon [ngStyle]="{'color':'green'}">check</mat-icon>We are coming!</button>
+<button mat-raised-button class="rsvp" (click)="sendRsvp('Coming')" routerLink="/rsvpyes"><mat-icon [ngStyle]="{'color':'green'}">check</mat-icon>We are coming!<p *ngIf="rsvp_status == 'Coming'"> Update RSVP.</p></button>
 <br/>
-<button mat-raised-button class="rsvp"  (click)="sendRsvp('no')"><mat-icon [ngStyle]="{'color':'red'}">close</mat-icon>Regrets</button>
-<br/>
-<button mat-raised-button class="rsvp"  (click)="sendRsvp('maybe')"><mat-icon [ngStyle]="{'color':'grey'}">question_mark</mat-icon>Unsure</button>
+<button mat-raised-button class="rsvp"  (click)="sendRsvp('Regrets')"><mat-icon [ngStyle]="{'color':'red'}">close</mat-icon>Regrets</button>
+
 </div>
 </div>

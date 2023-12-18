@@ -37,12 +37,10 @@ export class RsvpYesComponent {
   username;
 
 
-  confirmPwd = new FormControl('', Validators.required);
+  comment = '';
 
 
-  detailsComing = new FormGroup({
-    confirmPwd: this.confirmPwd,
-  });
+
 
 
   constructor (private api: APIService, public userService: UserService, private cognitoService: CognitoService) {
@@ -58,8 +56,17 @@ export class RsvpYesComponent {
       this.api.GetRSVP(username).then(value => {
         if (value != null) {
           this.api.GetRSVP(username).then(value => {
-            const fam = JSON.parse(value.info).people;
-            this.setFamily(fam);
+            if (value.info == null) {
+              this.api.GetUser(userid).then(user => {
+                const fam = JSON.parse(user.family).people;
+                this.setFamily(fam);
+              });
+            } else {
+              const fam = JSON.parse(value.info).people;
+              this.setFamily(fam);
+            }
+            
+
           });
         } else {
           this.api.GetUser(userid).then(user => {
@@ -93,14 +100,11 @@ export class RsvpYesComponent {
 
 
   submit() {
-    console.log(this.adults);
-    console.log(this.children);
     const people = this.children.concat(this.adults);
-    console.log(people);
 
     this.api.UpdateRSVP({
       id: this.username,
-      info: JSON.stringify({people: people})
+      info: JSON.stringify({people: people, comment: this.comment})
     });
   }
 

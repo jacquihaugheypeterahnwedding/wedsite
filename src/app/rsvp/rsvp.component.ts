@@ -44,19 +44,21 @@ export class RsvpComponent {
   }
 
   sendRsvp(message: string) {
-    console.log(message)
     if (this.has_rsvped) {
       this.api.UpdateRSVP({
         coming: message,
         id: this.username
+      }).then(() => {
+        this.ngOnInit();
       });
     } else {
       
         this.api.CreateRSVP({
           username: this.username,
           coming: message,
-          id: this.username,
-          info: this.userService.userInfo.family
+          id: this.username
+        }).then(() => {
+          this.ngOnInit();
         });
 
       

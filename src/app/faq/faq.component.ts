@@ -29,7 +29,7 @@ export class FaqComponent {
   public questionGroups = {
 
   };
-  groupKeys = ['Venue', 'Virginia'];
+  groupKeys = ['Venue', 'Wedding Day', 'Travel', 'Virginia', 'Website'];
   showPending = false;
 
   //public faqList: Array<Question> = [];
@@ -78,6 +78,11 @@ export class FaqComponent {
 
   ask() {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog);
+    dialogRef.afterClosed().subscribe(() => {
+      this.questionGroups = {};
+      this.faqListPending = [];
+      this.ngOnInit();
+    });
 
   }
 
@@ -115,11 +120,13 @@ export class DialogOverviewExampleDialog {
         this.api.CreateQuestion({
           username: username,
           question: this.question.value
+        }).then(() => {
+          this.close();
         });
   
   
       });
-      this.close();
+      
     }
     
     

@@ -1,8 +1,9 @@
 
 <div class="all">
 
-
-    <p>Please let us know the details so we can ensure a smooth and fun event for everyone.</p>
+    <p>We are so glad you are able to join us and look forward to seeing you there!
+        Having your answer by March 1, 2024 will help us ensure a smooth and fun event for everyone.
+</p>
 
 
     <br/>
@@ -30,7 +31,7 @@
     </div>
 
 
-    <button mat-raised-button color="primary" (click)="addAdult()"><mat-icon>add</mat-icon>Add Adult</button>
+    <button mat-raised-button color="primary" class="add"  (click)="addAdult()"><mat-icon>add</mat-icon>Add Adult</button>
 
     <br/>
     <br/>
@@ -47,7 +48,7 @@
             <input matInput type="text" [(ngModel)]="person.name"> 
           </mat-form-field>
 
-          <mat-form-field class="item">
+          <mat-form-field class="item" matTooltip="If you are uncomfortable with disclosing this on the form - please reach out to us directly.">
             <mat-label>Age</mat-label>
             <input matInput type="text" [(ngModel)]="person.age"> 
           </mat-form-field>
@@ -60,10 +61,17 @@
     </mat-card>
     </div>
 
-    <button mat-raised-button color="primary" (click)="addChild()"><mat-icon>add</mat-icon>Add Child</button>
+    <button mat-raised-button color="primary" class="add" (click)="addChild()"><mat-icon>add</mat-icon>Add Child</button>
 
     <br/>
     <br/>
 
-    <button (click)="submit()">Submit</button>
+    <mat-form-field class="item comment">
+        <mat-label>Any comments?</mat-label>
+        <textarea matInput type="text" [(ngModel)]="comment"> </textarea>
+    </mat-form-field>
+
+
 </div>
+
+<button mat-raised-button color="primary" class="submit" (click)="submit()">Submit RSVP</button>

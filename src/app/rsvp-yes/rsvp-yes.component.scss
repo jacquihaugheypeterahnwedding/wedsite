@@ -6,6 +6,8 @@
   
       width: 100%;
       overflow: scroll;
+      padding: 20px;
+      padding-bottom: 40px;
 
       background-image: url("../../assets/paper_o.png");
       background-position: center; 
@@ -23,11 +25,22 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    max-width: 90%;
-    margin: 5%;
+    width: 80%;
+    margin: 10%;
+  }
+
+  .comment {
+    width: 80%;
+    margin: 10%;
   }
 
 
   .item {
     margin: 10px;
+  }
+
+  .submit {
+    position: absolute;
+    right: 15px;
+    bottom: 30px;
   }
