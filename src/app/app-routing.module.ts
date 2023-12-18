@@ -18,6 +18,7 @@ import { AirportsComponent } from './airports/airports.component';
 import { HomeComponent } from './home/home.component';
 import { InviteComponent } from './invite/invite.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
+import { RsvpYesComponent } from './rsvp-yes/rsvp-yes.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'faq', component: FaqComponent},
   { path: 'airports', component: AirportsComponent},
   { path: 'rsvp', component: RsvpComponent},
+  { path: 'rsvpyes', component: RsvpYesComponent},
 ];
 export const appRouting = RouterModule.forRoot(routes);
 @NgModule({

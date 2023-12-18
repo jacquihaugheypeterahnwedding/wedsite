@@ -1,1 +1,69 @@
-<p>rsvp-yes works!</p>
+
+<div class="all">
+
+
+    <p>Please let us know the details so we can ensure a smooth and fun event for everyone.</p>
+
+
+    <br/>
+
+    <div *ngFor="let person of adults" class="flex-container">
+        <mat-card>
+            <mat-card-content>
+                <button mat-mini-fab color="warn" (click)="remove(person, false)">
+                    <mat-icon>close</mat-icon>
+                  </button>
+        
+                <mat-form-field class="item">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" [(ngModel)]="person.name"> 
+                  </mat-form-field>
+        
+                  <mat-form-field class="item">
+                    <mat-label>Dietary Restrictions</mat-label>
+                    <textarea matInput [(ngModel)]="person.diet" placeholder="Ex. None, allergies, Vegan, etc..."></textarea>
+                  </mat-form-field>
+
+            </mat-card-content>
+          </mat-card>
+        
+    </div>
+
+
+    <button mat-raised-button color="primary" (click)="addAdult()"><mat-icon>add</mat-icon>Add Adult</button>
+
+    <br/>
+    <br/>
+
+    <div *ngFor="let person of children" class="flex-container">
+        <mat-card>
+            <mat-card-content>
+        <button mat-mini-fab color="warn" (click)="remove(person, true)">
+            <mat-icon>close</mat-icon>
+          </button>
+
+        <mat-form-field class="item">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="person.name"> 
+          </mat-form-field>
+
+          <mat-form-field class="item">
+            <mat-label>Age</mat-label>
+            <input matInput type="text" [(ngModel)]="person.age"> 
+          </mat-form-field>
+
+          <mat-form-field class="item">
+            <mat-label>Dietary Restrictions</mat-label>
+            <textarea matInput [(ngModel)]="person.diet" placeholder="Ex. None, allergies, Vegan, etc..."></textarea>
+          </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="addChild()"><mat-icon>add</mat-icon>Add Child</button>
+
+    <br/>
+    <br/>
+
+    <button (click)="submit()">Submit</button>
+</div>

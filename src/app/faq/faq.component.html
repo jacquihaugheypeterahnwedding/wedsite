@@ -1,6 +1,6 @@
 <div class="all">
 <div *ngFor="let group of groupKeys">
-  <h2>{{group}}</h2>
+  <div mat-subheader>{{group}}</div>
   <mat-accordion displayMode="default" multi="true"
   class="faq-container">
     <mat-expansion-panel *ngFor="let faqItem of questionGroups[group]">
@@ -29,4 +29,4 @@
 
 
 </div>
-<button mat-raised-button class="ask" color="primary" (click)="ask()">Ask Question</button>
+<button mat-raised-button class="ask" color="primary" (click)="ask()"><mat-icon>question_answer</mat-icon>Ask Question</button>

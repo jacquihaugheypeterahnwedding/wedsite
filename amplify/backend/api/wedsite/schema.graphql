@@ -124,5 +124,4 @@ type Restaurant @model @auth(rules: [{allow: public}]) {
   description: String!
   address: String!
   image: String
-}
- 
+} 

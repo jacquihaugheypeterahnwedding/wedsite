@@ -43,34 +43,24 @@ export class RsvpComponent {
     
   }
 
-
-
-  yes() {
-    console.log(this.username)
-    console.log('yes')
+  sendRsvp(message: string) {
+    console.log(message)
     if (this.has_rsvped) {
       this.api.UpdateRSVP({
-        coming: 'Yes',
+        coming: message,
         id: this.username
       });
     } else {
-      this.api.CreateRSVP({
-        username: this.username,
-        coming: 'Yes',
-        id: this.username
-      })
-    }
-    
-    
-  }
+      
+        this.api.CreateRSVP({
+          username: this.username,
+          coming: message,
+          id: this.username,
+          info: this.userService.userInfo.family
+        });
 
-  no() {
-    console.log('no');
-    this.api.UpdateRSVP({
-      username: this.username,
-      coming: 'No',
-      id: this.username
-    });
+      
+    }
   }
 
 
