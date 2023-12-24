@@ -4,6 +4,10 @@ import { I18n } from 'aws-amplify';
 import { APIService } from '../API.service';
 import { UserService } from '../user.service';
 import { CognitoService } from '../cognito.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -43,7 +47,7 @@ export class RsvpYesComponent {
 
 
 
-  constructor (private api: APIService, public userService: UserService, private cognitoService: CognitoService) {
+  constructor (private api: APIService, public dialog: MatDialog, public router: Router, public userService: UserService, private cognitoService: CognitoService, private _snackBar: MatSnackBar) {
 
   }
 
@@ -79,6 +83,10 @@ export class RsvpYesComponent {
       
     });
 
+    this.dialog.open(DialogAnimationsExampleDialog, {
+      
+    });
+
     
   }
 
@@ -105,7 +113,14 @@ export class RsvpYesComponent {
     this.api.UpdateRSVP({
       id: this.username,
       info: JSON.stringify({people: people, comment: this.comment})
+    }).then(()=> {
+      this._snackBar.open('RSVP Submitted!', 'OK');
+      this.router.navigate(['rsvp']);
+      
+
     });
+
+    
   }
 
 
@@ -139,4 +154,13 @@ export class RsvpYesComponent {
 
   }
 
+}
+
+
+@Component({
+  selector: 'dialog-animations-example-dialog',
+  templateUrl: 'dialog.html',
+})
+export class DialogAnimationsExampleDialog {
+  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
 }
