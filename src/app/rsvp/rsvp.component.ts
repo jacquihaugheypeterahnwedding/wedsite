@@ -4,6 +4,7 @@ import { I18n } from 'aws-amplify';
 import { APIService } from '../API.service';
 import { UserService } from '../user.service';
 import { CognitoService } from '../cognito.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-rsvp',
@@ -19,7 +20,7 @@ export class RsvpComponent {
   username;
 
 
-  constructor (private api: APIService, public userService: UserService, private cognitoService: CognitoService) {
+  constructor (private api: APIService, private _snackBar: MatSnackBar, public userService: UserService, private cognitoService: CognitoService) {
 
   }
 
@@ -44,6 +45,7 @@ export class RsvpComponent {
   }
 
   sendRsvp(message: string) {
+    this._snackBar.open('RSVP Submitted!', 'OK');
     if (this.has_rsvped) {
       this.api.UpdateRSVP({
         coming: message,

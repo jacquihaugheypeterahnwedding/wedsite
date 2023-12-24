@@ -62,12 +62,12 @@ import { HomeComponent } from './home/home.component';
 import { InviteComponent } from './invite/invite.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
-import { RsvpYesComponent } from './rsvp-yes/rsvp-yes.component';
+import { DialogAnimationsExampleDialog, RsvpYesComponent } from './rsvp-yes/rsvp-yes.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, DialogOverviewExampleDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent, RsvpYesComponent],
+  declarations: [AppComponent, DialogAnimationsExampleDialog, DialogOverviewExampleDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent, RsvpYesComponent],
   imports: [
     BrowserModule,
     NgbModule,
