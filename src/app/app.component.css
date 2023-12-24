@@ -20,6 +20,17 @@ span {
   justify-content: center;
 } 
 
+.rsvp {
+  height: 100%;
+  border-left-style: solid;
+  border-left-color: black;
+  border-left-width: 2px;
+  border-right-style: solid;
+  border-right-color: black;
+  border-right-width: 2px;
+  background-color: transparent;
+}
+
 .example-card {
   max-width: 500px;
   margin: auto;
