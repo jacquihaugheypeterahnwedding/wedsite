@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 import {PageFlip} from 'page-flip';
 import { APIService, Story } from '../API.service';
 
+import { I18n } from 'aws-amplify';
+
 @Component({
   selector: 'app-ourstory',
   templateUrl: './ourstory.component.html',
   styleUrls: ['./ourstory.component.scss']
 })
 export class OurstoryComponent {
+  I18n = I18n;
 
   public pagesList: Array<Story> = [];
 

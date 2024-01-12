@@ -34,14 +34,14 @@
 
 <form class="example-form">
   <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
+    <mat-label>{{I18n.get('Email')}}</mat-label>
     <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
            placeholder="Ex. pat@example.com">
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-      Please enter a valid email address
+      {{I18n.get('Please enter a valid email address')}}
     </mat-error>
     <mat-error *ngIf="emailFormControl.hasError('required')">
-      Email is <strong>required</strong>
+      {{I18n.get('Email is required')}}
     </mat-error>
   </mat-form-field>
 </form>
@@ -55,13 +55,13 @@
 <br/>
 <br/>
 
-<h3>Change Password</h3>
+<h3>{{I18n.get('Change Password')}}</h3>
 <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
   <mat-form-field>
-    <mat-label>Old Password</mat-label>
+    <mat-label>{{I18n.get('Old Password')}}</mat-label>
     <input matInput formControlName="oldPwd" type="password"  />
 
-      <mat-error *ngIf="oldPwd.invalid">Old Password is required.</mat-error>
+      <mat-error *ngIf="oldPwd.invalid">{{I18n.get('Old Password is required.')}}</mat-error>
     
     
   </mat-form-field>
@@ -69,9 +69,9 @@
   <br/>
 
   <mat-form-field>
-    <mat-label>New Password</mat-label>
+    <mat-label>{{I18n.get('New Password')}}</mat-label>
     <input matInput formControlName="newPwd" type="password"  />
-    <mat-error *ngIf="newPwd.invalid">New Password must be >=6 characters.</mat-error>
+    <mat-error *ngIf="newPwd.invalid">{{I18n.get('New Password must be >=6 characters.')}}</mat-error>
      
   </mat-form-field>
 
@@ -79,21 +79,21 @@
 
 
   <mat-form-field>
-    <mat-label>Confirm Password</mat-label>
+    <mat-label>{{I18n.get('Confirm Password')}}</mat-label>
     <input matInput formControlName="confirmPwd" type="password"  />
-    <mat-error *ngIf="confirmPwd.invalid">Confirm Password is required.</mat-error>
+    <mat-error *ngIf="confirmPwd.invalid">{{I18n.get('Confirm Password is required.')}}</mat-error>
 
   </mat-form-field>
 
-  <mat-error *ngIf="changePasswordForm.errors?.['match']">Passwords do not match.</mat-error>
+  <mat-error *ngIf="changePasswordForm.errors?.['match']">{{I18n.get('Passwords do not match.')}}</mat-error>
 
   <br/>
 
   <mat-spinner *ngIf="changeLoading"></mat-spinner>
-  <div *ngIf="succChange">Successfully changed password.</div>
+  <div *ngIf="succChange">{{I18n.get('Successfully changed password.')}}</div>
   <mat-error *ngIf="retError"> {{retError}}</mat-error>
 
-  <button class="btn btn-primary" [disabled]="!changePasswordForm.valid">Change Password</button>
+  <button class="btn btn-primary" [disabled]="!changePasswordForm.valid">{{I18n.get('Change Password')}}</button>
 
 
 </form>

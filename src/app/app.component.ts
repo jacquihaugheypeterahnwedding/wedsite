@@ -105,11 +105,6 @@ export class AppComponent {
   }
 
 
-  switchLanguage() {
-    console.log('switch')
-    I18n.setLanguage('ko-KR');
-  }
-
 
   signOut() {
     Auth.signOut();

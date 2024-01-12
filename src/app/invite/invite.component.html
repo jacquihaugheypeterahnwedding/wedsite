@@ -1,15 +1,15 @@
 <div class="all" fxLayout="column">
     <div fxFlex="50" class="message" fxLayout="column">
         <div fxFlex class="write">
-            Dear {{display_name}},
+            {{I18n.get('Dear')}} {{display_name}},
         </div>
         <div  fxFlex [innerHTML]="message">
 
         </div>
 
         <div fxFlex class="write">
-            Love,
-            <br/>Jacqui and Peter
+            {{I18n.get('Love')}},
+            <br/>{{I18n.get('Jacqui and Peter')}}
         </div>
     </div>
 
@@ -18,7 +18,7 @@
     (click)="openInvite()">
         <img class="img" src="assets/et.png"/>
 
-        <div class="to">To: {{display_name}}</div>
+        <div class="to">{{I18n.get('To')}}: {{display_name}}</div>
 
         
        

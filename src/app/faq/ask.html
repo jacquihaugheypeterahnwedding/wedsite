@@ -1,13 +1,13 @@
-<h1 mat-dialog-title>What's your question?</h1>
+<h1 mat-dialog-title>{{I18n.get('What\'s your question?')}}</h1>
 <div mat-dialog-content>
     <form [formGroup]="askQuestionForm" (ngSubmit)="submit()">
   <mat-form-field>
-    <mat-label>Question</mat-label>
+    <mat-label>{{I18n.get('Question')}}</mat-label>
     <input matInput formControlName="question">
   </mat-form-field>
 </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="close()">Cancel</button>
-  <button mat-button (click)="submit()" cdkFocusInitial [disabled]="!askQuestionForm.valid">Submit</button>
+  <button mat-button (click)="close()">{{I18n.get('Cancel')}}</button>
+  <button mat-button (click)="submit()" cdkFocusInitial [disabled]="!askQuestionForm.valid">{{I18n.get('Submit')}}</button>
 </div>

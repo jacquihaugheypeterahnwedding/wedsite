@@ -6,14 +6,14 @@
         <mat-card-header>
         <mat-card-title-group>
             <img mat-card-md-image src="{{area.image}}" >
-            <mat-card-title>{{area.location}}</mat-card-title>
-            <mat-card-subtitle><a href="{{area.website}}">Visitor Center</a></mat-card-subtitle>
+            <mat-card-title>{{I18n.get(area.location)}}</mat-card-title>
+            <mat-card-subtitle><a href="{{area.website}}">{{I18n.get('Visitor Center')}}</a></mat-card-subtitle>
 
 
         </mat-card-title-group>
         </mat-card-header>
         <mat-card-content>
-        {{area.description}}
+        {{I18n.get(area.description)}}
 
         </mat-card-content>
 

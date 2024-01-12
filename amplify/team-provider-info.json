@@ -1,4 +1,22 @@
 {
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-wedsite-test-211829-authRole",
+      "UnauthRoleArn": "arn:aws:iam::281186247027:role/amplify-wedsite-test-211829-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::281186247027:role/amplify-wedsite-test-211829-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-wedsite-test-211829-deployment",
+      "UnauthRoleName": "amplify-wedsite-test-211829-unauthRole",
+      "StackName": "amplify-wedsite-test-211829",
+      "StackId": "arn:aws:cloudformation:us-east-1:281186247027:stack/amplify-wedsite-test-211829/4f4cd3c0-a8eb-11ee-983b-0ee89381642d",
+      "AmplifyAppId": "d18d3ontts0gfd"
+    },
+    "categories": {
+      "auth": {
+        "wedsite": {}
+      }
+    }
+  },
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-wedsite-dev-230405-authRole",

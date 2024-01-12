@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { APIService, Picture } from '../API.service';
+import { I18n } from 'aws-amplify';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { APIService, Picture } from '../API.service';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
+  I18n = I18n;
 
 
   images: any[] = [];

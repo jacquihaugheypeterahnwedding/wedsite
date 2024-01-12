@@ -5,6 +5,7 @@ import { CognitoService } from '../cognito.service';
 
 import { MediaObserver } from '@angular/flex-layout';
 import {  MatSnackBar } from '@angular/material/snack-bar';
+import { I18n } from 'aws-amplify';
 
 
 @Component({
@@ -13,6 +14,8 @@ import {  MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./invite.component.scss']
 })
 export class InviteComponent {
+
+  I18n = I18n;
 
   display_name: string;
   message: string;
@@ -89,7 +92,7 @@ export class InviteComponent {
   styles: [],
 })
 export class ClickHelpComponent {
-
+  I18n = I18n;
 
 
 }

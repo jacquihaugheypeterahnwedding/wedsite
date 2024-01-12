@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
+import { I18n } from 'aws-amplify';
 
 @Component({
   selector: 'app-countdown',
@@ -7,6 +8,7 @@ import { Subscription, interval } from 'rxjs';
   styleUrls: ['./countdown.component.scss']
 })
 export class CountdownComponent {
+  I18n = I18n;
 
   private subscription: Subscription;
 

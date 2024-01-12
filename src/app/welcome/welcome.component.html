@@ -9,7 +9,7 @@
            </div>
            <div *ngFor="let page of pagesList" class="page">
                <div class="page-content">
-                   <h2 class="page-header">{{page.header}}</h2>
+                   <h2 class="page-header">{{I18n.get(page.header)}}</h2>
                    <div class="page-image">
                      <img *ngIf="page.image != 'countdown' && page.image " class="image" src="{{page.image}}" />
                      <app-countdown  *ngIf="page.image == 'countdown'" class="image" class="countdown" ></app-countdown>
@@ -22,7 +22,7 @@
 
            <div class="page page-cover page-cover-bottom" data-density="hard">
                <div class="page-content back-content">
-                   <h2>HAVE FUN!</h2>
+                   <h2>{{I18n.get('HAVE FUN!')}}</h2>
 
                </div>
            </div>
