@@ -56,51 +56,51 @@ const translation_dict = {
      'Fox Meadow Barn': 'Fox Meadow Barn',
 
       //home
-      'We\'ve waited 4,063 days for this.': 'ko We\'ve waited 4,063 days for this.',
+      'We\'ve waited 4,063 days for this.': '저희는 이날을 4,063일을 기다렸습니다.',
       'Party accordingly.': 'ko Party accordingly.',
 
       //FAQ
-      'Question': 'ko Question',
-      'What\'s your question?': 'ko What\'s your question?',
-      'Ask Question': 'ko Ask Question',
-      'Pending Response:': 'ko Pending Response:',
-      'Bridal party is compiling a response...': 'ko Bridal party is compiling a response...',
+      'Question': '질문',
+     'What\'s your question?': '무엇이 궁금하신가요?',
+     'Ask Question': '질문하세요',
+     'Pending Response:': '대기 중인 응답:',
+     'Bridal party is compiling a response...': '신부측에서 답변을 준비 중입니다...',
 
 
       //invite
-      'Click the envelope for your invitation!': 'ko Click the envelope for your invitation!',
-      'Dear': 'ko Dear',
-      'Love': 'ko love',
-      'Jacqui and Peter': 'ko Jacqui and Peter',
+      'Click the envelope for your invitation!': '초대장 봉투를 클릭하세요!',
+      'Dear': '안녕하세요',
+      'Love': '',
+      'Jacqui and Peter': '재키와 피터 올림',
       'To': 'ko To',
 
       // hotels
-      'Website': 'ko Website',
-      'Room Block': 'ko Room Block',
+      'Website': '웹사이트',
+      'Room Block': '객실 블록',
 
       //story
       'TO BE CONTINUED...': ' KO TO BE CONTINUED...',
 
       //user settings
-      'Recieve Email Notifications of website updates:': 'KO Recieve Email Notifications of website updates:',
-      'Email': 'ko Email',
-      'Email is required': 'ko Email isEmail is required',
-      'Please enter a valid email address': 'ko Please enter a valid email address',
-      'Change Password': 'ko Change Password',
-      'Old Password': 'ko Old Password',
-      'Old Password is required.': 'ko Old Password is required.',
-      'New Password': 'ko New Password',
-      'New Password must be >=6 characters.': 'ko New Password must be >=6 characters.',
-      'Confirm Password': 'ko Confirm Password',
-      'Confirm Password is required.': 'ko Confirm Password is required.',
-      'Passwords do not match.': 'ko Passwords do not match.',
-      'Successfully changed password.': 'ko Successfully changed password.',
+      'Receive Email Notifications of website updates:': '웹사이트 업데이트에 대한 이메일 알림 받기:',
+      'Email': '이메일',
+      'Email is required': '이메일이 필요합니다',
+      'Please enter a valid email address': '유효한 이메일 주소를 입력하세요',
+      'Change Password': '비밀번호 변경',
+      'Old Password': '기존 비밀번호',
+      'Old Password is required.': '기존 비밀번호가 필요합니다.',
+      'New Password': '새 비밀번호',
+      'New Password must be >=6 characters.': '새 비밀번호는 6자 이상이어야 합니다.',
+      'Confirm Password': '비밀번호 확인',
+      'Confirm Password is required.': '비밀번호 확인이 필요합니다.',
+      'Passwords do not match.': '비밀번호가 일치하지 않습니다.',
+      'Successfully changed password.': '비밀번호를 성공적으로 변경했습니다.',
 
       //welcome
-      'HAVE FUN!': 'ko HAVE FUN!',
+      'HAVE FUN!': '모두 같이 즐거운 시간 보내요!',
 
       //countdown
-      'The big day is coming!!!': 'ko The big day is coming!!!',//countdown.component
+      'The big day is coming!!!': '결혼식 날짜가 다가옵니다!!!',
 
 
       //questions
