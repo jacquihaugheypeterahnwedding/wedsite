@@ -15,7 +15,7 @@
                      <app-countdown  *ngIf="page.image == 'countdown'" class="image" class="countdown" ></app-countdown>
                    </div>
                    
-                   <div class="page-text" [innerHTML]="page.body"></div>
+                   <div class="page-text" [innerHTML]="I18n.get(page.body)"></div>
                    <div class="page-footer">{{page.footer}}</div>
                </div>
            </div>

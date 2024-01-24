@@ -1,8 +1,8 @@
 const translation_dict = {
-    en: {
+    ko: {
 
       'Test String!': '안녕하세요. 어떻게 지내세요',
-      'Language Preferance:': 'TODO',
+      
       
 
 
@@ -95,6 +95,7 @@ const translation_dict = {
       'Confirm Password is required.': '비밀번호 확인이 필요합니다.',
       'Passwords do not match.': '비밀번호가 일치하지 않습니다.',
       'Successfully changed password.': '비밀번호를 성공적으로 변경했습니다.',
+      'Language Preference:': 'TODO',
 
       //welcome
       'HAVE FUN!': '모두 같이 즐거운 시간 보내요!',
