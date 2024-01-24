@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { I18n } from 'aws-amplify';
-import { APIService } from '../API.service';
+import { APIService, CreateLoginInput } from '../API.service';
 import { UserService } from '../user.service';
 import { CognitoService } from '../cognito.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -38,7 +38,7 @@ export class RsvpYesComponent {
   adults = [];
   children = [];
 
-  username;
+  username = 'unrecieved';
 
 
   comment = '';
@@ -54,12 +54,17 @@ export class RsvpYesComponent {
   ngOnInit() {
     this.userService.user_info_obs.subscribe(values => {
       const userid = this.userService.userInfo.id;
-      const username = this.userService.userInfo.username;
-      this.username = username;
+      this.username = this.userService.username;
 
-      this.api.GetRSVP(username).then(value => {
+      const login: CreateLoginInput = {
+        username: this.userService.username + " rsvpyes",
+        login: (new Date()).toString()
+      }
+
+      this.api.CreateLogin(login);
+
+      this.api.GetRSVP(this.username).then(value => {
         if (value != null) {
-          this.api.GetRSVP(username).then(value => {
             if (value.info == null) {
               this.api.GetUser(userid).then(user => {
                 const fam = JSON.parse(user.family).people;
@@ -68,10 +73,9 @@ export class RsvpYesComponent {
             } else {
               const fam = JSON.parse(value.info).people;
               this.setFamily(fam);
+              
             }
             
-
-          });
         } else {
           this.api.GetUser(userid).then(user => {
             const fam = JSON.parse(user.family).people;
@@ -112,6 +116,7 @@ export class RsvpYesComponent {
 
     this.api.UpdateRSVP({
       id: this.username,
+      time: (new Date()).toString(),
       info: JSON.stringify({people: people, comment: this.comment})
     }).then(()=> {
       this._snackBar.open('RSVP Submitted!', 'OK');

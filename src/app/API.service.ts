@@ -62,12 +62,14 @@ export type CreateRSVPInput = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
 };
 
 export type ModelRSVPConditionInput = {
   username?: ModelStringInput | null;
   coming?: ModelStringInput | null;
   info?: ModelStringInput | null;
+  time?: ModelStringInput | null;
   and?: Array<ModelRSVPConditionInput | null> | null;
   or?: Array<ModelRSVPConditionInput | null> | null;
   not?: ModelRSVPConditionInput | null;
@@ -118,6 +120,7 @@ export type RSVP = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -127,6 +130,7 @@ export type UpdateRSVPInput = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
 };
 
 export type DeleteRSVPInput = {
@@ -767,6 +771,7 @@ export type ModelRSVPFilterInput = {
   username?: ModelStringInput | null;
   coming?: ModelStringInput | null;
   info?: ModelStringInput | null;
+  time?: ModelStringInput | null;
   and?: Array<ModelRSVPFilterInput | null> | null;
   or?: Array<ModelRSVPFilterInput | null> | null;
   not?: ModelRSVPFilterInput | null;
@@ -1046,6 +1051,7 @@ export type ModelSubscriptionRSVPFilterInput = {
   username?: ModelSubscriptionStringInput | null;
   coming?: ModelSubscriptionStringInput | null;
   info?: ModelSubscriptionStringInput | null;
+  time?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
   or?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
 };
@@ -1252,6 +1258,7 @@ export type CreateRSVPMutation = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1262,6 +1269,7 @@ export type UpdateRSVPMutation = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1272,6 +1280,7 @@ export type DeleteRSVPMutation = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1771,6 +1780,7 @@ export type GetRSVPQuery = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -1783,6 +1793,7 @@ export type ListRSVPSQuery = {
     username?: string | null;
     coming?: string | null;
     info?: string | null;
+    time?: string | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -2177,6 +2188,7 @@ export type OnCreateRSVPSubscription = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2187,6 +2199,7 @@ export type OnUpdateRSVPSubscription = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2197,6 +2210,7 @@ export type OnDeleteRSVPSubscription = {
   username?: string | null;
   coming?: string | null;
   info?: string | null;
+  time?: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -2705,6 +2719,7 @@ export class APIService {
           username
           coming
           info
+          time
           createdAt
           updatedAt
         }
@@ -2731,6 +2746,7 @@ export class APIService {
           username
           coming
           info
+          time
           createdAt
           updatedAt
         }
@@ -2757,6 +2773,7 @@ export class APIService {
           username
           coming
           info
+          time
           createdAt
           updatedAt
         }
@@ -3941,6 +3958,7 @@ export class APIService {
           username
           coming
           info
+          time
           createdAt
           updatedAt
         }
@@ -3967,6 +3985,7 @@ export class APIService {
             username
             coming
             info
+            time
             createdAt
             updatedAt
           }
@@ -4816,6 +4835,7 @@ export class APIService {
           username
           coming
           info
+          time
           createdAt
           updatedAt
         }
@@ -4843,6 +4863,7 @@ export class APIService {
           username
           coming
           info
+          time
           createdAt
           updatedAt
         }
@@ -4870,6 +4891,7 @@ export class APIService {
           username
           coming
           info
+          time
           createdAt
           updatedAt
         }
