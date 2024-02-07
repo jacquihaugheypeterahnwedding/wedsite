@@ -7,9 +7,9 @@
 <br/>
 <div class="buttons">
 
-<button mat-raised-button class="rsvp" (click)="sendRsvp('Coming')" routerLink="/rsvpyes"><mat-icon [ngStyle]="{'color':'green'}">check</mat-icon>We are coming!<p *ngIf="rsvp_status == 'Coming'"> Update RSVP.</p></button>
+
+<button mat-raised-button class="rsvp" (click)="openDialog()">Click here to RSVP.</button>
 <br/>
-<button mat-raised-button class="rsvp"  (click)="sendRsvp('Regrets')"><mat-icon [ngStyle]="{'color':'red'}">close</mat-icon>Regrets</button>
 
 </div>
 </div>

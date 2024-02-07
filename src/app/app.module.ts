@@ -22,6 +22,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatStepperModule} from '@angular/material/stepper'
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -38,6 +39,7 @@ import { LodgingComponent } from './lodging/lodging.component';
 import { EventsComponent } from './events/events.component';
 import { CognitoService } from './cognito.service';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
 import localeEn from '@angular/common/locales/en';
 registerLocaleData(localeEn);
@@ -61,13 +63,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { InviteComponent } from './invite/invite.component';
 import { CountdownComponent } from './countdown/countdown.component';
-import { RsvpComponent } from './rsvp/rsvp.component';
-import { DialogAnimationsExampleDialog, RsvpYesComponent } from './rsvp-yes/rsvp-yes.component';
+import { RSVPDialog, RsvpComponent } from './rsvp/rsvp.component';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 
 
 @NgModule({
-  declarations: [AppComponent, DialogAnimationsExampleDialog, DialogOverviewExampleDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent, RsvpYesComponent],
+  declarations: [AppComponent, DialogOverviewExampleDialog, RSVPDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent],
   imports: [
     BrowserModule,
     NgbModule,
@@ -82,9 +84,9 @@ import { DialogAnimationsExampleDialog, RsvpYesComponent } from './rsvp-yes/rsvp
     ReactiveFormsModule, MatGridListModule,
     MatInputModule, MatSidenavModule, MatMenuModule, MatProgressSpinnerModule,
     MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule,
-    MatTabsModule, MatRadioModule,
+    MatTabsModule, MatRadioModule, MatStepperModule, MatCheckboxModule,
     BrowserAnimationsModule,
-    GalleryModule
+    GalleryModule,
   ],
   providers: [
     CognitoService,
@@ -96,6 +98,10 @@ import { DialogAnimationsExampleDialog, RsvpYesComponent } from './rsvp-yes/rsvp
         autoHeight: true,
         imageSize: 'cover'
       } as GalleryConfig
+    },
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true }
     }
     ],
   bootstrap: [AppComponent]
