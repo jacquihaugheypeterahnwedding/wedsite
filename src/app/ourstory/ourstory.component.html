@@ -8,16 +8,16 @@
             </div>
             <div *ngFor="let page of pagesList" class="page">
                 <div class="page-content">
-                    <h2 class="page-header">{{page.header}}</h2>
+                    <h2 class="page-header">{{I18n.get(page.header)}}</h2>
                     <img class="page-image" src="{{page.image}}" />
-                    <div class="page-text">{{page.body}}</div>
+                    <div class="page-text">{{I18n.get(page.body)}}</div>
                     <div class="page-footer">{{page.footer}}</div>
                 </div>
             </div>
 
             <div class="page page-cover page-cover-bottomx" data-density="hard">
                 <div class="page-content back-content">
-                    <h2>TO BE CONTINUED...</h2>
+                    <h2>{{I18n.get('TO BE CONTINUED...')}}</h2>
                 </div>
             </div>
         </div>

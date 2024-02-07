@@ -14,7 +14,8 @@
         <span class="toolbar-item-spacer"></span>
 
         <button mat-stroked-button class="rsvp" color="transparent" routerLink="/rsvp">
-          RSVP
+          {{I18n.get('RSVP')}}
+          
         </button>
 
         <!--
@@ -22,7 +23,7 @@
             <mat-icon>notifications</mat-icon>
         </button>
       -->
-        <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+        <button mat-icon-button [matTooltip]="I18n.get('My Account')" [matMenuTriggerFor]="userAccountMenu">
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
@@ -32,14 +33,14 @@
             </button>
           -->
             <button mat-menu-item routerLink="/user">
-                <mat-icon>settings</mat-icon><span>Settings</span>
+                <mat-icon>settings</mat-icon><span>{{I18n.get('Settings')}} </span>
             </button>
             <button mat-menu-item routerLink="/help">
-                <mat-icon>help</mat-icon><span>Help</span>
+                <mat-icon>help</mat-icon><span>{{I18n.get('Help')}} </span>
             </button>
             <mat-divider></mat-divider>
             <button mat-menu-item (click)="signOut()">
-                <mat-icon>exit_to_app</mat-icon>Logout
+                <mat-icon>exit_to_app</mat-icon>{{I18n.get('Logout')}} 
             </button>
         </mat-menu>
       </mat-toolbar>
@@ -48,48 +49,48 @@
         <mat-sidenav #sidenav mode="over" [class.mat-elevation-z4]="true" class="app-sidenav">
             <mat-nav-list>
                 <mat-list-item routerLink="/home">
-                    <mat-icon>home</mat-icon><span>Home</span>
+                    <mat-icon>home</mat-icon><span>{{I18n.get('Home')}} </span>
                 </mat-list-item>
                 <mat-list-item routerLink="/welcome">
-                  <mat-icon>pan_tool</mat-icon><span>Welcome</span>
+                  <mat-icon>pan_tool</mat-icon><span>{{I18n.get('Welcome')}} </span>
               </mat-list-item>
               <mat-list-item routerLink="/invite">
-                <mat-icon>email</mat-icon><span>Invite</span>
+                <mat-icon>email</mat-icon><span>{{I18n.get('Invite')}} </span>
             </mat-list-item>
                 <mat-list-item routerLink="/events">
-                  <mat-icon>event</mat-icon><span>Events</span>
+                  <mat-icon>event</mat-icon><span>{{I18n.get('Events')}} </span>
                 </mat-list-item>
                 <mat-list-item routerLink="/ourstory">
-                  <mat-icon>menu_book</mat-icon><span>Our Story</span>
+                  <mat-icon>menu_book</mat-icon><span>{{I18n.get('Our Story')}} </span>
                 </mat-list-item>
                 <mat-list-item routerLink="/gallery">
-                  <mat-icon>photo_library</mat-icon><span>Gallery</span>
+                  <mat-icon>photo_library</mat-icon><span>{{I18n.get('Gallery')}} </span>
                   </mat-list-item>
                   <mat-list-item routerLink="/faq">
-                    <mat-icon>question_mark</mat-icon><span>FAQ</span>
+                    <mat-icon>question_mark</mat-icon><span>{{I18n.get('FAQ')}} </span>
                     </mat-list-item>
                     <mat-list-item routerLink="/rsvp">
-                      <mat-icon>mark_email_read</mat-icon><span>RSVP</span>
+                      <mat-icon>mark_email_read</mat-icon><span>{{I18n.get('RSVP')}} </span>
                       </mat-list-item>
                 <mat-expansion-panel [class.mat-elevation-z0]="true">
                     <mat-expansion-panel-header>
-                        Travel
+                      {{I18n.get('Travel')}} 
                     </mat-expansion-panel-header>
                     <mat-nav-list>
                       <mat-list-item routerLink="/lodging">
-                        <mat-icon>hotel</mat-icon><span>Lodging</span>
+                        <mat-icon>hotel</mat-icon><span>{{I18n.get('Lodging')}} </span>
                       </mat-list-item>
                       <mat-list-item routerLink="/restaurants">
-                        <mat-icon>restaurant_menu</mat-icon><span>Food</span>
+                        <mat-icon>restaurant_menu</mat-icon><span>{{I18n.get('Food')}} </span>
                       </mat-list-item>
                       <mat-list-item routerLink="/activities">
-                        <mat-icon>local_activity</mat-icon><span>Activities</span>
+                        <mat-icon>local_activity</mat-icon><span>{{I18n.get('Activities')}} </span>
                       </mat-list-item>
                       <mat-list-item routerLink="/areas">
-                        <mat-icon>map</mat-icon><span>Areas</span>
+                        <mat-icon>map</mat-icon><span>{{I18n.get('Areas')}} </span>
                       </mat-list-item>
                       <mat-list-item routerLink="/airports">
-                        <mat-icon>flight</mat-icon><span>Airports</span>
+                        <mat-icon>flight</mat-icon><span>{{I18n.get('Airports')}} </span>
                       </mat-list-item>
 
                     </mat-nav-list>

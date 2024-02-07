@@ -9,6 +9,7 @@ mutation CreateRSVP(
     username
     coming
     info
+    time
     createdAt
     updatedAt
     __typename
@@ -24,6 +25,7 @@ mutation UpdateRSVP(
     username
     coming
     info
+    time
     createdAt
     updatedAt
     __typename
@@ -39,6 +41,7 @@ mutation DeleteRSVP(
     username
     coming
     info
+    time
     createdAt
     updatedAt
     __typename

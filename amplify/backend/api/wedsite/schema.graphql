@@ -3,6 +3,7 @@ type RSVP @model @auth(rules: [{allow: public}]) {
   username: String
   coming: String
   info: AWSJSON
+  time: String
 }
 
 type Welcome @model @auth(rules: [{allow: public}]) {
@@ -124,4 +125,5 @@ type Restaurant @model @auth(rules: [{allow: public}]) {
   description: String!
   address: String!
   image: String
-} 
+}
+ 

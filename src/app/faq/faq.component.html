@@ -1,10 +1,10 @@
 <div class="all">
 <div *ngFor="let group of groupKeys">
-  <div mat-subheader>{{group}}</div>
+  <div mat-subheader>{{I18n.get(group)}}</div>
   <mat-accordion displayMode="default" multi="true"
   class="faq-container">
     <mat-expansion-panel *ngFor="let faqItem of questionGroups[group]">
-    <mat-expansion-panel-header>{{faqItem.question}}</mat-expansion-panel-header>
+    <mat-expansion-panel-header>{{I18n.get(faqItem.question)}}</mat-expansion-panel-header>
     <div [innerHTML]="faqItem.answer"></div>
     </mat-expansion-panel>
   </mat-accordion>
@@ -14,13 +14,13 @@
 <div *ngIf="showPending">
   <br/>
   <br/>
-  <h2>Pending Response:</h2>
+  <h2>{{I18n.get('Pending Response:')}}</h2>
 
   <mat-accordion displayMode="default" multi="true"
                 class="faq-container">
     <mat-expansion-panel *ngFor="let faqItem of faqListPending">
       <mat-expansion-panel-header>{{faqItem.question}}</mat-expansion-panel-header>
-      <p>Bridal party is compiling a response...</p>
+      <p>{{I18n.get('Bridal party is compiling a response...')}}</p>
     </mat-expansion-panel>
   </mat-accordion>
 
@@ -29,4 +29,4 @@
 
 
 </div>
-<button mat-raised-button class="ask" color="primary" (click)="ask()"><mat-icon>question_answer</mat-icon>Ask Question</button>
+<button mat-raised-button class="ask" color="primary" (click)="ask()"><mat-icon>question_answer</mat-icon>{{I18n.get('Ask Question')}}</button>

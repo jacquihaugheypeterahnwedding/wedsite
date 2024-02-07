@@ -97,6 +97,7 @@ export class FaqComponent {
 })
 export class DialogOverviewExampleDialog {
   question = new FormControl('', Validators.required);
+  I18n = I18n;
 
   askQuestionForm = new FormGroup({
     question: this.question,

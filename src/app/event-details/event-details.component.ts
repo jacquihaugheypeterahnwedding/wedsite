@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { I18n } from 'aws-amplify';
 
 @Component({
   selector: 'app-event-details',
@@ -7,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./event-details.component.scss']
 })
 export class EventDetailsComponent {
-  
+  I18n = I18n;
 
 
   constructor(private route: ActivatedRoute, private router: Router) {

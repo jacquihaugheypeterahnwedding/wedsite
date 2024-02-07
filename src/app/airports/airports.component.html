@@ -6,13 +6,13 @@
         <mat-card-header>
         <mat-card-title-group>
             <img mat-card-md-image src="{{airport.image}}" >
-            <mat-card-title>{{airport.name}}</mat-card-title>
+            <mat-card-title>{{I18n.get(airport.name)}}</mat-card-title>
             <mat-card-subtitle><a href="http://maps.google.com/?q={{airport.address}}">{{airport.address}}</a></mat-card-subtitle>
 
         </mat-card-title-group>
         </mat-card-header>
         <mat-card-content>
-        {{airport.description}}
+        {{I18n.get(airport.description)}}
 
         </mat-card-content>
 

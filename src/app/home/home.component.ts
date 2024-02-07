@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { MediaObserver } from '@angular/flex-layout';
+import { I18n } from 'aws-amplify';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { MediaObserver } from '@angular/flex-layout';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  I18n = I18n;
 
   constructor(public media: MediaObserver) {
 

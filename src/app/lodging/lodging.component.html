@@ -12,7 +12,7 @@
         </mat-card-title-group>
         </mat-card-header>
         <mat-card-content>
-        {{hotel.description}}
+        {{I18n.get(hotel.description)}}
 
         </mat-card-content>
         <mat-card-actions>
@@ -20,8 +20,8 @@
 <button mat-raised-button color="primary" class="actbutton">Details</button>
             -->
           
-          <button mat-raised-button color="primary" class="actbutton" (click)="goToLink(hotel.website)">Website</button>
-          <button *ngIf="hotel.room_block" mat-raised-button color="primary" class="actbutton" (click)="goToLink(hotel.room_block)">Room Block</button>
+          <button mat-raised-button color="primary" class="actbutton" (click)="goToLink(hotel.website)">{{I18n.get('Website')}}</button>
+          <button *ngIf="hotel.room_block" mat-raised-button color="primary" class="actbutton" (click)="goToLink(hotel.room_block)">{{I18n.get('Room Block')}}</button>
 
           </mat-card-actions>
 

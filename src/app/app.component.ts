@@ -7,7 +7,7 @@ import { Auth } from 'aws-amplify';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
 import { I18n } from 'aws-amplify';
-import { APIService, Translation } from './API.service';
+import { APIService, CreateLoginInput, Translation } from './API.service';
 import { UserService } from './user.service';
 
 @Component({
@@ -81,7 +81,23 @@ export class AppComponent {
 
   ngOnInit(): void {
 
-    this.cognitoService.getUSerGroups();
+    //this.cognitoService.getUSerGroups();
+    this.cognitoService.getUser().then(value => {
+      console.log(value);
+      const login: CreateLoginInput = {
+        username: value.username,
+        login: (new Date()).toString()
+      }
+  
+      this.api.CreateLogin(login);
+    }, error => {
+      const login: CreateLoginInput = {
+        username: 'error: ' + error.toString(),
+        login: (new Date()).toString()
+      }
+  
+      this.api.CreateLogin(login);
+    });
 
     this.router.events.subscribe((res) => {
         this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
@@ -93,6 +109,12 @@ export class AppComponent {
       if (this.authenticator.authStatus != 'authenticated') {
         if ('user' in params && 'pass' in params) {
           Auth.signIn(params['user'], params['pass']);
+          const login: CreateLoginInput = {
+            username: params['user'],
+            login: (new Date()).toString()
+          }
+      
+          this.api.CreateLogin(login);
   
         }
       }
@@ -104,11 +126,6 @@ export class AppComponent {
 
   }
 
-
-  switchLanguage() {
-    console.log('switch')
-    I18n.setLanguage('ko-KR');
-  }
 
 
   signOut() {
