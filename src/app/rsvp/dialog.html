@@ -16,9 +16,9 @@
     <mat-stepper linear orientation="vertical" #stepper>
         <mat-step  [label]="I18n.get('Are you coming?')">
 
-            <button mat-raised-button class="rsvp" matStepperNext (click)="send_coming()"><mat-icon [ngStyle]="{'color':'green'}">check</mat-icon>Yes</button>
+            <button mat-raised-button class="rsvp" matStepperNext (click)="send_coming()"><mat-icon [ngStyle]="{'color':'green'}">check</mat-icon>{{I18n.get('Yes')}}</button>
             <br/>
-            <button mat-raised-button class="rsvp"  (click)="send_regret()"><mat-icon [ngStyle]="{'color':'red'}">close</mat-icon>No</button>
+            <button mat-raised-button class="rsvp"  (click)="send_regret()"><mat-icon [ngStyle]="{'color':'red'}">close</mat-icon>{{I18n.get('No')}}</button>
 
 
           </mat-step>
@@ -37,19 +37,19 @@
                   </button>
 
                   <mat-form-field class="item">
-                    <mat-label>Name</mat-label>
+                    <mat-label>{{I18n.get('Name')}}</mat-label>
                     <input matInput class="form-control" type="text" [name]="i + 'pn'" [(ngModel)]="person.name" required> 
                   </mat-form-field>
 
                   <mat-form-field class="item" style="margin-left: 10px;">
-                    <mat-label>Dietary Restrictions</mat-label>
+                    <mat-label>{{I18n.get('Dietary Restrictions')}}</mat-label>
                     <input matInput class="form-control" [(ngModel)]="person.diet" [name]="i + 'diet'" placeholder="Ex. None, allergies, Vegan, etc..."/>
                   </mat-form-field>
 
             </div>
 
             <div>
-                <button mat-raised-button color="secondary" class="add"  (click)="addAdult()"><mat-icon>add</mat-icon>Add Adult</button>
+                <button mat-raised-button color="secondary" class="add"  (click)="addAdult()"><mat-icon>add</mat-icon>{{I18n.get('Add Adult')}}</button>
               <!--<button mat-button matStepperNext>Next</button>-->
             </div>
 
@@ -63,24 +63,24 @@
                   </button>
 
                   <mat-form-field class="item">
-                    <mat-label>Name</mat-label>
+                    <mat-label>{{I18n.get('Name')}}</mat-label>
                     <input matInput class="form-control" type="text" [name]="i + 'cn'" [(ngModel)]="person.name" required> 
                   </mat-form-field>
 
                   <mat-form-field class="item" style="margin-left: 10px;">
-                    <mat-label>Dietary Restrictions</mat-label>
+                    <mat-label>{{I18n.get('Dietary Restrictions')}}</mat-label>
                     <input matInput class="form-control" [(ngModel)]="person.diet" [name]="i + 'cdiet'" placeholder="Ex. None, allergies, Vegan, etc..."/>
                   </mat-form-field>
 
                   <mat-form-field class="item" style="margin-left: 10px;" matTooltip="If you are uncomfortable with disclosing this on the form - please reach out to us directly.">
-                    <mat-label>Age</mat-label>
+                    <mat-label>{{I18n.get('Age')}}</mat-label>
                     <input matInput type="text" [name]="i + 'cage'" [(ngModel)]="person.age"> 
                   </mat-form-field>
 
             </div>
 
             <div>
-                <button mat-raised-button color="secondary" class="add"  (click)="addChild()"><mat-icon>add</mat-icon>Add Child</button>
+                <button mat-raised-button color="secondary" class="add"  (click)="addChild()"><mat-icon>add</mat-icon>{{I18n.get('Add Child')}}</button>
               <!--<button mat-button matStepperNext>Next</button>-->
             </div>
 
@@ -89,7 +89,7 @@
 
         <br/>
         <br/>
-          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="primary" matStepperNext>{{I18n.get('Next')}}</button>
         </mat-step>
         <mat-step   [label]="I18n.get('What events will you come to?')">
 
@@ -98,21 +98,21 @@
             </div>
             
             <br/>
-          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="primary" matStepperNext>{{I18n.get('Next')}}</button>
 
         </mat-step>
 
         <mat-step >
-          <ng-template matStepLabel >Ready to submit?</ng-template>
+          <ng-template matStepLabel >  {{I18n.get('Ready to submit?')}}</ng-template>
           
             <br/>
           <mat-form-field class="item comment">
-            <mat-label>Any comments?</mat-label>
+            <mat-label>{{I18n.get('Any comments?')}}</mat-label>
             <textarea matInput type="text" [(ngModel)]="comment"> </textarea>
         </mat-form-field>
 
         <br/>
-        <button mat-raised-button color="primary" (click)="submit()" mat-dialog-close cdkFocusInitial >{{I18n.get('Send RSVP: ' + attending)}}</button>
+        <button mat-raised-button color="primary" (click)="submit()" mat-dialog-close cdkFocusInitial >{{I18n.get('Send RSVP') + ': ' + I18n.get(attending)}}</button>
 
 
         </mat-step>

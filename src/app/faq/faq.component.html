@@ -5,7 +5,7 @@
   class="faq-container">
     <mat-expansion-panel *ngFor="let faqItem of questionGroups[group]">
     <mat-expansion-panel-header>{{I18n.get(faqItem.question)}}</mat-expansion-panel-header>
-    <div [innerHTML]="faqItem.answer"></div>
+    <div [innerHTML]="I18n.get(faqItem.answer)"></div>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

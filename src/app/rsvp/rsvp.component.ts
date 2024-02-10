@@ -89,7 +89,7 @@ export class RSVPDialog {
 
   comment = '';
 
-  attending = 'Attending';
+  attending = 'Coming';
 
   event_rsvp = {};
 
@@ -194,7 +194,7 @@ export class RSVPDialog {
   }
 
   send_coming() {
-    this.attending = 'Attending';
+    this.attending = 'Coming';
     this.sendRsvp('Coming')
   }
 
@@ -282,7 +282,7 @@ export class RSVPDialog {
       info: JSON.stringify({people: people, comment: this.comment, events: this.event_rsvp})
     }).then(()=> {
       
-        this._snackBar.open('RSVP Received', 'OK');
+        this._snackBar.open(I18n.get('RSVP Received'), I18n.get('OK'));
 
 
     });

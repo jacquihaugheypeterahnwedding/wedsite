@@ -18,9 +18,9 @@ const translation_dict = {
      'Reset Password': '비밀번호를 재설정',
      'Send code': '코드 보내기',
      'Back to Sign In': '로그인 페이지로 돌아가기',
-     'Please fill out this field': 'KO TODO', // couldn't get these 3 to work
-     'Incorrect username or password': 'KO TODO',
-     'User does not exist': 'KO TODO',
+     //'Please fill out this field': 'KO TODO', // couldn't get these 3 to work
+     //'Incorrect username or password': 'KO TODO',
+     //'User does not exist': 'KO TODO',
 
 
 
@@ -57,7 +57,7 @@ const translation_dict = {
 
       //home
       'We\'ve waited 4,063 days for this.': '저희는 이날을 4,063일을 기다렸습니다.',
-      'Party accordingly.': 'ko Party accordingly.',
+      'Party accordingly.': '모두 다 함께 즐겨요!',
 
       //FAQ
       'Question': '질문',
@@ -70,16 +70,16 @@ const translation_dict = {
       //invite
       'Click the envelope for your invitation!': '초대장 봉투를 클릭하세요!',
       'Dear': '안녕하세요',
-      'Love': '',
+      'Love': '사랑하는',
       'Jacqui and Peter': '재키와 피터 올림',
-      'To': 'ko To',
+      'To': '안녕하세요',
 
       // hotels
       'Website': '웹사이트',
       'Room Block': '객실 블록',
 
       //story
-      'TO BE CONTINUED...': ' KO TO BE CONTINUED...',
+      'TO BE CONTINUED...': ' TO BE CONTINUED...',
 
       //user settings
       'Receive Email Notifications of website updates:': '웹사이트 업데이트에 대한 이메일 알림 받기:',
@@ -95,7 +95,7 @@ const translation_dict = {
       'Confirm Password is required.': '비밀번호 확인이 필요합니다.',
       'Passwords do not match.': '비밀번호가 일치하지 않습니다.',
       'Successfully changed password.': '비밀번호를 성공적으로 변경했습니다.',
-      'Language Preference:': 'TODO',
+      'Language Preference:': '언어 설정',
 
       //welcome
       'HAVE FUN!': '모두 같이 즐거운 시간 보내요!',
@@ -104,63 +104,22 @@ const translation_dict = {
       'The big day is coming!!!': '결혼식 날짜가 다가옵니다!!!',
 
 
+      //faq
+      'Venue': '장소',
+      'Wedding Day': '결혼식 날',
+      'Wedding': '결혼식',
+
+      'Visitor Center': '방문센터',
+
+      'Age': 'Age',
+      'OK': 'OK',
+
+
       //questions
       // question does days hours min sec need to be differnt for korena?
       // question are numbers displayed differntly in korean or do usng 1, 2, 3 work?
       // question im leaving addresses the name - i think this is correct??
       // question are data/ start and stop n events normal for people to look at?
-
-
-
-
-
-      // DB entries
-
-      // airports - will need to move to db
-      'DCA/Reagan': 'ko DCA/Reagan',
-      'IAD/Dulles': 'ko IAD/Dulles',
-      'IAD Desc': 'ko description for iad',
-      'BWI Desc': 'ko description for bwi',
-      'DCA Desc': 'ko description for dca',
-
-
-      //areas = db
-      'Visitor Center': 'ko Visitor Center',
-      'Winchester, VA': 'ko Winchester, VA',
-      'winchester desc': 'ko desc for winchester desc',
-      'D.C.': 'ko D.C.',
-      'dc desc': 'ko dc desc',
-
-
-      //events: db
-      'Wedding': 'ko Wedding',
-      'wedding desc': 'ko wedding desc',
-
-      //faq db
-      'Wedding Day': 'ko Wedding day',
-      'desscode': 'ko desscode',
-      'casual': 'ko casual',
-
-      //gallery
-      'eng 308': 'ko test',
-
-      //hotel
-      'courtyard desc': 'ko court',
-
-      //our story
-      'Chapter 1: The Academic Adventures': 'ko Chapter 1: The Academic Adventures',
-      'ch 1 desc': 'ko cha 1 sedc',
-
-      //welcome
-      'wel 2 edsc': 'ko wel 2 edsc',
-      'Chapter 2: Welcome': 'ko Chapter 2: Welcome',
-
-
-
-
-
-
-
 
 
     }, 

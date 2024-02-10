@@ -2,13 +2,47 @@
   flex: 1 1 auto;
 }
 
+.total {
+  height: 100%;
+  width:100%;
+}
+
+.control {
+  height: 100%;
+  width: 100%;
+  top:0px;
+  bottom: 0px;
+}
+
+
+
+.container {
+  height: 100%;
+  width:100%;
+  margin: 0px;
+  display: grid;
+  grid-template-rows: auto; 
+}
+
+/* Grid row 1 */
+mat-toolbar {
+  position:sticky
+}
+
+/* Grid row 2 */
+mat-drawer-container  {
+  overflow-y: auto;
+
+}
+
+
+
 span {
   padding-left: 5px;
 }
 
 .app-container {
-  height: 90%;
-  margin: 0;
+
 }  
 .app-sidenav {
   width: 230px;
@@ -29,6 +63,11 @@ span {
   border-right-color: black;
   border-right-width: 2px;
   background-color: transparent;
+  margin-left: auto ;
+}
+
+.background {
+  margin-top: auto ;
 }
 
 .example-card {
@@ -84,7 +123,9 @@ span {
 
 
 
-
+.all {
+  padding:10px;
+}
 
 
 
