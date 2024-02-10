@@ -1,14 +1,14 @@
 <div class="all">
 
 
-<h3> Your curent RSVP status: {{rsvp_status}}</h3>
+<h3> {{I18n.get('Your current RSVP status')}}: {{I18n.get(rsvp_status)}}</h3>
 
 
 <br/>
 <div class="buttons">
 
 
-<button mat-raised-button class="rsvp" (click)="openDialog()">Click here to RSVP.</button>
+<button mat-raised-button class="rsvp" (click)="openDialog()">{{I18n.get('Click here to RSVP.')}} </button>
 <br/>
 
 </div>
