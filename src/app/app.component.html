@@ -4,10 +4,10 @@
 </ng-container>
 
 <!-- Only render this if there's an authenticated user -->
-<ng-container *ngIf="authenticator.authStatus === 'authenticated'" class="total">
-
+<ng-container *ngIf="authenticator.authStatus === 'authenticated'" >
+  <div fxLayout="column" fxFlexFill>
       <mat-toolbar color="primary">
-        <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
+        <button mat-icon-button (click)="drawer.toggle()" matTooltip="Menu">
             <mat-icon>menu</mat-icon>
         </button>
         <span>{{I18n.get('Jacqui & Peter Wedding')}}</span>
@@ -45,65 +45,71 @@
         </mat-menu>
       </mat-toolbar>
 
-      <mat-sidenav-container class="app-container">
-        <mat-sidenav #sidenav mode="over" [class.mat-elevation-z4]="true" class="app-sidenav">
-            <mat-nav-list>
-                <mat-list-item routerLink="/home">
-                    <mat-icon>home</mat-icon><span>{{I18n.get('Home')}} </span>
-                </mat-list-item>
-                <mat-list-item routerLink="/welcome">
-                  <mat-icon>pan_tool</mat-icon><span>{{I18n.get('Welcome')}} </span>
-              </mat-list-item>
-              <mat-list-item routerLink="/invite">
-                <mat-icon>email</mat-icon><span>{{I18n.get('Invite')}} </span>
+
+      <mat-drawer-container fxFlex autosize class="background">
+
+        <mat-drawer #drawer>
+        <mat-nav-list>
+          <mat-list-item routerLink="/home">
+              <mat-icon>home</mat-icon><span>{{I18n.get('Home')}} </span>
+          </mat-list-item>
+          <mat-list-item routerLink="/welcome">
+            <mat-icon>pan_tool</mat-icon><span>{{I18n.get('Welcome')}} </span>
+        </mat-list-item>
+        <mat-list-item routerLink="/invite">
+          <mat-icon>email</mat-icon><span>{{I18n.get('Invite')}} </span>
+      </mat-list-item>
+          <mat-list-item routerLink="/events">
+            <mat-icon>event</mat-icon><span>{{I18n.get('Events')}} </span>
+          </mat-list-item>
+          <mat-list-item routerLink="/ourstory">
+            <mat-icon>menu_book</mat-icon><span>{{I18n.get('Our Story')}} </span>
+          </mat-list-item>
+          <mat-list-item routerLink="/gallery">
+            <mat-icon>photo_library</mat-icon><span>{{I18n.get('Gallery')}} </span>
             </mat-list-item>
-                <mat-list-item routerLink="/events">
-                  <mat-icon>event</mat-icon><span>{{I18n.get('Events')}} </span>
+            <mat-list-item routerLink="/faq">
+              <mat-icon>question_mark</mat-icon><span>{{I18n.get('FAQ')}} </span>
+              </mat-list-item>
+              <mat-list-item routerLink="/rsvp">
+                <mat-icon>mark_email_read</mat-icon><span>{{I18n.get('RSVP')}} </span>
                 </mat-list-item>
-                <mat-list-item routerLink="/ourstory">
-                  <mat-icon>menu_book</mat-icon><span>{{I18n.get('Our Story')}} </span>
+          <mat-expansion-panel [class.mat-elevation-z0]="true">
+              <mat-expansion-panel-header>
+                {{I18n.get('Travel')}} 
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                <mat-list-item routerLink="/lodging">
+                  <mat-icon>hotel</mat-icon><span>{{I18n.get('Lodging')}} </span>
                 </mat-list-item>
-                <mat-list-item routerLink="/gallery">
-                  <mat-icon>photo_library</mat-icon><span>{{I18n.get('Gallery')}} </span>
-                  </mat-list-item>
-                  <mat-list-item routerLink="/faq">
-                    <mat-icon>question_mark</mat-icon><span>{{I18n.get('FAQ')}} </span>
-                    </mat-list-item>
-                    <mat-list-item routerLink="/rsvp">
-                      <mat-icon>mark_email_read</mat-icon><span>{{I18n.get('RSVP')}} </span>
-                      </mat-list-item>
-                <mat-expansion-panel [class.mat-elevation-z0]="true">
-                    <mat-expansion-panel-header>
-                      {{I18n.get('Travel')}} 
-                    </mat-expansion-panel-header>
-                    <mat-nav-list>
-                      <mat-list-item routerLink="/lodging">
-                        <mat-icon>hotel</mat-icon><span>{{I18n.get('Lodging')}} </span>
-                      </mat-list-item>
-                      <mat-list-item routerLink="/restaurants">
-                        <mat-icon>restaurant_menu</mat-icon><span>{{I18n.get('Food')}} </span>
-                      </mat-list-item>
-                      <mat-list-item routerLink="/activities">
-                        <mat-icon>local_activity</mat-icon><span>{{I18n.get('Activities')}} </span>
-                      </mat-list-item>
-                      <mat-list-item routerLink="/areas">
-                        <mat-icon>map</mat-icon><span>{{I18n.get('Areas')}} </span>
-                      </mat-list-item>
-                      <mat-list-item routerLink="/airports">
-                        <mat-icon>flight</mat-icon><span>{{I18n.get('Airports')}} </span>
-                      </mat-list-item>
+                <mat-list-item routerLink="/restaurants">
+                  <mat-icon>restaurant_menu</mat-icon><span>{{I18n.get('Food')}} </span>
+                </mat-list-item>
+                <mat-list-item routerLink="/activities">
+                  <mat-icon>local_activity</mat-icon><span>{{I18n.get('Activities')}} </span>
+                </mat-list-item>
+                <mat-list-item routerLink="/areas">
+                  <mat-icon>map</mat-icon><span>{{I18n.get('Areas')}} </span>
+                </mat-list-item>
+                <mat-list-item routerLink="/airports">
+                  <mat-icon>flight</mat-icon><span>{{I18n.get('Airports')}} </span>
+                </mat-list-item>
 
-                    </mat-nav-list>
-                </mat-expansion-panel>
-            </mat-nav-list>
-        </mat-sidenav>
-        <mat-sidenav-content>
-            <router-outlet>
+              </mat-nav-list>
+          </mat-expansion-panel>
+      </mat-nav-list>
+    </mat-drawer>
 
-            </router-outlet>
-        </mat-sidenav-content>
-      </mat-sidenav-container> 
 
+
+      <div style="display: inline;">
+        <router-outlet></router-outlet>
+      </div>
+
+      </mat-drawer-container>
+
+
+</div>
     </ng-container>
   
     <!-- Render sign-in screen otherwise with authenticator -->
