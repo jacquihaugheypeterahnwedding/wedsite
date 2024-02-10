@@ -24,7 +24,7 @@
 
 /* Grid row 1 */
 mat-toolbar {
-
+  position:sticky
 }
 
 /* Grid row 2 */

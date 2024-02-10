@@ -46,7 +46,7 @@
       </mat-toolbar>
 
 
-      <mat-drawer-container fxFlex autosize class="background">
+      <mat-drawer-container fxFlex autosize class="background" style="z-index: 10">
 
         <mat-drawer #drawer>
         <mat-nav-list>
@@ -102,7 +102,7 @@
 
 
 
-      <div style="display: inline;">
+      <div style="display: inline; z-index: 5">
         <router-outlet></router-outlet>
       </div>
 
