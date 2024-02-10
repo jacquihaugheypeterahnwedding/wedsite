@@ -5,7 +5,7 @@
 
 <!-- Only render this if there's an authenticated user -->
 <ng-container *ngIf="authenticator.authStatus === 'authenticated'" >
-  <div fxLayout="column" fxFlexFill>
+  <div fxLayout="column" fxFlexFill class="control">
       <mat-toolbar color="primary" fxLayout="row"  style="z-index: 2">
         <button mat-icon-button (click)="drawer.toggle()" matTooltip="Menu">
             <mat-icon>menu</mat-icon>
