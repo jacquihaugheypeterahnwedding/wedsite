@@ -2,6 +2,11 @@
   flex: 1 1 auto;
 }
 
+.total {
+  height: 100%;
+  width:100%;
+}
+
 span {
   padding-left: 5px;
 }

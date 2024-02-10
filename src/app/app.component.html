@@ -4,7 +4,7 @@
 </ng-container>
 
 <!-- Only render this if there's an authenticated user -->
-<ng-container *ngIf="authenticator.authStatus === 'authenticated'">
+<ng-container *ngIf="authenticator.authStatus === 'authenticated'" class="total">
 
       <mat-toolbar color="primary">
         <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
