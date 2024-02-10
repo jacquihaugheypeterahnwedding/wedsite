@@ -21,7 +21,7 @@
   width:100%;
   margin: 0px;
   display: grid;
-  grid-template-rows: ; 
+  grid-template-rows: auto; 
 }
 
 /* Grid row 1 */
