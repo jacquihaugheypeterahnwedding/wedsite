@@ -33,6 +33,11 @@ span {
   border-right-color: black;
   border-right-width: 2px;
   background-color: transparent;
+  margin-left: auto ;
+}
+
+.background {
+  margin-top: auto ;
 }
 
 .example-card {
@@ -88,7 +93,9 @@ span {
 
 
 
-
+.all {
+  padding:10px;
+}
 
 
 

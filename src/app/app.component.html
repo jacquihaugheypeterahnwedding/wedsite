@@ -6,12 +6,12 @@
 <!-- Only render this if there's an authenticated user -->
 <ng-container *ngIf="authenticator.authStatus === 'authenticated'" >
   <div fxLayout="column" fxFlexFill>
-      <mat-toolbar color="primary">
+      <mat-toolbar color="primary" fxLayout="row"  style="z-index: 2">
         <button mat-icon-button (click)="drawer.toggle()" matTooltip="Menu">
             <mat-icon>menu</mat-icon>
         </button>
         <span>{{I18n.get('Jacqui & Peter Wedding')}}</span>
-        <span class="toolbar-item-spacer"></span>
+        
 
         <button mat-stroked-button class="rsvp" color="transparent" routerLink="/rsvp">
           {{I18n.get('RSVP')}}
@@ -23,7 +23,7 @@
             <mat-icon>notifications</mat-icon>
         </button>
       -->
-        <button mat-icon-button [matTooltip]="I18n.get('My Account')" [matMenuTriggerFor]="userAccountMenu">
+        <button mat-icon-button [matTooltip]="I18n.get('My Account')" [matMenuTriggerFor]="userAccountMenu" style="float: right;">
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
