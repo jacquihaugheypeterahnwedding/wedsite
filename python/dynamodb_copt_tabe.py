@@ -77,8 +77,21 @@ session = boto3.Session(
 ddb = session.resource('dynamodb')
 #table = ddb.Table('Picture-qfreaisrdrdovbptvxgz2vgmkq-test')
 
-from_table = 'Question-dvm57envefg5pangl6iwa2jfmy-dev'
-to_table = 'Question-qfreaisrdrdovbptvxgz2vgmkq-test'
+from_table = 'Hotel-qfreaisrdrdovbptvxgz2vgmkq-test'
+to_table = 'Hotel-dvm57envefg5pangl6iwa2jfmy-dev'
+
+
+"""
+Welcome
+Story
+Area
+Question
+Airport
+Event
+Hotel
+"""
+
+
 
 
 items = scan_table(ddb.Table(from_table))

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { APIService, Picture } from '../API.service';
 import { I18n } from 'aws-amplify';
+import {MediaChange, MediaObserver} from "@angular/flex-layout";
+import { map } from 'rxjs/operators'
 
 
 @Component({
@@ -14,8 +16,32 @@ export class GalleryComponent {
 
   images: any[] = [];
 
-  constructor(public api: APIService) {
 
+      
+columnNum = 1;
+rowHeight = '100px';
+
+
+  constructor(public api: APIService, public mediaObserver: MediaObserver) {
+
+   
+
+/*
+    media.asObservable()
+    .subscribe((change: MediaChange) => {
+      // alert(change.mqAlias);  
+      console.log(change.mqAlias);
+      if(change.mqAlias == 'xs'){
+        this.columnNum = 1;
+      }
+      else if(change.mqAlias == 'sm'){
+        this.columnNum = 2;
+      }
+      else{
+        this.columnNum = 3;
+      }
+    });
+    */
 
   }
 
@@ -26,8 +52,38 @@ export class GalleryComponent {
       this.images = value.items as Picture[];
     });
 
+    this.mediaObserver.asObservable().pipe(
+      map((change: MediaChange[]) => {
+        console.log(change)
+      })
+    );
+    this.onResize(null);
+
 
 /*
+
+
+
+Item image src
+assets/engagement/308.jpg
+Cols
+2
+Rows
+1
+Alt
+eng 308
+Frame src
+../../assets/frames/pf.png
+Frame cut
+100
+Frame repeat
+round
+
+
+
+
+
+
     this.images = [
         
         {
@@ -92,6 +148,30 @@ export class GalleryComponent {
         }
     ];
     */
+  }
+
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    const width = window.innerWidth;
+    console.log(width);
+    if(width <= 200){
+      this.columnNum = 2;
+      this.rowHeight = '100px';
+    }
+    else if(width <= 400){
+      this.columnNum = 2;
+      this.rowHeight = '200px';
+    }
+    else if(width <= 600){
+      this.columnNum = 3;
+    }
+    else if(width <= 800){
+      this.columnNum = 4;
+    }
+    else{
+      this.columnNum = 5;
+    }
   }
 
 }
