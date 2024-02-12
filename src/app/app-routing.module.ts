@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'user', component: UserComponent},
   { path: 'eventdetails/:id', component: CommingSoonComponent},
   { path: 'help', component: CommingSoonComponent},
-  { path: 'gallery', component: GalleryComponent},
+  { path: 'gallery', component: CommingSoonComponent},
   { path: 'areas', component: AreasComponent},
   { path: 'activities', component: CommingSoonComponent},
   { path: 'faq', component: FaqComponent},

@@ -196,13 +196,19 @@ export class RSVPDialog {
   send_coming() {
     this.attending = 'Coming';
     this.sendRsvp('Coming')
+    setTimeout(() => {
+      this.stepper.selectedIndex = 1;
+    }, 1);
   }
 
   send_regret() {
     this.attending = 'Regrets';
-    this.stepper.selectedIndex = 1;
+    setTimeout(() => {
+      this.stepper.selectedIndex = 1;
     this.stepper.selectedIndex = 2;
     this.stepper.selectedIndex = 3;
+    }, 1);
+    
     this.sendRsvp('Regrets');
 
       
