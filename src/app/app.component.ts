@@ -84,12 +84,16 @@ export class AppComponent {
     //this.cognitoService.getUSerGroups();
     this.cognitoService.getUser().then(value => {
       console.log(value);
-      const login: CreateLoginInput = {
-        username: value.username,
-        login: (new Date()).toString()
+      console.log('hi there');
+      if (value) {
+        const login: CreateLoginInput = {
+          username: value.username,
+          login: (new Date()).toString()
+        }
+    
+        this.api.CreateLogin(login);
       }
-  
-      this.api.CreateLogin(login);
+      
     }, error => {
       const login: CreateLoginInput = {
         username: 'error: ' + error.toString(),
