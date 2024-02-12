@@ -154,7 +154,6 @@ round
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     const width = window.innerWidth;
-    console.log(width);
     if(width <= 200){
       this.columnNum = 2;
       this.rowHeight = '100px';
