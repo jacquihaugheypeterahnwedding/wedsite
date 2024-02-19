@@ -65,11 +65,12 @@ import { InviteComponent } from './invite/invite.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { RSVPDialog, RsvpComponent } from './rsvp/rsvp.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { RegistryComponent } from './registry/registry.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, DialogOverviewExampleDialog, RSVPDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent],
+  declarations: [AppComponent, DialogOverviewExampleDialog, RSVPDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent, RegistryComponent],
   imports: [
     BrowserModule,
     NgbModule,

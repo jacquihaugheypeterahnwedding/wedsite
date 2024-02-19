@@ -1,5 +1,53 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateCharity(
+  $input: CreateCharityInput!
+  $condition: ModelCharityConditionInput
+) {
+  createCharity(input: $input, condition: $condition) {
+    id
+    name
+    link
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateCharity(
+  $input: UpdateCharityInput!
+  $condition: ModelCharityConditionInput
+) {
+  updateCharity(input: $input, condition: $condition) {
+    id
+    name
+    link
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteCharity(
+  $input: DeleteCharityInput!
+  $condition: ModelCharityConditionInput
+) {
+  deleteCharity(input: $input, condition: $condition) {
+    id
+    name
+    link
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateRSVP(
   $input: CreateRSVPInput!
   $condition: ModelRSVPConditionInput
