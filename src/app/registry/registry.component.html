@@ -1,0 +1,30 @@
+
+<div class="all">
+
+    <div class="write">
+    {{I18n.get('No gifts please. Here are some of our favorite charities.')}}
+    <a href="https://www.amazon.com/wedding/registry/1ANUMZHGQUU6F">Amazon Registry</a>
+    </div>
+
+    <div *ngFor="let charity of charities">
+        <mat-card class="example-card">
+            <mat-card-header>
+            <mat-card-title-group>
+                <img mat-card-md-image src="{{charity.image}}" >
+                <mat-card-title>{{I18n.get(charity.name)}}</mat-card-title>
+                <mat-card-subtitle> <a href="{{charity.link}}">{{charity.link}} </a></mat-card-subtitle>
+                
+            </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+            {{I18n.get(charity.description)}}
+    
+            </mat-card-content>
+
+    
+        </mat-card>
+    </div>
+    
+
+    
+    </div>

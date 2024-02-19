@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateCharity: OnCreateCharitySubscription;
+  onUpdateCharity: OnUpdateCharitySubscription;
+  onDeleteCharity: OnDeleteCharitySubscription;
   onCreateRSVP: OnCreateRSVPSubscription;
   onUpdateRSVP: OnUpdateRSVPSubscription;
   onDeleteRSVP: OnDeleteRSVPSubscription;
@@ -57,22 +60,22 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateRSVPInput = {
+export type CreateCharityInput = {
   id?: string | null;
-  username?: string | null;
-  coming?: string | null;
-  info?: string | null;
-  time?: string | null;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
 };
 
-export type ModelRSVPConditionInput = {
-  username?: ModelStringInput | null;
-  coming?: ModelStringInput | null;
-  info?: ModelStringInput | null;
-  time?: ModelStringInput | null;
-  and?: Array<ModelRSVPConditionInput | null> | null;
-  or?: Array<ModelRSVPConditionInput | null> | null;
-  not?: ModelRSVPConditionInput | null;
+export type ModelCharityConditionInput = {
+  name?: ModelStringInput | null;
+  link?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelCharityConditionInput | null> | null;
+  or?: Array<ModelCharityConditionInput | null> | null;
+  not?: ModelCharityConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -112,6 +115,47 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type Charity = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateCharityInput = {
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+};
+
+export type DeleteCharityInput = {
+  id: string;
+};
+
+export type CreateRSVPInput = {
+  id?: string | null;
+  username?: string | null;
+  coming?: string | null;
+  info?: string | null;
+  time?: string | null;
+};
+
+export type ModelRSVPConditionInput = {
+  username?: ModelStringInput | null;
+  coming?: ModelStringInput | null;
+  info?: ModelStringInput | null;
+  time?: ModelStringInput | null;
+  and?: Array<ModelRSVPConditionInput | null> | null;
+  or?: Array<ModelRSVPConditionInput | null> | null;
+  not?: ModelRSVPConditionInput | null;
 };
 
 export type RSVP = {
@@ -766,15 +810,15 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelRSVPFilterInput = {
+export type ModelCharityFilterInput = {
   id?: ModelIDInput | null;
-  username?: ModelStringInput | null;
-  coming?: ModelStringInput | null;
-  info?: ModelStringInput | null;
-  time?: ModelStringInput | null;
-  and?: Array<ModelRSVPFilterInput | null> | null;
-  or?: Array<ModelRSVPFilterInput | null> | null;
-  not?: ModelRSVPFilterInput | null;
+  name?: ModelStringInput | null;
+  link?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelCharityFilterInput | null> | null;
+  or?: Array<ModelCharityFilterInput | null> | null;
+  not?: ModelCharityFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -791,6 +835,23 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelCharityConnection = {
+  __typename: "ModelCharityConnection";
+  items: Array<Charity | null>;
+  nextToken?: string | null;
+};
+
+export type ModelRSVPFilterInput = {
+  id?: ModelIDInput | null;
+  username?: ModelStringInput | null;
+  coming?: ModelStringInput | null;
+  info?: ModelStringInput | null;
+  time?: ModelStringInput | null;
+  and?: Array<ModelRSVPFilterInput | null> | null;
+  or?: Array<ModelRSVPFilterInput | null> | null;
+  not?: ModelRSVPFilterInput | null;
 };
 
 export type ModelRSVPConnection = {
@@ -1046,14 +1107,14 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionRSVPFilterInput = {
+export type ModelSubscriptionCharityFilterInput = {
   id?: ModelSubscriptionIDInput | null;
-  username?: ModelSubscriptionStringInput | null;
-  coming?: ModelSubscriptionStringInput | null;
-  info?: ModelSubscriptionStringInput | null;
-  time?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
-  or?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
+  name?: ModelSubscriptionStringInput | null;
+  link?: ModelSubscriptionStringInput | null;
+  description?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionCharityFilterInput | null> | null;
+  or?: Array<ModelSubscriptionCharityFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -1084,6 +1145,16 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionRSVPFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  username?: ModelSubscriptionStringInput | null;
+  coming?: ModelSubscriptionStringInput | null;
+  info?: ModelSubscriptionStringInput | null;
+  time?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
+  or?: Array<ModelSubscriptionRSVPFilterInput | null> | null;
 };
 
 export type ModelSubscriptionWelcomeFilterInput = {
@@ -1250,6 +1321,39 @@ export type ModelSubscriptionRestaurantFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateCharityMutation = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateCharityMutation = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteCharityMutation = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateRSVPMutation = {
@@ -1774,6 +1878,32 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetCharityQuery = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListCharitiesQuery = {
+  __typename: "ModelCharityConnection";
+  items: Array<{
+    __typename: "Charity";
+    id: string;
+    name?: string | null;
+    link?: string | null;
+    description?: string | null;
+    image?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetRSVPQuery = {
   __typename: "RSVP";
   id: string;
@@ -2180,6 +2310,39 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateCharitySubscription = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateCharitySubscription = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteCharitySubscription = {
+  __typename: "Charity";
+  id: string;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateRSVPSubscription = {
@@ -2708,6 +2871,87 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateCharity(
+    input: CreateCharityInput,
+    condition?: ModelCharityConditionInput
+  ): Promise<CreateCharityMutation> {
+    const statement = `mutation CreateCharity($input: CreateCharityInput!, $condition: ModelCharityConditionInput) {
+        createCharity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          link
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateCharityMutation>response.data.createCharity;
+  }
+  async UpdateCharity(
+    input: UpdateCharityInput,
+    condition?: ModelCharityConditionInput
+  ): Promise<UpdateCharityMutation> {
+    const statement = `mutation UpdateCharity($input: UpdateCharityInput!, $condition: ModelCharityConditionInput) {
+        updateCharity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          link
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateCharityMutation>response.data.updateCharity;
+  }
+  async DeleteCharity(
+    input: DeleteCharityInput,
+    condition?: ModelCharityConditionInput
+  ): Promise<DeleteCharityMutation> {
+    const statement = `mutation DeleteCharity($input: DeleteCharityInput!, $condition: ModelCharityConditionInput) {
+        deleteCharity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          link
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteCharityMutation>response.data.deleteCharity;
+  }
   async CreateRSVP(
     input: CreateRSVPInput,
     condition?: ModelRSVPConditionInput
@@ -3950,6 +4194,63 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetCharity(id: string): Promise<GetCharityQuery> {
+    const statement = `query GetCharity($id: ID!) {
+        getCharity(id: $id) {
+          __typename
+          id
+          name
+          link
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetCharityQuery>response.data.getCharity;
+  }
+  async ListCharities(
+    filter?: ModelCharityFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListCharitiesQuery> {
+    const statement = `query ListCharities($filter: ModelCharityFilterInput, $limit: Int, $nextToken: String) {
+        listCharities(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            link
+            description
+            image
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListCharitiesQuery>response.data.listCharities;
+  }
   async GetRSVP(id: string): Promise<GetRSVPQuery> {
     const statement = `query GetRSVP($id: ID!) {
         getRSVP(id: $id) {
@@ -4823,6 +5124,90 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateCharityListener(
+    filter?: ModelSubscriptionCharityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateCharity">>
+  > {
+    const statement = `subscription OnCreateCharity($filter: ModelSubscriptionCharityFilterInput) {
+        onCreateCharity(filter: $filter) {
+          __typename
+          id
+          name
+          link
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateCharity">>
+    >;
+  }
+
+  OnUpdateCharityListener(
+    filter?: ModelSubscriptionCharityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateCharity">>
+  > {
+    const statement = `subscription OnUpdateCharity($filter: ModelSubscriptionCharityFilterInput) {
+        onUpdateCharity(filter: $filter) {
+          __typename
+          id
+          name
+          link
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateCharity">>
+    >;
+  }
+
+  OnDeleteCharityListener(
+    filter?: ModelSubscriptionCharityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteCharity">>
+  > {
+    const statement = `subscription OnDeleteCharity($filter: ModelSubscriptionCharityFilterInput) {
+        onDeleteCharity(filter: $filter) {
+          __typename
+          id
+          name
+          link
+          description
+          image
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteCharity">>
+    >;
+  }
+
   OnCreateRSVPListener(
     filter?: ModelSubscriptionRSVPFilterInput
   ): Observable<

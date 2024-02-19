@@ -1,5 +1,44 @@
 # this is an auto generated file. This will be overwritten
 
+subscription OnCreateCharity($filter: ModelSubscriptionCharityFilterInput) {
+  onCreateCharity(filter: $filter) {
+    id
+    name
+    link
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateCharity($filter: ModelSubscriptionCharityFilterInput) {
+  onUpdateCharity(filter: $filter) {
+    id
+    name
+    link
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteCharity($filter: ModelSubscriptionCharityFilterInput) {
+  onDeleteCharity(filter: $filter) {
+    id
+    name
+    link
+    description
+    image
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 subscription OnCreateRSVP($filter: ModelSubscriptionRSVPFilterInput) {
   onCreateRSVP(filter: $filter) {
     id
