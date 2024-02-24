@@ -110,7 +110,7 @@ export class AppComponent {
     });
 
     this.route.queryParams.subscribe(params => {
-      if (this.authenticator.authStatus != 'authenticated') {
+      //if (this.authenticator.authStatus != 'authenticated') {
         if ('user' in params && 'pass' in params) {
           Auth.signIn(params['user'], params['pass']);
           const login: CreateLoginInput = {
@@ -121,7 +121,7 @@ export class AppComponent {
           this.api.CreateLogin(login);
   
         }
-      }
+      //}
       
     });
 
