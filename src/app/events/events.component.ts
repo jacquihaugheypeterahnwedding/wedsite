@@ -21,6 +21,7 @@ export class EventsComponent {
   ngOnInit(): void {
     this.userService.user_info_obs.subscribe(values => {
       console.log('jj');
+      this.events = [];
     this.api.ListEvents().then(value => {
       
         const events = value.items as Event[];

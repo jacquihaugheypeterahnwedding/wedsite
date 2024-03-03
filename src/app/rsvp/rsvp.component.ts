@@ -113,6 +113,9 @@ export class RSVPDialog {
     this.userService.user_info_obs.subscribe(values => {
       const userid = this.userService.userInfo.id;
       this.username = this.userService.username;
+      this.events = [];
+      this.adults = [];
+      this.children = [];
 
       this.api.GetRSVP(this.username).then(value => {
         if (value != null) {
@@ -180,7 +183,7 @@ export class RSVPDialog {
             if (event.name == 'Wedding') {
               this.event_rsvp[event.name] = true;
             } else {
-              this.event_rsvp[event.name] = false;
+              //this.event_rsvp[event.name] = false;
             }
           }
           
