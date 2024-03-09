@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { InviteComponent } from './invite/invite.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import {RegistryComponent} from './registry/registry.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,7 @@ const routes: Routes = [
   { path: 'help', component: CommingSoonComponent},
   { path: 'gallery', component: GalleryComponent},
   { path: 'areas', component: AreasComponent},
-  { path: 'activities', component: CommingSoonComponent},
+  { path: 'activities', component: ActivitiesComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'airports', component: AirportsComponent},
   { path: 'rsvp', component: RsvpComponent},
