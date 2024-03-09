@@ -1,3 +1,13 @@
+type Activity @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+  location: String
+  address: String
+  image: String
+  url: String
+}
+
 type Charity @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String

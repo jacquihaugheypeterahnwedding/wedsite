@@ -10,6 +10,9 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
+  onCreateActivity: OnCreateActivitySubscription;
+  onUpdateActivity: OnUpdateActivitySubscription;
+  onDeleteActivity: OnDeleteActivitySubscription;
   onCreateCharity: OnCreateCharitySubscription;
   onUpdateCharity: OnUpdateCharitySubscription;
   onDeleteCharity: OnDeleteCharitySubscription;
@@ -60,22 +63,26 @@ export type __SubscriptionContainer = {
   onDeleteRestaurant: OnDeleteRestaurantSubscription;
 };
 
-export type CreateCharityInput = {
+export type CreateActivityInput = {
   id?: string | null;
   name?: string | null;
-  link?: string | null;
   description?: string | null;
+  location?: string | null;
+  address?: string | null;
   image?: string | null;
+  url?: string | null;
 };
 
-export type ModelCharityConditionInput = {
+export type ModelActivityConditionInput = {
   name?: ModelStringInput | null;
-  link?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  location?: ModelStringInput | null;
+  address?: ModelStringInput | null;
   image?: ModelStringInput | null;
-  and?: Array<ModelCharityConditionInput | null> | null;
-  or?: Array<ModelCharityConditionInput | null> | null;
-  not?: ModelCharityConditionInput | null;
+  url?: ModelStringInput | null;
+  and?: Array<ModelActivityConditionInput | null> | null;
+  or?: Array<ModelActivityConditionInput | null> | null;
+  not?: ModelActivityConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -115,6 +122,51 @@ export type ModelSizeInput = {
   ge?: number | null;
   gt?: number | null;
   between?: Array<number | null> | null;
+};
+
+export type Activity = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateActivityInput = {
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+};
+
+export type DeleteActivityInput = {
+  id: string;
+};
+
+export type CreateCharityInput = {
+  id?: string | null;
+  name?: string | null;
+  link?: string | null;
+  description?: string | null;
+  image?: string | null;
+};
+
+export type ModelCharityConditionInput = {
+  name?: ModelStringInput | null;
+  link?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelCharityConditionInput | null> | null;
+  or?: Array<ModelCharityConditionInput | null> | null;
+  not?: ModelCharityConditionInput | null;
 };
 
 export type Charity = {
@@ -810,15 +862,17 @@ export type DeleteRestaurantInput = {
   id: string;
 };
 
-export type ModelCharityFilterInput = {
+export type ModelActivityFilterInput = {
   id?: ModelIDInput | null;
   name?: ModelStringInput | null;
-  link?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  location?: ModelStringInput | null;
+  address?: ModelStringInput | null;
   image?: ModelStringInput | null;
-  and?: Array<ModelCharityFilterInput | null> | null;
-  or?: Array<ModelCharityFilterInput | null> | null;
-  not?: ModelCharityFilterInput | null;
+  url?: ModelStringInput | null;
+  and?: Array<ModelActivityFilterInput | null> | null;
+  or?: Array<ModelActivityFilterInput | null> | null;
+  not?: ModelActivityFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -835,6 +889,23 @@ export type ModelIDInput = {
   attributeExists?: boolean | null;
   attributeType?: ModelAttributeTypes | null;
   size?: ModelSizeInput | null;
+};
+
+export type ModelActivityConnection = {
+  __typename: "ModelActivityConnection";
+  items: Array<Activity | null>;
+  nextToken?: string | null;
+};
+
+export type ModelCharityFilterInput = {
+  id?: ModelIDInput | null;
+  name?: ModelStringInput | null;
+  link?: ModelStringInput | null;
+  description?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  and?: Array<ModelCharityFilterInput | null> | null;
+  or?: Array<ModelCharityFilterInput | null> | null;
+  not?: ModelCharityFilterInput | null;
 };
 
 export type ModelCharityConnection = {
@@ -1107,14 +1178,16 @@ export type ModelRestaurantConnection = {
   nextToken?: string | null;
 };
 
-export type ModelSubscriptionCharityFilterInput = {
+export type ModelSubscriptionActivityFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   name?: ModelSubscriptionStringInput | null;
-  link?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
+  location?: ModelSubscriptionStringInput | null;
+  address?: ModelSubscriptionStringInput | null;
   image?: ModelSubscriptionStringInput | null;
-  and?: Array<ModelSubscriptionCharityFilterInput | null> | null;
-  or?: Array<ModelSubscriptionCharityFilterInput | null> | null;
+  url?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionActivityFilterInput | null> | null;
+  or?: Array<ModelSubscriptionActivityFilterInput | null> | null;
 };
 
 export type ModelSubscriptionIDInput = {
@@ -1145,6 +1218,16 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null;
   in?: Array<string | null> | null;
   notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionCharityFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  name?: ModelSubscriptionStringInput | null;
+  link?: ModelSubscriptionStringInput | null;
+  description?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  and?: Array<ModelSubscriptionCharityFilterInput | null> | null;
+  or?: Array<ModelSubscriptionCharityFilterInput | null> | null;
 };
 
 export type ModelSubscriptionRSVPFilterInput = {
@@ -1321,6 +1404,45 @@ export type ModelSubscriptionRestaurantFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type CreateActivityMutation = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type UpdateActivityMutation = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type DeleteActivityMutation = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type CreateCharityMutation = {
@@ -1878,6 +2000,36 @@ export type DeleteRestaurantMutation = {
   updatedAt: string;
 };
 
+export type GetActivityQuery = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ListActivitiesQuery = {
+  __typename: "ModelActivityConnection";
+  items: Array<{
+    __typename: "Activity";
+    id: string;
+    name?: string | null;
+    description?: string | null;
+    location?: string | null;
+    address?: string | null;
+    image?: string | null;
+    url?: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+};
+
 export type GetCharityQuery = {
   __typename: "Charity";
   id: string;
@@ -2310,6 +2462,45 @@ export type ListRestaurantsQuery = {
     updatedAt: string;
   } | null>;
   nextToken?: string | null;
+};
+
+export type OnCreateActivitySubscription = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnUpdateActivitySubscription = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type OnDeleteActivitySubscription = {
+  __typename: "Activity";
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  location?: string | null;
+  address?: string | null;
+  image?: string | null;
+  url?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnCreateCharitySubscription = {
@@ -2871,6 +3062,93 @@ export type OnDeleteRestaurantSubscription = {
   providedIn: "root"
 })
 export class APIService {
+  async CreateActivity(
+    input: CreateActivityInput,
+    condition?: ModelActivityConditionInput
+  ): Promise<CreateActivityMutation> {
+    const statement = `mutation CreateActivity($input: CreateActivityInput!, $condition: ModelActivityConditionInput) {
+        createActivity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          description
+          location
+          address
+          image
+          url
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateActivityMutation>response.data.createActivity;
+  }
+  async UpdateActivity(
+    input: UpdateActivityInput,
+    condition?: ModelActivityConditionInput
+  ): Promise<UpdateActivityMutation> {
+    const statement = `mutation UpdateActivity($input: UpdateActivityInput!, $condition: ModelActivityConditionInput) {
+        updateActivity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          description
+          location
+          address
+          image
+          url
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateActivityMutation>response.data.updateActivity;
+  }
+  async DeleteActivity(
+    input: DeleteActivityInput,
+    condition?: ModelActivityConditionInput
+  ): Promise<DeleteActivityMutation> {
+    const statement = `mutation DeleteActivity($input: DeleteActivityInput!, $condition: ModelActivityConditionInput) {
+        deleteActivity(input: $input, condition: $condition) {
+          __typename
+          id
+          name
+          description
+          location
+          address
+          image
+          url
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteActivityMutation>response.data.deleteActivity;
+  }
   async CreateCharity(
     input: CreateCharityInput,
     condition?: ModelCharityConditionInput
@@ -4194,6 +4472,67 @@ export class APIService {
     )) as any;
     return <DeleteRestaurantMutation>response.data.deleteRestaurant;
   }
+  async GetActivity(id: string): Promise<GetActivityQuery> {
+    const statement = `query GetActivity($id: ID!) {
+        getActivity(id: $id) {
+          __typename
+          id
+          name
+          description
+          location
+          address
+          image
+          url
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetActivityQuery>response.data.getActivity;
+  }
+  async ListActivities(
+    filter?: ModelActivityFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListActivitiesQuery> {
+    const statement = `query ListActivities($filter: ModelActivityFilterInput, $limit: Int, $nextToken: String) {
+        listActivities(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            description
+            location
+            address
+            image
+            url
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListActivitiesQuery>response.data.listActivities;
+  }
   async GetCharity(id: string): Promise<GetCharityQuery> {
     const statement = `query GetCharity($id: ID!) {
         getCharity(id: $id) {
@@ -5124,6 +5463,96 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
+  OnCreateActivityListener(
+    filter?: ModelSubscriptionActivityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateActivity">>
+  > {
+    const statement = `subscription OnCreateActivity($filter: ModelSubscriptionActivityFilterInput) {
+        onCreateActivity(filter: $filter) {
+          __typename
+          id
+          name
+          description
+          location
+          address
+          image
+          url
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateActivity">>
+    >;
+  }
+
+  OnUpdateActivityListener(
+    filter?: ModelSubscriptionActivityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateActivity">>
+  > {
+    const statement = `subscription OnUpdateActivity($filter: ModelSubscriptionActivityFilterInput) {
+        onUpdateActivity(filter: $filter) {
+          __typename
+          id
+          name
+          description
+          location
+          address
+          image
+          url
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateActivity">>
+    >;
+  }
+
+  OnDeleteActivityListener(
+    filter?: ModelSubscriptionActivityFilterInput
+  ): Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteActivity">>
+  > {
+    const statement = `subscription OnDeleteActivity($filter: ModelSubscriptionActivityFilterInput) {
+        onDeleteActivity(filter: $filter) {
+          __typename
+          id
+          name
+          description
+          location
+          address
+          image
+          url
+          createdAt
+          updatedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteActivity">>
+    >;
+  }
+
   OnCreateCharityListener(
     filter?: ModelSubscriptionCharityFilterInput
   ): Observable<

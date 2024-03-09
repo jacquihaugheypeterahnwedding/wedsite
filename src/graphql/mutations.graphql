@@ -1,5 +1,59 @@
 # this is an auto generated file. This will be overwritten
 
+mutation CreateActivity(
+  $input: CreateActivityInput!
+  $condition: ModelActivityConditionInput
+) {
+  createActivity(input: $input, condition: $condition) {
+    id
+    name
+    description
+    location
+    address
+    image
+    url
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateActivity(
+  $input: UpdateActivityInput!
+  $condition: ModelActivityConditionInput
+) {
+  updateActivity(input: $input, condition: $condition) {
+    id
+    name
+    description
+    location
+    address
+    image
+    url
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteActivity(
+  $input: DeleteActivityInput!
+  $condition: ModelActivityConditionInput
+) {
+  deleteActivity(input: $input, condition: $condition) {
+    id
+    name
+    description
+    location
+    address
+    image
+    url
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
 mutation CreateCharity(
   $input: CreateCharityInput!
   $condition: ModelCharityConditionInput
