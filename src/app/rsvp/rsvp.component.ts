@@ -282,13 +282,16 @@ export class RSVPDialog {
   }
 
   submit() {
-    
+    this.sendRsvp('Coming')
     const people = this.children.concat(this.adults);
+
+    const info = JSON.stringify({people: people, comment: this.comment, events: this.event_rsvp});
+    console.log(info);
 
     this.api.UpdateRSVP({
       id: this.username,
       time: (new Date()).toString(),
-      info: JSON.stringify({people: people, comment: this.comment, events: this.event_rsvp})
+      info: info
     }).then(()=> {
       
         this._snackBar.open(I18n.get('RSVP Received'), I18n.get('OK'));
