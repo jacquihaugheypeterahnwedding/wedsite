@@ -90,8 +90,12 @@ print(len(items))
 logins = []
 
 for item in items:
-    if item['username'] != 'wedding':
-        logins.append(item)
+    #print(item)
+    if 'username' not in item:
+        print(item)
+    logins.append(item)
+    #if item['username'] != 'wedding':
+    #    logins.append(item)
     #if item['username'] == 'nicole':
     #    print(item)
 

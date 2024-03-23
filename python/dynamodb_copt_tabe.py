@@ -77,8 +77,8 @@ session = boto3.Session(
 ddb = session.resource('dynamodb')
 #table = ddb.Table('Picture-qfreaisrdrdovbptvxgz2vgmkq-test')
 
-from_table = 'Charity-qfreaisrdrdovbptvxgz2vgmkq-test'
-to_table = 'Charity-dvm57envefg5pangl6iwa2jfmy-dev'
+from_table = 'Activity-qfreaisrdrdovbptvxgz2vgmkq-test'
+to_table = 'Activity-dvm57envefg5pangl6iwa2jfmy-dev'
 
 
 """

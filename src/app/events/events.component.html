@@ -18,12 +18,12 @@
         {{I18n.get(event.description)}}
 
         </mat-card-content>
-        <!--
-        <mat-card-actions>
+        
+        <mat-card-actions *ngIf="event.name == 'Wedding'">
           <button mat-raised-button [routerLink]="['/eventdetails', event.name]" color="primary">Details</button>
 
           </mat-card-actions>
-        -->
+        
 
     </mat-card>
 </div>
