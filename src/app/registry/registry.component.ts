@@ -26,11 +26,6 @@ export class RegistryComponent {
         this.charities = value.items;
 
       });
-
-
-
-
-
       
     });
   }

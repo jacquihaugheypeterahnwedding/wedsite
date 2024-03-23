@@ -66,11 +66,18 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { RSVPDialog, RsvpComponent } from './rsvp/rsvp.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { RegistryComponent } from './registry/registry.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { WeddingComponent } from './wedding/wedding.component';
+
+
+import { TimelineModule } from "primeng/timeline";
+import { CardModule } from "primeng/card";
+import { ButtonModule } from "primeng/button";
 
 
 
 @NgModule({
-  declarations: [AppComponent, DialogOverviewExampleDialog, RSVPDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent, RegistryComponent],
+  declarations: [AppComponent, DialogOverviewExampleDialog, RSVPDialog, RestaurantsComponent, WelcomeComponent, OurstoryComponent, LodgingComponent, EventsComponent, UserComponent, EventDetailsComponent, CommingSoonComponent, GalleryComponent, AreasComponent, AirportsComponent, ActivitiesComponent, FaqComponent, HomeComponent, InviteComponent, CountdownComponent, RsvpComponent, RegistryComponent, TimelineComponent, WeddingComponent],
   imports: [
     BrowserModule,
     NgbModule,
@@ -88,6 +95,9 @@ import { RegistryComponent } from './registry/registry.component';
     MatTabsModule, MatRadioModule, MatStepperModule, MatCheckboxModule,
     BrowserAnimationsModule,
     GalleryModule,
+    ButtonModule,
+        TimelineModule,
+        CardModule
   ],
   providers: [
     CognitoService,

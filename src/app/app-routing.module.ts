@@ -20,6 +20,7 @@ import { InviteComponent } from './invite/invite.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import {RegistryComponent} from './registry/registry.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { WeddingComponent } from './wedding/wedding.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'lodging', component: LodgingComponent},
   { path: 'restaurants', component: CommingSoonComponent},
   { path: 'user', component: UserComponent},
-  { path: 'eventdetails/:id', component: CommingSoonComponent},
+  { path: 'eventdetails/Wedding', component: WeddingComponent},
+  { path: 'eventdetails/:id', component: EventDetailsComponent},
   { path: 'help', component: CommingSoonComponent},
   { path: 'gallery', component: GalleryComponent},
   { path: 'areas', component: AreasComponent},
